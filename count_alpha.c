@@ -8,7 +8,6 @@ void	print_count(char *str)
 {
 	char c = TO_LOWER(*str);
 	int count = 0;
-
 	while (*str)
 	{
 		if (TO_LOWER(*str) == c)
@@ -32,13 +31,12 @@ int	main(int ac, char **av)
 			if ((*str >= 'a' && *str <= 'z') || (*str >= 'A' && *str <= 'Z'))
 			{
 				if (first == 0)
-					printf(", ");
+					printf(", "); // trick:  put it before!!!
 				print_count(str);
 				first = 0;
 			}
 			str++;
 		}
 	}
-
 	printf("\n");
 }

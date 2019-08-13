@@ -13,7 +13,8 @@ struct s_stack {
 
 struct s_stack *init(void)
 {
-	 struct s_stack *stack = malloc(sizeof(struct s_stack));
+	 struct s_stack *stack = malloc(sizeof(struct s_stack)); // why not sizeof(struct s_stack *) ???
+	 // stack = (s_stack *)malloc(sizeof(s_stack)); // i think this is correct !!!
 	 stack->top = NULL;
 	return (stack);
 }
@@ -82,3 +83,9 @@ int isEmpty(struct s_stack *stack)
 
 // 	return (0);
 // }
+
+/*
+“malloc” or “memory allocation” method is used to dynamically allocate 
+a single large block of memory with the specified size. 
+It returns a pointer of type void which can be cast into a pointer of any form.
+*/ 

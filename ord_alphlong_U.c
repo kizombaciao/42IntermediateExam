@@ -66,12 +66,12 @@ int		compare_words(char *a, char *b)
 	int len_a = ft_strlen(a);
 	int len_b = ft_strlen(b);
 	if (len_a != len_b)
-		return (len_a - len_b);
+		return (len_a - len_b); // sort length
 
 	int i = 0;
 	while (i < len_a && TO_LOWER(a[i]) == TO_LOWER(b[i]))
 		++i;
-	return (TO_LOWER(a[i]) - TO_LOWER(b[i]));
+	return (TO_LOWER(a[i]) - TO_LOWER(b[i])); // sort alphabetical
 }
 
 void	swap_words(char **a, char **b)

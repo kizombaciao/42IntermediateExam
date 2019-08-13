@@ -14,7 +14,7 @@ static void	count_number(int n, int *count)
 	{
 		count_number(n / 10, count);
 		count_number(n % 10, count);
-		printf("\neee %d, %d", n, *count);
+		//printf("\neee %d, %d", n, *count);
 	}
 	if (n == 2)
 	{

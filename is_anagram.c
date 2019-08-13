@@ -4,6 +4,7 @@
 
 int		is_anagram(char *a, char *b)
 {
+	int i;
 	int	tab[127] = {0};
 	int	count = 0;
 
@@ -11,6 +12,8 @@ int		is_anagram(char *a, char *b)
 		tab[(int)a[i]] += 1;
 	for	(int i = 0; b[i] != '\0'; i += 1)
 		tab[(int)b[i]] += 1;
+	
+	i = 0;
 	while (i < 126)
 		if (tab[i++] != 0)
 			break ;

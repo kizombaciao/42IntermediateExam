@@ -44,12 +44,12 @@ int		**range_comb(int n)
 	while (++i < n)
 		avail[i] = 1;
 
-	int **tab = malloc(sizeof(*tab) * (permutations + 1));
+	int **tab = malloc(sizeof(*tab) * (permutations + 1)); // sizeof(*tab) ???
 	tab[permutations] = 0;
 
 	i = -1;
 	while (++i < permutations)
-		tab[i] = malloc(sizeof(**tab) * n);
+		tab[i] = malloc(sizeof(**tab) * n); // sizeof(**tab) ???
 
 	int soln_i = -1;
 	permute(tab, avail, soln, n, 0, &soln_i);
@@ -57,19 +57,19 @@ int		**range_comb(int n)
 }
 
 //-------------------------------------------
-// #include <stdio.h>
-// int	main(void)
-// {
-// 	int n = 5;
-// 	int **arr = range_comb(n);
-// 	int i = -1;
-// 	int j;
-// 	int size = factorial(n);
-// 	while (++i < size)
-// 	{
-// 		j = -1;
-// 		while (++j < n)
-// 			printf("%d, ", arr[i][j]);
-// 		printf("\n");
-// 	}
-// }
+#include <stdio.h>
+int	main(void)
+{
+	int n = 5;
+	int **arr = range_comb(n);
+	int i = -1;
+	int j;
+	int size = factorial(n);
+	while (++i < size)
+	{
+		j = -1;
+		while (++j < n)
+			printf("%d, ", arr[i][j]);
+		printf("\n");
+	}
+}
