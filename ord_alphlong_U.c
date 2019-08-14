@@ -69,7 +69,7 @@ int		compare_words(char *a, char *b)
 		return (len_a - len_b); // sort length
 
 	int i = 0;
-	while (i < len_a && TO_LOWER(a[i]) == TO_LOWER(b[i]))
+	while (i < len_a && TO_LOWER(a[i]) == TO_LOWER(b[i])) // why len_a ???
 		++i;
 	return (TO_LOWER(a[i]) - TO_LOWER(b[i])); // sort alphabetical
 }
@@ -86,6 +86,7 @@ void	sort_words(char **words)
 	int i;
 	int swapped = 1;
 
+	// swapped is used to make sort more efficient
 	while (swapped)
 	{
 		i = 0;
@@ -129,7 +130,7 @@ int		main(int ac, char **av)
 	if (ac == 2)
 	{
 		char **words = get_words(av[1]);
-		if (words[0])
+		if (words[0]) // what does this test ??? if first word is empty ???
 			sort_words(words);
 		print_words(words);
 		free(words);
