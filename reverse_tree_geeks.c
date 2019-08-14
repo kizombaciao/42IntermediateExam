@@ -13,7 +13,6 @@ struct Node
 	struct Node* left; 
 	struct Node* right; 
 }; 
-
 /* Helper function that allocates a new node with the 
 given data and NULL left and right pointers. */
 struct Node* newNode(int data) 
@@ -27,24 +26,6 @@ struct Node* newNode(int data)
 	return(node); 
 } 
 
-
-/* Change a tree so that the roles of the left and 
-	right pointers are swapped at every node. 
-
-So the tree... 
-	4 
-	/ \ 
-	2 5 
-	/ \ 
-1 3 
-
-is changed to... 
-	4 
-	/ \ 
-	5 2 
-		/ \ 
-	3 1 
-*/
 void mirror(struct Node* node) 
 { 
 	if (node == NULL) 
@@ -76,8 +57,6 @@ void inOrder(struct Node* node)
 	printf("%d ", node->data); 
 	inOrder(node->right); 
 } 
-
-
 /* Driver program to test mirror() */
 int main() 
 { 
@@ -110,3 +89,20 @@ Inorder traversal of the mirror tree is
 3 1 5 2 4 
 */
 
+/* Change a tree so that the roles of the left and 
+	right pointers are swapped at every node. 
+
+So the tree... 
+	4 
+	/ \ 
+	2 5 
+	/ \ 
+1 3 
+
+is changed to... 
+	4 
+	/ \ 
+	5 2 
+		/ \ 
+	3 1 
+*/

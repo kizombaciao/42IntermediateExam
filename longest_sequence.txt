@@ -3,7 +3,9 @@ Expected files   : longest_sequence.c
 Allowed functions: 
 --------------------------------------------------------------------------------
 
-Given the root node of a binary tree, create a function that return the length of the longest path which comprises of nodes with consecutive values in increasing order.
+Given the root node of a binary tree, 
+create a function that return the length of the longest path 
+which comprises of nodes with consecutive values in increasing order.
 Every node is considered as a path of length 1.
 
 The binary tree uses the following node structure :

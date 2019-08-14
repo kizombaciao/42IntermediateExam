@@ -2,30 +2,38 @@
 
 // C/C++ program to find longest consecutive 
 // sequence in binary tree 
-#include <bits/stdc++.h> 
-using namespace std; 
+//#include <bits/stdc++.h> 
+//using namespace std; 
+#include <stdlib.h>
+#include <stdio.h>
 
 /* A binary tree node has data, pointer to left 
 child and a pointer to right child */
 struct Node 
 { 
 	int data; 
-	Node *left, *right; 
+	struct Node *left;
+	struct Node *right; 
 }; 
 
 // A utility function to create a node 
-Node* newNode(int data) 
+struct Node* newNode(int data) 
 { 
-	Node* temp = new Node; 
+	struct Node *temp = (struct Node *)malloc(sizeof(struct Node)); 
 	temp->data = data; 
-	temp->left = temp->right = NULL; 
+	temp->left = NULL;
+	temp->right = NULL; 
 	return temp; 
 } 
 
+int max(int a, int b)
+{
+	return (a > b ? a : b);
+}
+
 // Utility method to return length of longest 
 // consecutive sequence of tree 
-void longestConsecutiveUtil(Node* root, int curLength, 
-							int expected, int& res) 
+void longestConsecutiveUtil(struct Node* root, int curLength, int expected, int *res) 
 { 
 	if (root == NULL) 
 		return; 
@@ -35,10 +43,10 @@ void longestConsecutiveUtil(Node* root, int curLength,
 	if (root->data == expected) 
 		curLength++; 
 	else
-		curLength = 1; 
+		curLength = 1; // why even have an 'else' ??? necessary to reset to 1 ???
 
 	// update the maximum by current length 
-	res = max(res, curLength); 
+	*res = max(*res, curLength); 
 
 	// recursively call left and right subtree with 
 	// expected value 1 more than root data 
@@ -50,28 +58,36 @@ void longestConsecutiveUtil(Node* root, int curLength,
 
 // method returns length of longest consecutive 
 // sequence rooted at node root 
-int longestConsecutive(Node* root) 
+int longestConsecutive(struct Node* root) 
 { 
 	if (root == NULL) 
 		return 0; 
-
 	int res = 0; 
-
 	// call utility method with current length 0 
     // root->data represent parent value ???
-	longestConsecutiveUtil(root, 0, root->data, res); 
-
+	longestConsecutiveUtil(root, 0, root->data, &res); 
 	return res; 
 } 
 
 // Driver code to test above methods 
 int main() 
 { 
-	Node* root = newNode(6); 
+/*	
+	struct Node* root = newNode(6); 
 	root->right = newNode(9); 
 	root->right->left = newNode(7); 
 	root->right->right = newNode(10); 
 	root->right->right->right = newNode(11); 
+*/
+	struct Node* root = newNode(1); 
+	root->left = newNode(2); 	
+	root->right = newNode(2); 
+	root->left->left = newNode(3); 	
+	root->left->left->right = newNode(4); 	
+	
+	root->right->left = newNode(3); 
+	root->right->right = newNode(3); 
+	//root->right->right->left = newNode(4); 
 
 	printf("%d\n", longestConsecutive(root)); 
 	return 0; 

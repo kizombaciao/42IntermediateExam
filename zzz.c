@@ -303,6 +303,7 @@ void mirror(struct node *node)
 		return;
 	else
 	{
+		
 		mirror(node->left);
 		mirror(node->right);
 
@@ -312,6 +313,49 @@ void mirror(struct node *node)
 	}
 }
 
+//////////////////////////////////////
+// str_maxlenoc.c
+
+void p(char *x, char *y, int m, int n)
+{
+	int lcs[m+1][n+1];
+	int len = 0;
+	int row, col;
+	int i, j;
+	char *res;
+
+	for (i = 0; i <= m; i++)
+	{
+		for (j = 0; j <= n; j++)
+		{
+			if (i == 0 || j == 0)
+				lcs[i][j] = 0;
+			else if (x[i-1] == y[j-1])
+			{
+				lcs[i][j] = lcs[i-1][j-1] + 1;
+				if (len < lcs[i][j])
+				{
+					len = lcs[i][j];
+					row = i;
+					col = j;
+				}
+			}
+			else
+				lcs[i][j] = 0;
+		}
+	}
+	if (len == 0)
+		return;
+
+	res = (char *)malloc(sizeof(char) * (len + 1));
+	while (lcs[row][col] != 0)
+	{
+		res[--len] = x[row - 1];
+		row--;
+		col--;
+	}
+	// print result
+}
 
 
 
