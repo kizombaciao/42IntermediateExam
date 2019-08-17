@@ -9,3 +9,37 @@ INVESTIGATE:
 > SIZEOF(INT *) - HOW MANY BYTES IS THAT ???
 
 
+	0-count_of_2	
+	0-equation	
+	0-find_pivot	
+	0-is_anagram	
+	0-print_doublon
+
+    1-count_alpha	
+	1-height_tree	
+	1-queue	
+	1-stack	
+	1-flood_fill
+
+    2-is_looping	
+	2-longest_sequence	
+	2-ord_alphlong	
+	2-reverse_tree	
+	2-str_maxlenoc
+
+    3-can_split	
+	3-convert_bst	
+	3-gold_gain	
+	3-perimeter	
+	3-width_tree
+
+    4-clone_list	
+	4-intersection	
+	4-longest_subarray	
+	4-range_comb	
+	4-volume_histogram
+
+    5-count_island	
+	5-g_diam	
+	5-infin_add	
+	5-infin_mult
