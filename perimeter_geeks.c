@@ -96,6 +96,17 @@ struct node* newNode(int data)
 int main() 
 { 
 	// Let us construct the tree given in the above diagram 
+	struct node* root = newNode(20); 
+	root->left = newNode(8); 
+	root->left->left = newNode(4); 
+	root->left->right = newNode(12); 
+	root->left->right->left = newNode(10); 
+	root->left->right->right = newNode(14); 
+	root->right = newNode(22); 
+	root->right->right = newNode(25); 
+	printBoundary(root); 
+
+/*
 	struct node* root = newNode(92); 
 	root->left = newNode(85); 
 	root->left->left = newNode(79); 
@@ -133,19 +144,7 @@ int main()
 	root->right->right->right->left->right = newNode(11);
 	root->right->right->right->left->left->right = newNode(55);
 	root->right->right->right->left->right->left = newNode(99);
-
-/*
-	struct node* root = newNode(20); 
-	root->left = newNode(8); 
-	root->left->left = newNode(4); 
-	root->left->right = newNode(12); 
-	root->left->right->left = newNode(10); 
-	root->left->right->right = newNode(14); 
-	root->right = newNode(22); 
-	root->right->right = newNode(25); 
 */
-
-	printBoundary(root); 
 
 	return 0; 
 } 

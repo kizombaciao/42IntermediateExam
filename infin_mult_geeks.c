@@ -77,8 +77,6 @@ string multiply(string num1, string num2)
 
 	return s; 
 } 
-
-// Driver code 
 int main() 
 { 
 	string str1 = "1235421415454545454545454544"; 

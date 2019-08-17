@@ -1,18 +1,24 @@
 // CPP program to print the longest leaf to leaf 
 // path 
-#include <bits/stdc++.h> 
-using namespace std; 
+/*
+Time Complexity is O(N). N is the number of nodes in the tree.
+*/
+
+//#include <bits/stdc++.h> 
+//using namespace std; 
+#include <stdio.h>
+#include <stdlib.h>
 
 // Tree node structure used in the program 
 struct Node 
 { 
 	int data; 
-	Node *left, *right; 
+	struct Node *left, *right; 
 }; 
 
 struct Node* newNode(int data) 
 { 
-	struct Node* node = new Node; 
+	struct Node* node = (struct Node *)malloc(sizeof(struct Node)); 
 	node->data = data; 
 	node->left = node->right = NULL; 
 
@@ -20,7 +26,7 @@ struct Node* newNode(int data)
 } 
 
 // Function to find height of a tree 
-int height(Node* root, int& ans, Node*(&k), int& lh, int& rh, 
+int height(struct Node *root, int& ans, Node*(&k), int& lh, int& rh, 
 													int& f) 
 { 
 	if (root == NULL) 
@@ -71,7 +77,7 @@ void printArray(int ints[], int len, int f)
 } 
 
 // this function finds out all the root to leaf paths 
-void printPathsRecur(Node* node, int path[], int pathLen, 
+void printPathsRecur(struct Node *node, int path[], int pathLen, 
 										int max, int& f) 
 { 
 	if (node == NULL) 
@@ -101,7 +107,7 @@ void printPathsRecur(Node* node, int path[], int pathLen,
 } 
 
 // Computes the diameter of a binary tree with given root. 
-void diameter(Node* root) 
+void diameter(struct Node *root) 
 { 
 	if (root == NULL) 
 		return; 
@@ -113,7 +119,7 @@ void diameter(Node* root)
 	// f is a flag whose value helps in printing 
 	// left & right part of the diameter only once 
 	int f = 0; 
-	Node* k; 
+	struct Node *k; 
 	int height_of_tree = height(root, ans, k, lh, rh, f); 
 	int lPath[100], pathlen = 0; 
 

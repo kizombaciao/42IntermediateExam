@@ -1,7 +1,10 @@
 // C++ program to check if there exist an edge whose 
 // removal creates two trees of same size 
-#include<bits/stdc++.h> 
-using namespace std; 
+//#include<bits/stdc++.h> 
+//using namespace std; 
+
+#include <stdio.h>
+#include <stdlib.h>
 
 struct Node 
 { 
@@ -12,14 +15,14 @@ struct Node
 // utility function to create a new node 
 struct Node* newNode(int x) 
 { 
-	struct Node* temp = new Node; 
+	struct Node* temp = (struct Node *)malloc(sizeof(struct Node)); 
 	temp->data = x; 
 	temp->left = temp->right = NULL; 
 	return temp; 
 }; 
 
 // To calculate size of tree with given root 
-int count(Node* root) 
+int count(struct Node* root) 
 { 
 	if (root==NULL) 
 		return 0; 
@@ -30,7 +33,7 @@ int count(Node* root)
 // root. It also set "res" as true if there is an edge 
 // whose removal divides tree in two halves. 
 // n is size of tree 
-int checkRec(Node* root, int n, bool &res) 
+int checkRec(struct Node* root, int n, int *res) 
 { 
 	// Base case 
 	if (root == NULL) 
@@ -42,27 +45,25 @@ int checkRec(Node* root, int n, bool &res)
 
 	// If required property is true for current node 
 	// set "res" as true 
-	if (c == n-c) 
-		res = true; 
+	if (c == n - c) 
+		*res = 1; 
 
 	// Return size 
 	return c; 
 } 
 
 // This function mainly uses checkRec() 
-bool check(Node *root) 
+int check(struct Node *root) 
 { 
 	// Count total nodes in given tree 
 	int n = count(root); 
 
 	// Initialize result and recursively check all nodes 
-	bool res = false; 
-	checkRec(root, n, res); 
+	int res = 0; 
+	checkRec(root, n, &res); 
 
 	return res; 
 } 
-
-// Driver code 
 int main() 
 { 
 	struct Node* root = newNode(5); 
@@ -72,11 +73,10 @@ int main()
 	root->right->left = newNode(7); 
 	root->right->right = newNode(4); 
 
-	check(root)? printf("YES") : printf("NO"); 
+	check(root) ? printf("YES") : printf("NO"); 
 
 	return 0; 
 } 
-
 /*
 Method 2 (Efficient)
 We can find the solution in O(n) time. 

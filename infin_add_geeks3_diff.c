@@ -1,5 +1,18 @@
 https://www.geeksforgeeks.org/difference-of-two-large-numbers/
+/*
+This is simple based on school mathematics. 
+We traverse both strings from end, one by one subtract digits.
+1) Reverse both strings.
+2) Keep subtracting digits one by one from 0’th index 
+(in reversed strings) to end of smaller string, 
+append the diff if it’s positive to end of result. 
+If difference(diff) is negative 
+then add 10 and keep track of carry as 1 if it’s positive then carry is 0.
+3) Finally reverse the result.
+*/
 
+
+// Difference of two large numbers
 // C++ program to find difference of two large numbers. 
 #include<bits/stdc++.h> 
 using namespace std; 

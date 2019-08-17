@@ -1,27 +1,34 @@
+// NOT EFFICIENT ENOUGH
+// IGNORE THIS ONE
+
 // C++ program to check if there exist an edge whose 
 // removal creates two trees of same size 
-#include<bits/stdc++.h> 
-using namespace std; 
+//#include<bits/stdc++.h> 
+//using namespace std; 
+#include <stdlib.h>
+#include <stdio.h>
 
 struct Node 
 { 
 	int data; 
-	struct Node* left, *right; 
+	struct Node *left; 
+	struct Node *right; 
 }; 
 
 // utility function to create a new node 
 struct Node* newNode(int x) 
 { 
-	struct Node* temp = new Node; 
+	struct Node *temp;
+	temp = (struct Node *)malloc(sizeof(struct Node)); 
 	temp->data = x; 
 	temp->left = temp->right = NULL; 
 	return temp; 
 }; 
 
 // To calculate size of tree with given root 
-int count(Node* root) 
+int count(struct Node *root) 
 { 
-	if (root==NULL) 
+	if (root == NULL) 
 		return 0; 
 	return count(root->left) + count(root->right) + 1; 
 } 
@@ -29,15 +36,15 @@ int count(Node* root)
 // This function returns true if there is an edge 
 // whose removal can divide the tree in two halves 
 // n is size of tree 
-bool checkRec(Node* root, int n) 
+int checkRec(struct Node *root, int n) 
 { 
 	// Base cases 
-	if (root ==NULL) 
-	return false; 
+	if (root == NULL) 
+	return 0; 
 
 	// Check for root 
 	if (count(root) == n - count(root)) 
-		return true; 
+		return 1; 
 
 	// Check for rest of the nodes 
 	return checkRec(root->left, n) || 
@@ -45,7 +52,7 @@ bool checkRec(Node* root, int n)
 } 
 
 // This function mainly uses checkRec() 
-bool check(Node *root) 
+int check(struct Node *root) 
 { 
 	// Count total nodes in given tree 
 	int n = count(root); 

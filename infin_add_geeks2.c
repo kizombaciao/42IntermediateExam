@@ -1,3 +1,9 @@
+/*
+Optimization:
+We can avoid the first two string reverse operations by traversing them from end. 
+Below is optimized solution.
+*/
+
 // C++ program to find sum of two large numbers. 
 #include<bits/stdc++.h> 
 using namespace std; 

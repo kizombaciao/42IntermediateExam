@@ -81,8 +81,6 @@ void displayCList(struct s_node *head)
 	} while (head!=itr); 
 	printf("\n"); 
 } 
-
-
 // Create a new s_node and return its address 
 struct s_node *news_node(int data) 
 { 
@@ -91,8 +89,6 @@ struct s_node *news_node(int data)
 	temp->left = temp->right = NULL; 
 	return temp; 
 } 
-
-// Driver Program to test above function 
 int main() 
 { 
 	struct s_node *root = news_node(10); 
@@ -108,6 +104,5 @@ int main()
 
 	return 0; 
 } 
-
 // 25 12 30 10 36 15  Code Output
 // https://www.geeksforgeeks.org/convert-a-binary-tree-to-a-circular-doubly-link-list/
