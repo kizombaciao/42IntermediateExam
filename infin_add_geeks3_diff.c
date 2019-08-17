@@ -102,8 +102,6 @@ string findDiff(string str1, string str2)
 
 	return str; 
 } 
-
-// Driver code 
 int main() 
 { 
 	string str1 = "978"; 

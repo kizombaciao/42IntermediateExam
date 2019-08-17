@@ -60,8 +60,6 @@ string findSum(string str1, string str2)
 
 	return str; 
 } 
-
-// Driver code 
 int main() 
 { 
 	string str1 = "12"; 
