@@ -57,7 +57,7 @@ void		ft_sortlen(char **strs)
 	int			i;
 	int			j;
 	int			tmp;
-	int			tmp2;
+	//int			tmp2;
 
 	i = -1;
 	while (strs[++i] != NULL)
@@ -67,9 +67,9 @@ void		ft_sortlen(char **strs)
 		j = i;
 		while (strs[++j] != NULL)
 		{
-			tmp2 = ft_strlen(strs[j]);
-//			printf("777a %d %d\n", tmp, tmp2);
-			printf("888a %d %d %s\n", i, tmp, strs[j]);
+			//tmp2 = ft_strlen(strs[j]);
+//			//printf("777a %d %d\n", tmp, tmp2);
+			//printf("888a %d %d %s\n", i, tmp, strs[j]);
 			if (tmp >= ft_strlen(strs[j]))
 			{
 				ft_strsswap(strs, i, j);
