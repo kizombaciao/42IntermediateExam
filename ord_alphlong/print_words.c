@@ -1,5 +1,7 @@
 #include "ord_alphlong.h"
 #include <unistd.h>
+#include <stdio.h>
+
 
 int			ft_strlen(char *str)
 {
@@ -31,4 +33,14 @@ void		print_words(char **words)
 		free(words[i]);
 	}
 	// also, free words ???
+}
+
+void p(char **w)
+{
+	int i = 0;
+	while (w[i])
+	{
+		printf("333a %s\n", w[i]);
+		i++;
+	}
 }

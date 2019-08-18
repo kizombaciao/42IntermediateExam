@@ -33,6 +33,7 @@ int			ft_stralphcmp(char *s1, char *s2)
 	return (0);
 }
 
+// sorts in reverse alphabetical order but why???
 void		ft_sortalph(char **strs)
 {
 	int			i;
@@ -44,6 +45,7 @@ void		ft_sortalph(char **strs)
 		j = i;
 		while (strs[++j] != NULL)
 		{
+			printf("444a %s %s\n", strs[i], strs[j]);
 			if (ft_stralphcmp(strs[i], strs[j]) < 0)
 				ft_strsswap(strs, i, j);
 		}
@@ -55,6 +57,7 @@ void		ft_sortlen(char **strs)
 	int			i;
 	int			j;
 	int			tmp;
+	int			tmp2;
 
 	i = -1;
 	while (strs[++i] != NULL)
@@ -64,10 +67,15 @@ void		ft_sortlen(char **strs)
 		j = i;
 		while (strs[++j] != NULL)
 		{
+			tmp2 = ft_strlen(strs[j]);
+//			printf("777a %d %d\n", tmp, tmp2);
+			printf("888a %d %d %s\n", i, tmp, strs[j]);
 			if (tmp >= ft_strlen(strs[j]))
 			{
 				ft_strsswap(strs, i, j);
-				tmp = ft_strlen(strs[i]); // because we swappd words in strs!!!
+				tmp = ft_strlen(strs[i]); 
+				// because tmp gets recalculated here!!!
+				// that's how it gets updated!!!
 				//printf("\n222b %d %d", tmp, i);
 			}
 		}

@@ -9,8 +9,16 @@ int			main(int argc, char **argv)
 	if (argc == 2)
 	{
 		words = ft_splitword(argv[1]);
+		p(words);
+		printf("\n");
 		ft_sortalph(words);
+		p(words);
+		printf("\n");
+		
 		ft_sortlen(words);
+		p(words);
+		printf("\n");
+	
 		print_words(words);
 		free(words);
 	}

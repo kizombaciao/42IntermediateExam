@@ -18,5 +18,7 @@ int			ft_stralphcmp(char *s1, char *s2);
 void		ft_sortalph(char **strs);
 void		ft_sortlen(char **strs);
 
+void        p(char **w);
+
 #endif
 

@@ -1,4 +1,5 @@
 // can see ord_alphlong directory for compiled and executable.
+// https://github.com/Julow/exam-00/blob/master/ex03/ft_sort.c
 
 #include <unistd.h>
 #include <stdio.h> // delete
@@ -107,7 +108,6 @@ void		ft_sortlen(char **strs)
 	}
 }
 
-// https://github.com/Julow/exam-00/blob/master/ex03/ft_sort.c
 
 // ft_splitword()
 ///////////////////////////////////
