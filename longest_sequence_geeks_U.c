@@ -72,13 +72,12 @@ int longestConsecutive(struct Node* root)
 // Driver code to test above methods 
 int main() 
 { 
-/*	
 	struct Node* root = newNode(6); 
 	root->right = newNode(9); 
 	root->right->left = newNode(7); 
 	root->right->right = newNode(10); 
 	root->right->right->right = newNode(11); 
-*/
+/*
 	struct Node* root = newNode(1); 
 	root->left = newNode(2); 	
 	root->right = newNode(2); 
@@ -88,7 +87,7 @@ int main()
 	root->right->left = newNode(3); 
 	root->right->right = newNode(3); 
 	//root->right->right->left = newNode(4); 
-
+*/
 	printf("%d\n", longestConsecutive(root)); 
 	return 0; 
 } 
