@@ -23,7 +23,7 @@ struct node
 	down to the farthest leaf node.*/
 int maxDepth(struct node* node) 
 { 
-if (node==NULL) 
+if (node == NULL) 
 	return 0; // change to -1 if counting edges
 else
 { 

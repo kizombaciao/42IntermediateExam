@@ -73,3 +73,11 @@ return 0;
 
 // OUTPUT = 4
 
+/*
+N-Ary tree can be traversed just like a normal tree. 
+We just have to consider all childs of a given node 
+and recursively call that function on every node.
+
+Given an N-Ary tree, find depth of the tree. 
+An N-Ary tree is a tree in which nodes can have at most N children.
+*/
