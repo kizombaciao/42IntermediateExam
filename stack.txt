@@ -11,6 +11,7 @@ code:
     struct s_stack {
         struct s_node *top;
     };
+    
 A stack uses LIFO (last-in fist-out) ordering :
 the most recent item added to the stack is the first item to be removed.
 Implement 5 functions for the following stack operations :
@@ -22,6 +23,7 @@ Implement 5 functions for the following stack operations :
     - peek(stack) : Return the top of the stack.
       If the stack is empty, the function returns NULL.
     - isEmpty(stack) : Return 1 if the stack is empty, 0 otherwise.
+
 These functions must be declared as follows:
     struct s_stack *init(void);
     void *pop(struct s_stack *stack);

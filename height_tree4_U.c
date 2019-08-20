@@ -39,13 +39,10 @@ int main (void)
 	t = new_node(94);
 	t->nodes[0] = new_node(34);
 	t->nodes[1] = new_node(52);
-	
 	t->nodes[0]->nodes[0] = new_node(1);
 	t->nodes[0]->nodes[1] = new_node(99);
 	t->nodes[0]->nodes[2] = new_node(11);
-	
 	t->nodes[0]->nodes[1]->nodes[0] = new_node(13);
-		
 	printf("%d", height_tree(t));
 	return (0);
 }

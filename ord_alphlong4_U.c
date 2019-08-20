@@ -1,9 +1,9 @@
+// MORE MODULAR AND THE SORT FUNCTION IS EASIER TO FOLLOW !
 // can see ord_alphlong directory for compiled and executable.
 // https://github.com/Julow/exam-00/blob/master/ex03/ft_sort.c
-
+// https://github.com/Julow/exam-00/tree/master/ex03
 #include <unistd.h>
 #include <stdio.h> // delete
-
 int			main(int argc, char **argv)
 {
 	char		**words;
@@ -19,20 +19,6 @@ int			main(int argc, char **argv)
 	write(1, "\n", 1);
 	return (0);
 }
-
-// USE THIS ONE !!!
-
-// https://github.com/Julow/exam-00/tree/master/ex03
-
-/* TO SHOW THAT INCREMENTING WORDS VARIABLE BY 1 MOVES TO THE NEXT WORD
-
-        while (*words)
-        {
-            printf("111a %s\n", *words);
-            words++;
-        }
-*/
-
 
 // ft_sort.c
 ////////////////////////////////////////////////
@@ -246,4 +232,13 @@ void		ft_sortalph(char **strs);
 void		ft_sortlen(char **strs);
 
 #endif
+
+/* TO SHOW THAT INCREMENTING WORDS VARIABLE BY 1 MOVES TO THE NEXT WORD
+
+        while (*words)
+        {
+            printf("111a %s\n", *words);
+            words++;
+        }
+*/
 

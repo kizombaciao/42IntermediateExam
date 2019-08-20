@@ -81,3 +81,6 @@ Example 4:
 In this case, your function should return 0.
 
 // https://www.geeksforgeeks.org/check-if-removing-an-edge-can-divide-a-binary-tree-in-two-halves/
+
+APPROACH:
+// uses c = n - c trick!

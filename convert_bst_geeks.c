@@ -1,10 +1,7 @@
-// C++ Program to convert a Binary Tree 
-// to a Circular Doubly Linked List 
-//#include<iostream> 
-//using namespace std; 
+// https://www.geeksforgeeks.org/convert-a-binary-tree-to-a-circular-doubly-link-list/
+// C++ Program to convert a Binary Tree to a Circular Doubly Linked List 
 #include <stdio.h>
 #include <stdlib.h>
-
 // To represents a s_node of a Binary Tree 
 struct s_node 
 { 
@@ -12,11 +9,13 @@ struct s_node
 	struct s_node *right; 
 	int data; 
 }; 
-
 // A function that appends rightList at the end 
 // of leftList. 
 struct s_node *concatenate(struct s_node *leftList, struct s_node *rightList) 
 { 
+	struct s_node *leftLast;
+	struct s_node *rightLast;
+
 	// If either of the list is empty 
 	// then return the other list 
 	if (leftList == NULL) 
@@ -25,10 +24,9 @@ struct s_node *concatenate(struct s_node *leftList, struct s_node *rightList)
 		return leftList; 
 
 	// Store the last s_node of left List 
-	struct s_node *leftLast = leftList->left; 
-
+	leftLast = leftList->left; 
 	// Store the last s_node of right List 
-	struct s_node *rightLast = rightList->left; 
+	rightLast = rightList->left; 
 
 	// Connect the last s_node of Left List 
 	// with the first s_node of the right List 
@@ -45,17 +43,19 @@ struct s_node *concatenate(struct s_node *leftList, struct s_node *rightList)
 
 	return leftList; 
 } 
-
 // Function converts a tree to a circular Linked List 
 // and then returns the head of the Linked List 
 struct s_node *bTreeToCList(struct s_node *root) 
 { 
+	struct s_node *left;
+	struct s_node *right;
+
 	if (root == NULL) 
 		return NULL; 
 
 	// Recursively convert left and right subtrees 
-	struct s_node *left = bTreeToCList(root->left); 
-	struct s_node *right = bTreeToCList(root->right); 
+	left = bTreeToCList(root->left); 
+	right = bTreeToCList(root->right); 
 
 	// Make a circular linked list of single s_node 
 	// (or root). To do so, make the right and 
@@ -68,7 +68,6 @@ struct s_node *bTreeToCList(struct s_node *root)
 	//		 right List) 
 	return concatenate(concatenate(left, root), right); 
 } 
-
 // Display Circular Link List 
 void displayCList(struct s_node *head) 
 { 
@@ -105,4 +104,5 @@ int main()
 	return 0; 
 } 
 // 25 12 30 10 36 15  Code Output
-// https://www.geeksforgeeks.org/convert-a-binary-tree-to-a-circular-doubly-link-list/
+
+// Inorder Traversal = L, Root, R

@@ -1,3 +1,4 @@
+// https://www.geeksforgeeks.org/check-if-removing-an-edge-can-divide-a-binary-tree-in-two-halves/
 // C++ program to check if there exist an edge whose 
 // removal creates two trees of same size 
 //#include<bits/stdc++.h> 
@@ -5,7 +6,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
 struct Node 
 { 
 	int data; 
@@ -61,7 +61,6 @@ int check(struct Node *root)
 	// Initialize result and recursively check all nodes 
 	int res = 0; 
 	checkRec(root, n, &res); 
-
 	return res; 
 } 
 int main() 

@@ -17,6 +17,7 @@ int	count_of_2(int n)
 	int i = 1;
 	int sum = 0;
 
+	// start at 2, small optimization
 	while (++i <= n)
 		sum += count_2s(i);
 	return (sum);

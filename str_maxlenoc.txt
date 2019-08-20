@@ -24,3 +24,13 @@ $>./str_maxlenoc | cat -e
 $
 
 // Print the longest common substring
+
+Stanford Suffix Array:
+// http://web.stanford.edu/class/cs97si/suffix-array.pdf
+
+Quora:
+// https://www.quora.com/How-can-I-find-the-longest-common-substring-of-three-strings
+// https://www.quora.com/How-can-I-find-the-longest-common-substring-of-three-or-more-strings-using-a-suffix-array
+
+Wikipedia:
+// https://en.wikipedia.org/wiki/Longest_common_substring_problem

@@ -1,3 +1,4 @@
+// https://www.geeksforgeeks.org/check-if-removing-an-edge-can-divide-a-binary-tree-in-two-halves/
 // NOT EFFICIENT ENOUGH
 // IGNORE THIS ONE
 
@@ -87,4 +88,3 @@ then return true, else false.
 Time complexity of above solution is 
 O(n2) where n is number of nodes in given Binary Tree.
 */
-// https://www.geeksforgeeks.org/check-if-removing-an-edge-can-divide-a-binary-tree-in-two-halves/

@@ -7,7 +7,7 @@ void	print_doublon(int *a, int na, int *b, int nb)
 	int ib = 0;
 	int first = 1;
 
-	while (ia < na && ib < nb) // note, && condition
+	while (ia < na && ib < nb) // note, && condition !!!
 	{
 		if (a[ia] == b[ib])
 		{

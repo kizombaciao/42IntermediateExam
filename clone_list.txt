@@ -23,3 +23,10 @@ The function must be declared as follows:
 	struct s_node *clone_list(struct s_node *node);
 
 // https://stackoverflow.com/questions/13633182/c-program-to-make-a-second-copy-of-a-linked-list
+
+APPROACH:
+// first, loop through the old linked list and copy each of the old node into a new node.
+// next, loop through the old linked list and look for when other is not NULL
+// call a function to identify the index location corresponding to the matching pointer address.
+// use the index to find the right location within the new linked list
+// copy the new pointed address to the new node's other.

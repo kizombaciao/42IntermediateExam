@@ -3,8 +3,10 @@
 // if new node matches any in the hash table, then that means loop
 
 // C++ program to detect loop in a linked list 
-#include <bits/stdc++.h> 
-using namespace std; 
+//#include <bits/stdc++.h> 
+//using namespace std; 
+#include <stdio.h>
+#include <stdlib.h>
 
 /* Link list node */
 struct Node { 
@@ -12,10 +14,11 @@ struct Node {
 	struct Node* next; 
 }; 
 
-void push(struct Node** head_ref, int new_data) 
+void push(struct Node **head_ref, int new_data) 
 { 
 	/* allocate node */
-	struct Node* new_node = new Node; 
+	struct Node* new_node;
+	new_node = (struct Node *)malloc(sizeof(struct Node)); 
 
 	/* put in the data */
 	new_node->data = new_data; 
@@ -29,7 +32,7 @@ void push(struct Node** head_ref, int new_data)
 
 // Returns true if there is a loop in linked list 
 // else returns false. 
-bool detectLoop(struct Node* h) 
+int detectLoop(struct Node* h) 
 { 
 	unordered_set<Node*> s; 
 	while (h != NULL) { 
@@ -38,7 +41,7 @@ bool detectLoop(struct Node* h)
 		// (Because you we encountering the 
 		// node for the second time). 
 		if (s.find(h) != s.end()) 
-			return true; 
+			return 1; 
 
 		// If we are seeing the node for 
 		// the first time, insert it in hash 
@@ -47,7 +50,7 @@ bool detectLoop(struct Node* h)
 		h = h->next; 
 	} 
 
-	return false; 
+	return 0; 
 } 
 
 /* Drier program to test above function*/
@@ -65,11 +68,9 @@ int main()
 	head->next->next->next->next = head; 
 
 	if (detectLoop(head)) 
-		cout << "Loop found"; 
+		printf("Loop found"); 
 	else
-		cout << "No Loop"; 
+		printf("No Loop"); 
 
 	return 0; 
 } 
-// This code is contributed by Geetanjali 
-

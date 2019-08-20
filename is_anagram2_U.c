@@ -4,7 +4,8 @@
 int	is_anagram(char *a, char *b)
 {
 	// SHORTCUT !!!
-	int arr[127] = { [0 ... 126] = 0}; // Initialize all values to 0
+	//int arr[127] = { [0 ... 126] = 0}; // Initialize all values to 0
+	int arr[127] = {0};
 	int i = -1;
 
 	while (*a)
@@ -12,13 +13,11 @@ int	is_anagram(char *a, char *b)
 		arr[(int)*a]++;		// Cast *a to type int to get ASCII value of char
 		a++;
 	}
-
 	while (*b)
 	{
 		arr[(int)*b]--; // note, here is negative!!!
 		b++;
 	}
-
 	while (++i < 127)
 	{
 		//printf("\n%d", arr[i]);

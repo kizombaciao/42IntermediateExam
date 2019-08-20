@@ -1,10 +1,8 @@
 // https://www.geeksforgeeks.org/write-an-efficient-c-function-to-convert-a-tree-into-its-mirror-tree/
-
 // C program to convert a binary tree 
 // to its mirror 
 #include<stdio.h> 
 #include<stdlib.h> 
-
 /* A binary tree node has data, pointer 
 to left child and a pointer to right child */
 struct Node 
@@ -17,23 +15,21 @@ struct Node
 given data and NULL left and right pointers. */
 struct Node* newNode(int data) 
 { 
-	struct Node* node = (struct Node*) 
-						malloc(sizeof(struct Node)); 
+	struct Node* node = (struct Node*)malloc(sizeof(struct Node)); 
 	node->data = data; 
 	node->left = NULL; 
 	node->right = NULL; 
-
 	return(node); 
 } 
 
 void mirror(struct Node* node) 
-{ 
+{
+	struct Node* temp; 
+
 	if (node == NULL) 
 		return; 
 	else
 	{ 
-		struct Node* temp; 
-
 		/* do the subtrees */
 		// think of postorder traveral, we first travel to the leaf and start there
 		mirror(node->left); 
@@ -52,7 +48,6 @@ void inOrder(struct Node* node)
 { 
 	if (node == NULL) 
 		return; 
-
 	inOrder(node->left); 
 	printf("%d ", node->data); 
 	inOrder(node->right); 

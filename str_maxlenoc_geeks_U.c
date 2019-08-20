@@ -14,9 +14,6 @@
 #include <stdlib.h> 
 #include <string.h> 
 #include <stdio.h>
-
-//using namespace std; 
-
 /* function to find and print the longest common 
 substring of X[0..m-1] and Y[0..n-1] */
 void printLCSubStr(char* X, char* Y, int m, int n) 

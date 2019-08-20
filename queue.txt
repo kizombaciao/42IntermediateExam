@@ -12,6 +12,7 @@ code:
         struct s_node *first;
         struct s_node *last;
     };
+    
 A queue uses FIFO (first-in fist-out) ordering :
 items are removed from the data structure in the same order that they are added.
 Implement 5 functions for the following queue operations :
@@ -23,6 +24,7 @@ Implement 5 functions for the following queue operations :
     - peek(queue) : Return the first item of the queue.
       If the queue is empty, the function returns NULL.
     - isEmpty(queue) : Return 1 if the queue is empty, 0 otherwise.
+
 These functions must be declared as follows:
     struct s_queue *init(void);
     void enqueue(struct s_queue *queue, void *content);

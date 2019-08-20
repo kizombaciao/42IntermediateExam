@@ -33,7 +33,7 @@ struct s_node {
     void push(struct s_stack *stack, void *content)
     {
         struct s_node *node = malloc(sizeof(struct s_node));
-        node->content = content;
+        node->content = content; // note !
         node->next = stack->top;
         stack->top = node;
     }

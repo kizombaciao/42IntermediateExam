@@ -63,6 +63,8 @@ In this case, your function should return 7,
 
 because the longest path between two leaves is 8->5->4->2->7->9->11 .
 
+// NOTE, THE PATH DOES NOT NEED TO INCLUDE THE ROOT !!!
+
 Example 3:
 
 10

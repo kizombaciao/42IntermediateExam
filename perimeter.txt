@@ -67,17 +67,21 @@ EXAMPLE :
 
 =================================================================
 
-perimeter is actually pretty simple, though the subject desribes it very poorly. It wants, in this order:
+perimeter is actually pretty simple, though the subject desribes it very poorly. 
+It wants, in this order:
 
 The root node
 The nodes in an unbroken chain of node->left, decending from the root
 Any leaf nodes (ones where both left and right child nodes are NULL), ordered left-to-right
 The nodes in an unbroken chain of node->right, coming up the right side to the root
-The only "trick" to perimeter is avoiding double inclusion. For example, a node at the end of the chain of node->left which is also a leaf node. Or a root node which is also a leaf node.
+The only "trick" to perimeter is avoiding double inclusion. 
+
+For example, a node at the end of the chain of node->left which is also a leaf node. 
+Or a root node which is also a leaf node.
 
 Example
-
-Here is the tree from the subject, for whom the output is: 92 85 79 96 58 58 41 22 35 31 55 99 51 85 78 64 26
+Here is the tree from the subject, for whom the output is: 
+92 85 79 96 58 58 41 22 35 31 55 99 51 85 78 64 26
 
 I've marked it up:
 

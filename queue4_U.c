@@ -1,18 +1,14 @@
 /************************************ #### Passed Final Exam #### *************************************/
-
 #include <stdio.h>
 #include <stdlib.h>
-
 struct s_node {
         void *content;
         struct s_node *next;
-    };
-
+};
  struct s_queue {
         struct s_node *first;
         struct s_node *last;
-    };
-
+};
 struct s_queue *init(void)
 {
 	struct s_queue *new = (struct s_queue *)malloc(sizeof(struct s_queue));
@@ -20,7 +16,6 @@ struct s_queue *init(void)
 	new->last = NULL;
 	return new;
 }
-
 void enqueue(struct s_queue *queue, void *content)
 {
 	struct s_node *node = (struct s_node *)malloc(sizeof(struct s_node));
@@ -33,8 +28,8 @@ void enqueue(struct s_queue *queue, void *content)
 	}
 	else
 	{
-		queue->last->next = node;
-		queue->last = node;
+		queue->last->next = node; // add node to end of last
+		queue->last = node; // the last pointer now points at node
 		// why both lines needed ?
 		/*
 		The first line links the new node to the end of the queue. 
@@ -42,13 +37,14 @@ void enqueue(struct s_queue *queue, void *content)
 		*/
 	}
 }
-
 void *dequeue(struct s_queue *queue)
 {
 	void *ele = NULL;
 	if (queue->first)
 	{
-		struct s_node *temp = queue->first;
+		struct s_node *temp;
+		
+		temp = queue->first;
 		ele = queue->first->content;
 		// why below line ???
 		queue->last = (queue->first == queue->last) ? NULL : queue->last;
@@ -57,21 +53,14 @@ void *dequeue(struct s_queue *queue)
 	}
 	return ele;
 }
-
 void *peek(struct s_queue *queue)
 {
 	return queue->first ? queue->first->content : NULL;
 }
-
 int isEmpty(struct s_queue *queue)
 {
 	return queue->first ? 0 : 1;
 }
-
-/****************
- 	TEST_MAIN
-****************/
-
 int main(void)
 {
     struct s_queue  *q = init();
@@ -92,8 +81,6 @@ int main(void)
 	printf("The peek of the Queue is -> %s\n", peek(q));
 	return 0;
 }
-
-
 /*
 Expected Output:
 The Queue has been setup..!!
@@ -110,5 +97,4 @@ The Third dequeue operation Removes -> (null)
 The Queue is empty: YES
 The peek of the Queue is -> (null)
 */
-
 // https://github.com/Manmeet2018/42_Exam-C-Intermediate/blob/master/level1/queue/queue.c

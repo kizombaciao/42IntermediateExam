@@ -1,3 +1,4 @@
+// https://www.geeksforgeeks.org/diameter-of-a-binary-tree-in-on-a-new-method/
 /*
 In this post a new simple O(n) method is discussed. 
 Diameter of a tree can be calculated by only using the height function, 
@@ -6,39 +7,32 @@ because the diameter of a tree is nothing but maximum value of
 So we need to calculate this value (left_height + right_height + 1) 
 for each node and update the result. Time complexity – O(n)
 */
-// Simple C++ program to find diameter 
-// of a binary tree. 
-//#include <bits/stdc++.h> 
-//using namespace std; 
+// Simple C++ program to find diameter of a binary tree. 
 #include <stdio.h>
 #include <stdlib.h>
-
 #define INT_MIN -2147483648
-
 /* Tree node structure used in the program */
 struct Node { 
 	int data; 
 	struct Node *left, *right; 
 }; 
-
 /* Function to find height of a tree */
 int height(struct Node *root, int *ans) 
 { 
+	int left_height;
+	int right_height;
+
 	if (root == NULL) 
 		return 0; 
-
-	int left_height = height(root->left, ans); // left sub_tree
-
-	int right_height = height(root->right, ans); // right sub_tree
+	left_height = height(root->left, ans); // left sub_tree
+	right_height = height(root->right, ans); // right sub_tree
 
 	// update the answer, because diameter of a 
 	// tree is nothing but maximum value of 
 	// (left_height + right_height + 1) for each node 
 	*ans = max(ans, 1 + left_height + right_height); 
-
 	return 1 + max(left_height, right_height); 
 } 
-
 /* Computes the diameter of binary tree with given root. */
 int diameter(struct Node* root) 
 { 
@@ -48,17 +42,13 @@ int diameter(struct Node* root)
 	int height_of_tree = height(root, &ans); 
 	return ans; 
 } 
-
 struct Node* newNode(int data) 
 { 
 	struct Node* node = (struct Node *)malloc(sizeof(struct Node)); 
 	node->data = data; 
 	node->left = node->right = NULL; 
-
 	return (node); 
 } 
-
-// Driver code 
 int main() 
 { 
 	struct Node* root = newNode(1); 
@@ -66,14 +56,9 @@ int main()
 	root->right = newNode(3); 
 	root->left->left = newNode(4); 
 	root->left->right = newNode(5); 
-
 	printf("Diameter is %d\n", diameter(root)); 
-
 	return 0; 
 } 
-
-// https://www.geeksforgeeks.org/diameter-of-a-binary-tree-in-on-a-new-method/
-
 // INT_MIN
 // https://www.geeksforgeeks.org/int_max-int_min-cc-applications/
 /*
