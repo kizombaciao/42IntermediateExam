@@ -1,5 +1,6 @@
 // https://www.geeksforgeeks.org/find-number-of-islands/
 
+// ALSO, NEED TO BE ABLE TO READ A TEXT FILE!!!
 // Program to count islands in boolean 2D matrix 
 #include <stdbool.h> 
 #include <stdio.h> 

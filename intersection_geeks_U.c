@@ -23,15 +23,12 @@ struct Node {
 	int data; 
 	struct Node* next; 
 }; 
-
 /* Function to get the counts of node in a linked list */
 int getCount(struct Node* head); 
-
 /* function to get the intersection point of two linked 
 lists head1 and head2 where head1 has d more nodes than 
 head2 */
 int _getIntesectionNode(int d, struct Node* head1, struct Node* head2); 
-
 /* function to get the intersection point of two linked 
 lists head1 and head2 */
 int getIntesectionNode(struct Node* head1, struct Node* head2) 
@@ -49,7 +46,6 @@ int getIntesectionNode(struct Node* head1, struct Node* head2)
 		return _getIntesectionNode(d, head2, head1); 
 	} 
 } 
-
 /* function to get the intersection point of two linked 
 lists head1 and head2 where head1 has d more nodes than 
 head2 */
@@ -58,36 +54,30 @@ int _getIntesectionNode(int d, struct Node* head1, struct Node* head2)
 	int i; 
 	struct Node* current1 = head1; 
 	struct Node* current2 = head2; 
-
 	for (i = 0; i < d; i++) { 
 		if (current1 == NULL) { 
 			return -1; 
 		} 
 		current1 = current1->next; 
 	} 
-
 	while (current1 != NULL && current2 != NULL) { 
 		if (current1 == current2) 
 			return current1->data; 
 		current1 = current1->next; 
 		current2 = current2->next; 
 	} 
-
 	return -1; 
 } 
-
 /* Takes head pointer of the linked list and 
 returns the count of nodes in the list */
 int getCount(struct Node* head) 
 { 
 	struct Node* current = head; 
 	int count = 0; 
-
 	while (current != NULL) { 
 		count++; 
 		current = current->next; 
 	} 
-
 	return count; 
 } 
 

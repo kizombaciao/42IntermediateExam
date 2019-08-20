@@ -409,16 +409,187 @@ void mirror(struct s_node *r)
 	mirror(r->right);
 	swap(r);
 }
+////////////////////////////////////
+// volume_histogram.c
+
+int fw(int *arr, int n)
+{
+	int i;
+	int l[n];
+	int r[n];
+	int w = 0;
+
+	l[0] = arr[0];
+	for (i = 1, i < n; i++)
+		l[i] = max(l[i - 1], arr[i]);
+
+	r[n - 1] = arr[n - 1];
+	for (i = n - 2; i >=0 i--)
+		r[i] = max(r[i + 1], arr[i]);
+
+	for (i = 0; i < n; i++)
+		w += min(l[i], r[i]) - arr[i];
+
+	return w;
+}
+//////////////////////////////////////////
+// range_comb.c
+
+void swap(char *x, char *y)
+{
+	char temp;
+
+	temp = *x;
+	*x = *y;
+	*y = temp;
+}
+
+void permute(char *a, int l, int r)
+{
+	int i;
+	
+	for (i = l; i <= r; i++)	
+	{
+		swap(a[l], a[i]);
+		permute(a, l + 1, r);
+		swap(a[l], a[i]);
+	}
+}
+
+int **range_comb(int n)
+{
+	if (n <= 0)
+		return (0);
+
+}
+/////////////////////////////////////////
+// intersection.c
 
 
 
 
+int gc(struct node *h)
+{
+	struct node *cur;
+	int count = 0;
+
+	cur = h;
+
+	while (cur)
+	{
+		count++;
+		cur = cur->next;
+	}
+	return count;
+}
 
 
+int g(int d, struct node *h1, struct node *h2)
+{
+	int i;
+	struct node* cur1;
+	struct node* cur2;
 
+	cur1 = h1;
+	cur2 = h2;
 
+	for (i = 0; i < d; i++)
+	{
+		if (cur1 == NULL)
+		{
+			return -1;
+		}
+		cur1 = cur1->next;
+	}
+	while (cur1 != NULL && cur2 != NULL)
+	{
+		if (cur1 == cur2)
+			return cur1->data;
+		cur1 = cur1->next;
+		cur2 = cur2->next;
+	}
+	return -1;
+}
+int gin(struct node *h1, struct node *h2)
+{
+	int c1;
+	int c2;
+	int d;
 
+	c1 = gc(h1);
+	c2 = gc(h2);
 
+	if (c1 > c2)
+	{
+		d = c1 - c2;
+		return g(d, h1, h2);
+	}
+	else
+	{
+		d = c2 - c1;
+		return g(d, h2, h1);
+	}
+}
+////////////////////////////////////////
+// clone_list.c
+
+int f(struct sn *n, struct sn *h)
+{
+	int i = 0;
+	while (h)
+	{
+		if (n == h)
+			return i;
+		i++;
+		h = h->next;
+	}
+	return -1;
+}
+
+struct sn *g(int id, struct sn *h)
+{
+	int i = 0;
+	while (i < id)
+	{
+		i++;
+		h = h->next;
+	}
+	return h;
+}
+
+struct sn *cl(struct sn *n)
+{
+	struct sn *h;
+	struct sn *c1;
+	struct sn *h1
+
+	if (!n)
+		return (NULL);
+
+	h = n;
+	c1 = new(h->d);
+	h1 = c1;
+
+	n = n->next;
+	while (n)
+	{
+		c1->next = new(n->d);
+		c1 = c1->next;
+		n = n->next;
+	}
+	n = h;
+	c1 = h1;
+	while (n)
+	{
+		if (n->o)
+			c1->o = g(f(n->o, h), h1);
+		c1 = c1->next;
+		n = n->next;
+	}
+	return (h1);
+}
+
+///////////////////////////////
 
 
 

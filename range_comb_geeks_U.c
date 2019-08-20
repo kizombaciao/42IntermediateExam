@@ -10,14 +10,13 @@
 #include <string.h> 
 
 /* Function to swap values at two pointers */
-void swap(char *x, char *y) 
+void swap(char *x, char *y) // we are passing by reference address
 { 
 	char temp; 
 	temp = *x; 
 	*x = *y; 
 	*y = temp; 
 } 
-
 /* Function to print permutations of string 
 This function takes three parameters: 
 1. String 
@@ -32,14 +31,12 @@ void permute(char *a, int l, int r)
     { 
     	for (i = l; i <= r; i++) 
     	{ 
-    		swap((a+l), (a+i)); 
-    		permute(a, l+1, r); 
-    		swap((a+l), (a+i)); //backtrack 
+    		swap((a + l), (a + i)); 
+    		permute(a, l + 1, r); 
+    		swap((a + l), (a + i)); //backtrack 
     	} 
     } 
 } 
-
-/* Driver program to test above functions */
 int main() 
 { 
 	char str[] = "012"; 

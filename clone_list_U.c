@@ -1,11 +1,13 @@
 // Passed Moulinette on 2019.05.19
 #include <stdlib.h>
 #include <stdio.h>
+
 struct s_node {
 	int           data;
 	struct s_node *next;
 	struct s_node *other;
 };
+
 struct s_node	*create_node(int data)
 {
 	struct s_node *new = (struct s_node *)malloc(sizeof(struct s_node));
@@ -14,6 +16,7 @@ struct s_node	*create_node(int data)
 	new->other = NULL;
 	return (new);
 }
+
 // to find the index location within old list of where 'other' points at
 // we loop through haystack to find 'other'
 int	find_node_index(struct s_node *needle, struct s_node *haystack)
@@ -28,6 +31,7 @@ int	find_node_index(struct s_node *needle, struct s_node *haystack)
 	}
 	return (-1);
 }
+
 // to find the address corresponding to the index within the new list
 struct s_node	*get_node_by_index(int index, struct s_node *haystack)
 {
@@ -39,6 +43,7 @@ struct s_node	*get_node_by_index(int index, struct s_node *haystack)
 	}
 	return (haystack); // return the address from the new list
 }
+
 struct s_node	*clone_list(struct s_node *node)
 {
 	struct s_node *head;
@@ -70,6 +75,7 @@ struct s_node	*clone_list(struct s_node *node)
 	}
 	return (new_head);
 }
+
 void	print_list(struct s_node *head)
 {
 	while (head)
