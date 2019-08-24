@@ -42,19 +42,19 @@ void print_tree(struct s_node *node)
 {
 	if (node)
 	{
-	struct s_node *start = node;
-	do
-	{
-		printf("%d ", node->value);
-		node = node->right;
-	} while (node != start);
-	printf("\n");
-	do
-	{
-		printf("%d ", node->value);
-		node = node->left;
-	} while (node != start);
-	printf("\n");
+		struct s_node *start = node;
+		do
+		{
+			printf("%d ", node->value);
+			node = node->right;
+		} while (node != start);
+		printf("\n");
+		do
+		{
+			printf("%d ", node->value);
+			node = node->left;
+		} while (node != start);
+		printf("\n");
 	}
 }
 
@@ -63,9 +63,9 @@ int main(void)
 	struct s_node three = (struct s_node){3, 0, 0};
 	struct s_node seven = (struct s_node){7, 0, 0};
 	struct s_node five = (struct s_node){5, &seven, &three};
-	// print_tree(convert_bst(&five));
-	print_tree(convert_bst(&seven));
-	print_tree(convert_bst(0));
+	print_tree(convert_bst(&five));
+	//print_tree(convert_bst(&seven));
+	//print_tree(convert_bst(0));
 }
 
 // https://github.com/samuelkarani/42-intermediate-exams/blob/master/convert_bst/convert_bst2.c

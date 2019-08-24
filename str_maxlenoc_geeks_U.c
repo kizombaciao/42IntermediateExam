@@ -1,9 +1,5 @@
 // https://www.geeksforgeeks.org/longest-common-substring-array-strings/
-
-// C++ program to find the stem of given list of 
-// words 
-//#include <bits/stdc++.h> 
-//using namespace std; 
+// C++ program to find the stem of given list of words 
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -106,12 +102,9 @@ char *findstem(int n, char **arr)
     char *s;
 	int len;
     char *stem;
-	//char *p;
 
     s = ft_strdup(arr[0]); // using malloc on first string to create s
     len = ft_strlen(s); 
-	//printf("222a %s  %d\n", s, len);
-	
 	char *res = (char *)malloc(sizeof(char) * (len + 1)); 
 
 	for (i = 0; i < len; i++) 
@@ -124,7 +117,6 @@ char *findstem(int n, char **arr)
 			// of our reference string arr[0] i.e s 
 			// substring of s from i for length j
 			stem = ft_strsub(s, i, j);
-			//printf("333a %d %d %s\n", i, j, stem);
 			for (k = 1; k < n; k++) 
 			{ 
 				// Check if the generated stem is 
@@ -148,12 +140,7 @@ char *findstem(int n, char **arr)
 } 
 int main(int ac, char **av) 
 { 
-	//char s[] = {"grace", "graceful", "disgraceful", 
-	//				"gracefully"}; 
     char *p;
-
-	//printf("%d\n", ac);
-
     if (ac >= 2)
     {
         p = findstem(ac - 1, &av[1]); 

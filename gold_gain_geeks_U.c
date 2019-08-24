@@ -6,6 +6,19 @@
 //using namespace std; 
 #include <stdio.h>
 const int MAX = 100; 
+
+// https://www.geeksforgeeks.org/memset-c-example/
+// memset function writes len bytes of value c (converted to an unsigned char) to the string b.
+void	*ft_memset(void *b, int c, size_t n)
+{
+	unsigned char *d;
+
+	d = (unsigned char *)b;
+	while (d < (unsigned char *)b + n)
+		*(d++) = (unsigned char)c;
+	return (b);
+}
+
 // Returns maximum amount of gold that can be collected 
 // when journey started from first column and moves 
 // allowed are right, right-up and right-down 
