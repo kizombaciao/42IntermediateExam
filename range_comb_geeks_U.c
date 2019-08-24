@@ -26,7 +26,7 @@ void permute(char *a, int l, int r)
 { 
     int i; 
     if (l == r) 
-    	printf("%s\n", a); 
+    	printf("%s\n", a); // note, b/c of recur 'a' keeps changing
     else
     { 
     	for (i = l; i <= r; i++) 

@@ -19,17 +19,17 @@ int countIslands(int mat[][N])
 	int count = 0; // Initialize result 
 
 	// Traverse the input matrix 
-	for (int i=0; i<M; i++) 
+	for (int i = 0; i < M; i++) 
 	{ 
-		for (int j=0; j<N; j++) 
+		for (int j = 0; j < N; j++) 
 		{ 
 			// If current cell is 'X', then check 
 			// whether this is top-leftmost of a 
 			// rectangle. If yes, then increment count 
 			if (mat[i][j] == 'X') 
 			{ 
-				if ((i == 0 || mat[i-1][j] == 'O') && 
-					(j == 0 || mat[i][j-1] == 'O')) 
+				if ((i == 0 || mat[i - 1][j] == 'O') && 
+					(j == 0 || mat[i][j - 1] == 'O')) 
 					count++; 
 			} 
 		} 

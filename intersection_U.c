@@ -1,3 +1,4 @@
+// may be this method is less efficient
 // This code passed Moulinette on 2019.05.26
 
 struct s_node {

@@ -31,7 +31,7 @@ int height(struct Node *root, int *ans)
 	// tree is nothing but maximum value of 
 	// (left_height + right_height + 1) for each node 
 	*ans = max(ans, 1 + left_height + right_height); 
-	return 1 + max(left_height, right_height); 
+	return (1 + max(left_height, right_height)); 
 } 
 /* Computes the diameter of binary tree with given root. */
 int diameter(struct Node* root) 

@@ -13,7 +13,7 @@ duplicates, they must remain.
 
 If number of parameters is different from 1, the program prints \n.
 
-There will be only spaces, tabs and alphanumeric caracters in strings.
+There will be only spaces, tabs and alphanumeric characters in strings.
 
 You'll print only one space between each word. Nothing before the first and
 after the last word of each line.

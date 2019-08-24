@@ -23,19 +23,26 @@ struct node
 	down to the farthest leaf node.*/
 int maxDepth(struct node* node) 
 { 
-if (node == NULL) 
-	return 0; // change to -1 if counting edges
-else
-{ 
-	/* compute the depth of each subtree */
-	int lDepth = maxDepth(node->left); 
-	int rDepth = maxDepth(node->right); 
+	if (node == NULL) 
+		return 0; // change to -1 if counting edges
+	else
+	{ 
+		/* compute the depth of each subtree */
+		int lDepth;
+		int rDepth;
 
-	/* use the larger one */
-	if (lDepth > rDepth) 
-		return(lDepth+1); 
-	else return(rDepth+1); 
-} 
+		lDepth = maxDepth(node->left); 
+		rDepth = maxDepth(node->right); 
+
+		return (1 + max(lDepth, rDepth));
+
+		/* use the larger one */
+	/*	
+		if (lDepth > rDepth) 
+			return(lDepth+1); 
+		else return(rDepth+1); 
+	*/
+	} 
 } 
 
 /* Helper function that allocates a new node with the 

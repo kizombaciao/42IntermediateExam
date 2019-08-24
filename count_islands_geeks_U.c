@@ -37,7 +37,7 @@ void DFS(int M[][COL], int row, int col, bool visited[][COL])
 
 // The main function that returns count of islands in a given boolean 
 // 2D matrix 
-int countIslands(int M[][COL]) 
+int countIslands(int M[][COL]) // NOTE, NOT INT **M ???
 { 
 	// Make a bool array to mark visited cells. 
 	// Initially all cells are unvisited 

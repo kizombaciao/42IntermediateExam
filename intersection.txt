@@ -25,3 +25,11 @@ The function must be declared as follows:
 
 If the two linked lists are not intersecting, the function returns NULL.
 The function does not modify the two linked list.
+
+/*
+IF YOU WANT TO RETURN THE POINTER TO THE NODE, 
+DON'T YOU NEED TO DECLARE IT AS
+struct s_node *intersection()
+instead of
+void *intersection()
+*/

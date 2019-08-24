@@ -1,3 +1,5 @@
+// actual queston is a square matrix n x n
+
 // https://www.geeksforgeeks.org/gold-mine-problem/
 // C++ program to solve Gold Mine problem 
 //#include<bits/stdc++.h> 

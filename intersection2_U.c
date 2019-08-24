@@ -21,6 +21,7 @@ void swap(struct s_node **l1, struct s_node **l2)
 	*l1 = *l2;
 	*l2 = temp;
 }
+
 void *intersection(struct s_node *lst1, struct s_node *lst2)
 {
 	int len1 = len_list(lst1);

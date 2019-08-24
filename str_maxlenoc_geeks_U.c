@@ -1,101 +1,165 @@
-// Print the longest common substring
-// https://www.geeksforgeeks.org/print-longest-common-substring/
-// https://www.geeksforgeeks.org/longest-common-substring-dp-29/
+// https://www.geeksforgeeks.org/longest-common-substring-array-strings/
 
-// https://www.techiedelight.com/longest-common-substring-problem/
-// Has a useful diagram that clarifies the approach.
-
-// https://www.youtube.com/watch?v=BysNXJHzCEs
-// https://www.youtube.com/watch?v=zqKlL3ZpTqs
-
-
-// C++ implementation to print the longest common substring 
-//#include <iostream> 
-#include <stdlib.h> 
-#include <string.h> 
+// C++ program to find the stem of given list of 
+// words 
+//#include <bits/stdc++.h> 
+//using namespace std; 
 #include <stdio.h>
-/* function to find and print the longest common 
-substring of X[0..m-1] and Y[0..n-1] */
-void printLCSubStr(char* X, char* Y, int m, int n) 
+#include <unistd.h>
+#include <stdlib.h>
+
+void ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+void ft_putstr(char *s)
+{
+	while (*s)
+	{
+		ft_putchar(*s);
+		s++;
+	}
+}
+size_t	ft_strlen(const char *s)
+{
+	size_t i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+char	*ft_strcpy(char *dst, const char *src)
+{
+	char *p;
+
+	p = dst;
+	while ((*p++ = *src++))
+		;
+	*(--p) = '\0';
+	return (dst);
+}
+char	*ft_strdup(const char *s)
+{
+	int		i;
+	int		len;
+	char	*d;
+
+	len = ft_strlen(s);
+	if (!(d = (char *)malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		d[i] = s[i];
+		i++;
+	}
+	d[i] = '\0';
+	return (d);
+}
+char *ft_strsub(char const *s, unsigned int start, size_t len)
+{
+	char	*p;
+	size_t	i;
+
+	if (!s)
+		return (NULL);
+	if (!(p = (char *)malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	i = 0;
+	while (len-- && s[i])
+	{
+		p[i++] = s[start++];
+	}
+	p[i] = '\0';
+	return (p);
+}
+char *ft_strstr(const char *hay, const char *needle)
+{
+	int i;
+	int j;
+
+	if (!*needle)
+		return ((char *)hay);
+	i = 0;
+	while (hay[i])
+	{
+		j = 0;
+		while (hay[i + j] == needle[j])
+		{
+			j++;
+			if (!needle[j])
+				return (&((char *)hay)[i]);
+		}
+		i++;
+	}
+	return (NULL);
+}
+// function to find the stem (longest common 
+// substring) from the string array 
+char *findstem(int n, char **arr) 
 { 
-	// Create a table to store lengths of longest common 
-	// suffixes of substrings. Note that LCSuff[i][j] 
-	// contains length of longest common suffix of X[0..i-1] 
-	// and Y[0..j-1]. The first row and first column entries 
-	// have no logical meaning, they are used only for 
-	// simplicity of program 
-	int LCSuff[m + 1][n + 1]; 
+	// Determine size of the array 
+	//int n = arr.size(); 
+	// Take first word from array as reference 
+	int i, j, k;
+    char *s;
+	int len;
+    char *stem;
+	//char *p;
 
-	// To store length of the longest common substring 
-	int len = 0; 
+    s = ft_strdup(arr[0]); // using malloc on first string to create s
+    len = ft_strlen(s); 
+	//printf("222a %s  %d\n", s, len);
+	
+	char *res = (char *)malloc(sizeof(char) * (len + 1)); 
 
-	// To store the index of the cell which contains the 
-	// maximum value. This cell's index helps in building 
-	// up the longest common substring from right to left. 
-	int row, col; 
-
-	/* Following steps build LCSuff[m+1][n+1] in bottom 
-	up fashion. */
-	for (int i = 0; i <= m; i++) { 
-		for (int j = 0; j <= n; j++) { 
-			if (i == 0 || j == 0) 
-				LCSuff[i][j] = 0; // 1st row and col are zeros
-
-			else if (X[i - 1] == Y[j - 1]) { 
-				LCSuff[i][j] = LCSuff[i - 1][j - 1] + 1; 
-                // because you want the maximum within the matrix
-				if (len < LCSuff[i][j]) { 
-					len = LCSuff[i][j]; 
-					row = i; 
-					col = j; 
-				} 
+	for (i = 0; i < len; i++) 
+	{ 
+		// not sure why the author had 'j = i + 1'
+		// it should be j <= len - i, instead of j <= len
+		for (j = 1; j <= len - i; j++) 
+		{ 
+			// generating all possible substrings 
+			// of our reference string arr[0] i.e s 
+			// substring of s from i for length j
+			stem = ft_strsub(s, i, j);
+			//printf("333a %d %d %s\n", i, j, stem);
+			for (k = 1; k < n; k++) 
+			{ 
+				// Check if the generated stem is 
+				// common to to all words 
+				// return NULL if stem is not within string k
+				if (ft_strstr(arr[k], stem) == NULL) 
+				//if (find(arr.begin(), arr.end(), stem) == arr.end() 
+					break; 
 			} 
-			else
-				LCSuff[i][j] = 0; 
+
+			// If current substring is present in 
+			// all strings and its length is greater 
+			// than current result 
+			if (k == n && ft_strlen(res) < ft_strlen(stem)) 
+				ft_strcpy(res, stem); // copy from stem to res
+			free(stem);
 		} 
-	} 
-
-	// if true, then no common substring exists 
-	if (len == 0) { 
-		printf("No Common Substring\n"); 
-		return; 
-	} 
-
-	// allocate space for the longest common substring 
-	char* resultStr = (char*)malloc((len + 1) * sizeof(char)); 
-
-	// traverse up diagonally form the (row, col) cell 
-	// until LCSuff[row][col] != 0 
-	while (LCSuff[row][col] != 0) { 
-		resultStr[--len] = X[row - 1]; // or Y[col-1] 
-
-		// move diagonally up to previous cell 
-		row--; 
-		col--; 
-	} 
-
-	// required longest common substring 
-	printf("%s\n", resultStr); 
+	}
+	free(s); 
+	return (res); 
 } 
-
-/* Driver program to test above function */
-int main() 
+int main(int ac, char **av) 
 { 
-	char X[] = "OldSite:GeeksforGeeks.org"; 
-	char Y[] = "NewSite:GeeksQuiz.com"; 
+	//char s[] = {"grace", "graceful", "disgraceful", 
+	//				"gracefully"}; 
+    char *p;
 
-	int m = strlen(X); 
-	int n = strlen(Y); 
+	//printf("%d\n", ac);
 
-	printLCSubStr(X, Y, m, n); 
-	return 0; 
-} 
-
-/*
- Dynamic Programming can be used to find 
- the longest common substring in O(m*n) time. 
- The idea is to find length of the longest common suffix 
- for all substrings of both strings and store these lengths in a table.
- */
-
-
+    if (ac >= 2)
+    {
+        p = findstem(ac - 1, &av[1]); 
+		ft_putstr(p);
+    }
+	ft_putchar('\n');
+}
+// This code is contributed by 
+// sanjeev2552 

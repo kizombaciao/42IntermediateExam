@@ -35,13 +35,13 @@ int count(struct Node* root)
 // n is size of tree 
 int checkRec(struct Node* root, int n, int *res) 
 { 
+	int c;
 	// Base case 
 	if (root == NULL) 
 	return 0; 
 
 	// Compute sizes of left and right children 
-	int c = checkRec(root->left, n, res) + 1 + 
-			checkRec(root->right, n, res); 
+	c = 1 + checkRec(root->left, n, res) + checkRec(root->right, n, res); 
 
 	// If required property is true for current node 
 	// set "res" as true 
@@ -51,15 +51,17 @@ int checkRec(struct Node* root, int n, int *res)
 	// Return size 
 	return c; 
 } 
-
 // This function mainly uses checkRec() 
 int check(struct Node *root) 
 { 
+	int n;
+	int res; // boolean
+	
 	// Count total nodes in given tree 
-	int n = count(root); 
+	n = count(root); 
 
 	// Initialize result and recursively check all nodes 
-	int res = 0; 
+	res = 0; 
 	checkRec(root, n, &res); 
 	return res; 
 } 

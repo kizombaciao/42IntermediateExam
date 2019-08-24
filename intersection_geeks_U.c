@@ -29,22 +29,20 @@ int getCount(struct Node* head);
 lists head1 and head2 where head1 has d more nodes than 
 head2 */
 int _getIntesectionNode(int d, struct Node* head1, struct Node* head2); 
-/* function to get the intersection point of two linked 
-lists head1 and head2 */
-int getIntesectionNode(struct Node* head1, struct Node* head2) 
-{ 
-	int c1 = getCount(head1); 
-	int c2 = getCount(head2); 
-	int d; 
 
-	if (c1 > c2) { 
-		d = c1 - c2; 
-		return _getIntesectionNode(d, head1, head2); 
+///////////////////////////////////
+
+/* Takes head pointer of the linked list and 
+returns the count of nodes in the list */
+int getCount(struct Node* head) 
+{ 
+	struct Node* current = head; 
+	int count = 0; 
+	while (current != NULL) { 
+		count++; 
+		current = current->next; 
 	} 
-	else { 
-		d = c2 - c1; 
-		return _getIntesectionNode(d, head2, head1); 
-	} 
+	return count; 
 } 
 /* function to get the intersection point of two linked 
 lists head1 and head2 where head1 has d more nodes than 
@@ -68,17 +66,22 @@ int _getIntesectionNode(int d, struct Node* head1, struct Node* head2)
 	} 
 	return -1; 
 } 
-/* Takes head pointer of the linked list and 
-returns the count of nodes in the list */
-int getCount(struct Node* head) 
+/* function to get the intersection point of two linked 
+lists head1 and head2 */
+int getIntesectionNode(struct Node* head1, struct Node* head2) 
 { 
-	struct Node* current = head; 
-	int count = 0; 
-	while (current != NULL) { 
-		count++; 
-		current = current->next; 
+	int c1 = getCount(head1); 
+	int c2 = getCount(head2); 
+	int d; 
+
+	if (c1 > c2) { 
+		d = c1 - c2; 
+		return _getIntesectionNode(d, head1, head2); 
 	} 
-	return count; 
+	else { 
+		d = c2 - c1; 
+		return _getIntesectionNode(d, head2, head1); 
+	} 
 } 
 
 /* IGNORE THE BELOW LINES OF CODE. THESE LINES 
