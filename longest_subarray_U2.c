@@ -90,8 +90,8 @@ char *longest_subarray(char *s)
 
 int main()
 {
-	char s1[] = "12435";
-	printf("%s\n", longest_subarray(s1));
+	//char s1[] = "12435";
+	//printf("%s\n", longest_subarray(s1));
 	char str1[] = "1357913579024680213579";
 	printf("79135790246802\n%s\n", longest_subarray(str1));
 	char str2[] = "134";

@@ -4,6 +4,12 @@
 // https://www.youtube.com/watch?time_continue=2&v=AfxHGNRtFac
 // https://www.youtube.com/watch?v=78t_yHuGg-0
 
+/*
+Time Complexity: O(n*n!) 
+Note that there are n! permutations 
+and it requires O(n) time to print a a permutation.
+*/
+
 // ALSO USING RECURSION
 // C program to print all permutations with duplicates allowed 
 #include <stdio.h> 

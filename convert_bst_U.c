@@ -137,3 +137,6 @@ int main()
 
 // 	print_list(convert_bst(root));
 // }
+
+// Stanford
+// http://cslibrary.stanford.edu/109/TreeListRecursion.html

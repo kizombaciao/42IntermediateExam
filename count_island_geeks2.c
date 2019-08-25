@@ -1,10 +1,14 @@
 // https://www.geeksforgeeks.org/count-number-islands-every-island-separated-line/
+// ignore this, doesn't use recursive backtracking!!!
+
+/*  TO DO:
+	> OPEN AND READ A FILE!!!
+	> NUMBER THE ISLANDS
+*/
 
 // A C++ program to count the number of rectangular 
 // islands where every island is separated by a line 
-#include<iostream> 
-using namespace std; 
-
+#include <stdio.h>
 // Size of given matrix is M X N 
 #define M 6 
 #define N 3 
@@ -38,7 +42,6 @@ int countIslands(int mat[][N])
 	return count; 
 } 
 
-// Driver program to test above function 
 int main() 
 { 
 	int mat[M][N] = {{'O', 'O', 'O'}, 
@@ -48,8 +51,7 @@ int main()
 					{'O', 'O', 'X'}, 
 					{'X', 'X', 'O'} 
 					}; 
-	cout << "Number of rectangular islands is "
-		<< countIslands(mat); 
+	printf("# of rect islands:  %d\n", countIslands(mat));
 	return 0; 
 }
 

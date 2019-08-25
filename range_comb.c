@@ -31,27 +31,29 @@ void	permute(int **tab, int *avail, int *soln, int n, int cur, int *soln_i)
 		}
 	}
 }
-
 int		**range_comb(int n)
 {
 	if (n <= 0)
 		return (0);
-
 	int i = -1;
 	int soln[n];
 	int permutations = factorial(n);
 	int avail[n];
+	int **tab;
+	int soln_i;
 	while (++i < n)
 		avail[i] = 1;
 
-	int **tab = malloc(sizeof(*tab) * (permutations + 1)); // sizeof(*tab) ???
+	//tab = malloc(sizeof(*tab) * (permutations + 1)); // sizeof(*tab) ???
+	tab = (int **)malloc(sizeof(int *) * (permutations + 1));
 	tab[permutations] = 0;
 
 	i = -1;
 	while (++i < permutations)
-		tab[i] = malloc(sizeof(**tab) * n); // sizeof(**tab) ???
+		//tab[i] = malloc(sizeof(**tab) * n); // sizeof(**tab) ???
+		tab[i] = (int *)malloc(sizeof(int) * n);
 
-	int soln_i = -1;
+	soln_i = -1;
 	permute(tab, avail, soln, n, 0, &soln_i);
 	return (tab);
 }
@@ -60,11 +62,14 @@ int		**range_comb(int n)
 #include <stdio.h>
 int	main(void)
 {
-	int n = 5;
+	int n = 3;
 	int **arr = range_comb(n);
 	int i = -1;
 	int j;
 	int size = factorial(n);
+
+	// i = num of permutations
+	// j = the order of each of the n digits
 	while (++i < size)
 	{
 		j = -1;

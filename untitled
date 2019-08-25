@@ -1,0 +1,11 @@
+
+
+
+char *read(char *s)
+{
+	
+
+
+}
+
+int main()

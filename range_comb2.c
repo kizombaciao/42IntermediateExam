@@ -136,7 +136,7 @@ int    **range_comb(int n)
 
 int main ()
 {
-	int n = 9;
+	int n = 3;
 	int **res = range_comb(n);
 	printer_2d(res);
 	//printf("%d\n", perms(3));
