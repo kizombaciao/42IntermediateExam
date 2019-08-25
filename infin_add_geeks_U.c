@@ -1,6 +1,5 @@
+// https://www.geeksforgeeks.org/sum-two-large-numbers/
 // C++ program to find sum of two large numbers. 
-//#include<bits/stdc++.h> 
-//using namespace std; 
 /*
 The idea is based on school mathematics. We traverse both strings from end, 
 one by one add digits and keep track of carry. To simplify the process, 
@@ -68,5 +67,4 @@ int main()
 	return 0; 
 } 
 
-https://www.geeksforgeeks.org/sum-two-large-numbers/
 
