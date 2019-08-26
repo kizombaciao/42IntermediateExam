@@ -12,7 +12,6 @@ int max(int a, int b)
 	else
 		return (b);	
 }
-
 int min(int a, int b)
 {
 	if (a < b)
@@ -20,7 +19,6 @@ int min(int a, int b)
 	else
 		return (b);	
 }
-
 int findWater(int arr[], int n) 
 { 
 	// left[i] contains height of tallest bar to the left of i'th bar 

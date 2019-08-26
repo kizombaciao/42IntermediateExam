@@ -1,3 +1,7 @@
+// first, convert n into its corresponding string
+// second, permute the string
+// third, populate matrix with permutations
+
 // https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/
 #include <stdio.h>
 #include <stdlib.h>
@@ -57,7 +61,6 @@ void permute(char *s, int **t, int n, int start, int end)
     	} 
     } 
 } 
-
 int **range_comb(int n)
 {
 	int i, j;

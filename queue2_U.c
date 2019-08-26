@@ -31,7 +31,8 @@ void enqueue(struct s_queue *queue, void *content)
 		queue->first = new;
 	else if (!queue->last) // same as (queue->last == NULL)
 	{
-		queue->first->next = new;
+		queue->first->next = new; // i don't see why you are doing this ?
+		// because if q->last is NULL, that means there is only 1 node in the list!!!
 		queue->last = queue->first->next;
 	}
 	else
@@ -40,7 +41,14 @@ void enqueue(struct s_queue *queue, void *content)
 		queue->last = queue->last->next;
 	}
 }
+/*
+according to colleagues, if there is only one node in the list, 
+then you want to have both ptrs pointing to the same node.
+*/
 
+// what if q->f->next == NULL ?
+// what if q->f and q->l point to the same node ?
+// do we need to move last to first ?
 void *dequeue(struct s_queue *queue)
 {
 	void *content;
@@ -53,10 +61,12 @@ void *dequeue(struct s_queue *queue)
 	queue->first = queue->first->next;
 	free(tmp);
 	if (queue->first == queue->last)
-		queue->last = NULL; // wouldn't this already be NULL ???
+		queue->last = NULL; // wouldn't this already be NULL ?
+		// no, he's setting first to node but last to null!!!
 	return (content);
 }
 
+// may be also check if queue itself is NULL ?
 void *peek(struct s_queue *queue)
 {
 	return ((queue->first) ? queue->first->content : NULL);

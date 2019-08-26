@@ -7,6 +7,11 @@
 #include <stdio.h>
 const int MAX = 100; 
 
+int max(int a, int b)
+{
+	return ((a > b) ? a : b);
+}
+
 // https://www.geeksforgeeks.org/memset-c-example/
 // memset function writes len bytes of value c (converted to an unsigned char) to the string b.
 void	*ft_memset(void *b, int c, size_t n)
@@ -31,7 +36,7 @@ int getMaxGold(int gold[][MAX], int m, int n) // is MAX necessary here ???
 	int goldTable[m][n]; 
 
 	// CLEVER WAY TO INITIALIZE MATRIX TO ZERO !!!
-	memset(goldTable, 0, sizeof(goldTable)); // initialize goldTable to zero
+	ft_memset(goldTable, 0, sizeof(goldTable)); // initialize goldTable to zero
 
 	for (int col = n - 1; col >= 0; col--) 
 	{ 

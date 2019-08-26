@@ -30,11 +30,13 @@ char	*ft_strcpy(char *dst, const char *src)
 	char *p;
 
 	p = dst;
+	// note how ++ increments at the end
 	while ((*p++ = *src++))
 		;
-	*(--p) = '\0';
+	*(--p) = '\0'; // why decrement ???
 	return (dst);
 }
+// the value being pointed to can't be changed but the pointer can be
 char	*ft_strdup(const char *s)
 {
 	int		i;
@@ -53,6 +55,8 @@ char	*ft_strdup(const char *s)
 	d[i] = '\0';
 	return (d);
 }
+// copy string to new memory using malloc
+// index from 'start' for length 'len'
 char *ft_strsub(char const *s, unsigned int start, size_t len)
 {
 	char	*p;
@@ -63,13 +67,15 @@ char *ft_strsub(char const *s, unsigned int start, size_t len)
 	if (!(p = (char *)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	i = 0;
-	while (len-- && s[i])
+	while (len-- && s[i]) // does s[i] condition make sense ???
 	{
 		p[i++] = s[start++];
 	}
 	p[i] = '\0';
 	return (p);
 }
+// find needle within hay
+// return pointer to start of hay
 char *ft_strstr(const char *hay, const char *needle)
 {
 	int i;
@@ -84,6 +90,7 @@ char *ft_strstr(const char *hay, const char *needle)
 		while (hay[i + j] == needle[j])
 		{
 			j++;
+			// if we get to the end of needle, then we found the right hay.
 			if (!needle[j])
 				return (&((char *)hay)[i]);
 		}
@@ -98,14 +105,17 @@ char *findstem(int n, char **arr)
 	// Determine size of the array 
 	//int n = arr.size(); 
 	// Take first word from array as reference 
-	int i, j, k;
-    char *s;
-	int len;
+	int i; // index for start of first word
+	int j; // index for length of the substring of the 1st word
+	int k; // index for subsequent words
+    char *s; // first word
+	int len; // length of 1st word
     char *stem;
+	char *res; // returned result
 
     s = ft_strdup(arr[0]); // using malloc on first string to create s
     len = ft_strlen(s); 
-	char *res = (char *)malloc(sizeof(char) * (len + 1)); 
+	res = (char *)malloc(sizeof(char) * (len + 1)); 
 
 	for (i = 0; i < len; i++) 
 	{ 

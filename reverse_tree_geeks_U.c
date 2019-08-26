@@ -11,17 +11,6 @@ struct Node
 	struct Node* left; 
 	struct Node* right; 
 }; 
-/* Helper function that allocates a new node with the 
-given data and NULL left and right pointers. */
-struct Node* newNode(int data) 
-{ 
-	struct Node* node = (struct Node*)malloc(sizeof(struct Node)); 
-	node->data = data; 
-	node->left = NULL; 
-	node->right = NULL; 
-	return(node); 
-} 
-
 void mirror(struct Node* node) 
 {
 	struct Node* temp; 
@@ -31,7 +20,8 @@ void mirror(struct Node* node)
 	else
 	{ 
 		/* do the subtrees */
-		// think of postorder traveral, we first travel to the leaf and start there
+		// think of 'postorder traveral', 
+		// we first travel to the leaf and start there
 		mirror(node->left); 
 		mirror(node->right); 
 
@@ -42,7 +32,7 @@ void mirror(struct Node* node)
 		node->right = temp; 
 	} 
 } 
-
+/////////////////////////////////////////////////
 /* Helper function to print Inorder traversal.*/
 void inOrder(struct Node* node) 
 { 
@@ -52,7 +42,14 @@ void inOrder(struct Node* node)
 	printf("%d ", node->data); 
 	inOrder(node->right); 
 } 
-/* Driver program to test mirror() */
+struct Node* newNode(int data) 
+{ 
+	struct Node* node = (struct Node*)malloc(sizeof(struct Node)); 
+	node->data = data; 
+	node->left = NULL; 
+	node->right = NULL; 
+	return(node); 
+} 
 int main() 
 { 
 	struct Node *root = newNode(1); 

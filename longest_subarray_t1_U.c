@@ -65,8 +65,8 @@ int bal(char *s, int len)
 
 char *longest_subarray(char *s)
 {
-	int max_len;
-	int cur_len;
+	int max_len; // length of input string
+	int cur_len; // potential length of string
 	int i;
 
 	max_len = ft_strlen(s);
@@ -77,7 +77,8 @@ char *longest_subarray(char *s)
 	while (bal(&s[i], cur_len) != 0)
 	{
 		//printf("222b %s %d\n", &s[i], cur_len);
-		if (i + cur_len >= max_len)
+		// not exceeding the length of the string
+		if (i + cur_len >= max_len) // why this equation? 
 		{
 			i = 0;
 			cur_len--;
@@ -87,7 +88,6 @@ char *longest_subarray(char *s)
 	}
 	return(ft_strndup(&s[i], cur_len));
 }
-
 int main()
 {
 	//char s1[] = "12435";

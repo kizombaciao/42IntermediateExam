@@ -56,7 +56,7 @@ int longestConsecutive(struct Node* root)
 	res = 0; 
 	// call utility method with current length 0 
     // note, we use root->data for initial parent value !!!
-	longestConsecutiveUtil(root, 0, root->data, &res); 
+	longestConsecutiveUtil(root, 0, root->data, &res); // void func !!!
 	return res; 
 } 
 int main() 

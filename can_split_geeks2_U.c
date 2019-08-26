@@ -12,14 +12,6 @@ struct Node
 	struct Node* left, *right; 
 }; 
 
-// utility function to create a new node 
-struct Node* newNode(int x) 
-{ 
-	struct Node* temp = (struct Node *)malloc(sizeof(struct Node)); 
-	temp->data = x; 
-	temp->left = temp->right = NULL; 
-	return temp; 
-}; 
 
 // To calculate size of tree with given root 
 int count(struct Node* root) 
@@ -41,6 +33,7 @@ int checkRec(struct Node* root, int n, int *res)
 	return 0; 
 
 	// Compute sizes of left and right children 
+	// THIS PART IS SAME AS COUNT FUNCTION !!!
 	c = 1 + checkRec(root->left, n, res) + checkRec(root->right, n, res); 
 
 	// If required property is true for current node 
@@ -65,6 +58,13 @@ int check(struct Node *root)
 	checkRec(root, n, &res); 
 	return res; 
 } 
+struct Node* newNode(int x) 
+{ 
+	struct Node* temp = (struct Node *)malloc(sizeof(struct Node)); 
+	temp->data = x; 
+	temp->left = temp->right = NULL; 
+	return temp; 
+}
 int main() 
 { 
 	struct Node* root = newNode(5); 

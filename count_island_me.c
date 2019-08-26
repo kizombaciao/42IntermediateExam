@@ -3,7 +3,9 @@
 
 char *parse(char *s)
 {
-	
+	char *map;
+
+	map = (char *)
 
 
 }

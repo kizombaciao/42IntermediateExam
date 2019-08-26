@@ -32,7 +32,6 @@ These functions must be declared as follows:
     void *peek(struct s_queue *queue);
     int isEmpty(struct s_queue *queue);
 
-
 // https://www.youtube.com/watch?v=86g8jAQug04&list=PLSpTzxrSpOsR0aq-pPdaB45wyY4zkEC7J&index=9
 // https://www.codesdope.com/blog/article/making-a-queue-using-linked-list-in-c/
 // http://btechsmartclass.com/data_structures/queue-using-linked-list.html

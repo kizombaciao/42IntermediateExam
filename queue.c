@@ -31,7 +31,7 @@ void enqueue(struct s_queue *queue, void *content)
 	if (queue->first == NULL)
 		queue->first = cur;
 	else
-		queue->last->next = cur;
+		queue->last->next = cur; // but what if q->last equals NULL ???
 	queue->last = cur;
 }
 

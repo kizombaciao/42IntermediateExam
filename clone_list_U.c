@@ -24,7 +24,7 @@ int	find_node_index(struct s_node *needle, struct s_node *haystack)
 	int i = 0;
 	while (haystack)
 	{
-		if (needle == haystack)
+		if (needle == haystack) // BECAREFUL!!! matching node to other!
 			return (i);				// returns index location
 		++i;
 		haystack = haystack->next;
@@ -41,7 +41,7 @@ struct s_node	*get_node_by_index(int index, struct s_node *haystack)
 		++i;
 		haystack = haystack->next;
 	}
-	return (haystack); // return the address from the new list
+	return (haystack); 
 }
 
 struct s_node	*clone_list(struct s_node *node)
@@ -60,18 +60,19 @@ struct s_node	*clone_list(struct s_node *node)
 	node = node->next;
 	while (node)
 	{
+		// NOTE!!! need to be new_cur->next here to avoid segdefault!
 		new_cur->next = create_node(node->data);
-		new_cur = new_cur->next; 	// like i++
-		node = node->next; 			// like i++
+		new_cur = new_cur->next; 	
+		node = node->next; 			
 	}
-	node = head; 					// set node back to head
-	new_cur = new_head; 			// set new_cur back to head
+	node = head; 					
+	new_cur = new_head; 			
 	while (node)
 	{
 		if (node->other != NULL)
 			new_cur->other = get_node_by_index(find_node_index(node->other, head), new_head);
-		new_cur = new_cur->next;	// i++
-		node = node->next;			// i++
+		new_cur = new_cur->next;	
+		node = node->next;			
 	}
 	return (new_head);
 }

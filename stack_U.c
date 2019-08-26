@@ -1,6 +1,7 @@
 // Passed Moulinette 2019.04.30
 
 #include <stdlib.h>
+#include <stdio.h>
 
 struct s_node {
 	void          *content;
@@ -21,6 +22,7 @@ struct s_stack *init(void)
 
 void *pop(struct s_stack *stack)
 {
+	// also, check if stack == NULL!!!
 	if (stack == NULL || stack->top == NULL)
 		return (NULL);
 	struct s_node *node = stack->top;
@@ -32,6 +34,7 @@ void *pop(struct s_stack *stack)
 
 void push(struct s_stack *stack, void *content)
 {
+	// check NULL!!!
 	if (stack == NULL)
 		return ;
 
@@ -43,6 +46,7 @@ void push(struct s_stack *stack, void *content)
 
 void *peek(struct s_stack *stack)
 {
+	// also, check if stack == NULL!!!	
 	if (stack == NULL || stack->top == NULL)
 		return (NULL);
 	return (stack->top->content);
@@ -50,39 +54,34 @@ void *peek(struct s_stack *stack)
 
 int isEmpty(struct s_stack *stack)
 {
+	// also, check if stack == NULL!!!
 	if (stack == NULL || stack->top == NULL)
 		return (1);
 	return (0);
 }
-
-
-
-// //--------------------------------------------
-// #include <stdio.h>
-// int 	main(void)
-// {
-// 	char a[] = "aaaaa";			(void)a;
-// 	char b[] = "bbbbb";			(void)b;
-// 	char c[] = "ccccc";			(void)c;
-// 	char d[] = "dddddicks";		(void)d;
-// 	struct s_stack *stack;
-
-// 	stack = init(); 			(void)stack;
-// 	printf("isEmpty: %d\n", isEmpty(stack));
-// 	printf("peek: %s\n", peek(stack));
-// 	printf("pop: %s\n", pop(stack));
-// 	push(stack, a); push(stack, b); push(stack, c); push(stack, d);
-// 	printf("isEmpty: %d\n", isEmpty(stack));
-// 	printf("peek: %s\n", peek(stack));
-// 	printf("pop: %s\n", pop(stack));
-// 	printf("pop: %s\n", pop(stack));
-// 	printf("pop: %s\n", pop(stack));
-// 	printf("pop: %s\n", pop(stack));
-// 	printf("pop: %s\n", pop(stack));
-// 	printf("isEmpty: %d\n", isEmpty(stack));
-
-// 	return (0);
-// }
+//--------------------------------------------
+int 	main(void)
+{
+	char a[] = "aaaaa";			(void)a;
+	char b[] = "bbbbb";			(void)b;
+	char c[] = "ccccc";			(void)c;
+	char d[] = "dddddicks";		(void)d;
+	struct s_stack *stack;
+	stack = init(); 			(void)stack;
+	printf("isEmpty: %d\n", isEmpty(stack));
+	printf("peek: %s\n", peek(stack));
+	printf("pop: %s\n", pop(stack));
+	push(stack, a); push(stack, b); push(stack, c); push(stack, d);
+	printf("isEmpty: %d\n", isEmpty(stack));
+	printf("peek: %s\n", peek(stack));
+	printf("pop: %s\n", pop(stack));
+	printf("pop: %s\n", pop(stack));
+	printf("pop: %s\n", pop(stack));
+	printf("pop: %s\n", pop(stack));
+	printf("pop: %s\n", pop(stack));
+	printf("isEmpty: %d\n", isEmpty(stack));
+	return (0);
+}
 
 /*
 “malloc” or “memory allocation” method is used to dynamically allocate 

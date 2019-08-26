@@ -30,7 +30,10 @@ struct s_node *new_node(int item)
 {
 	struct s_node *new = (struct s_node *)malloc(sizeof(struct s_node));
 	new->value = item;
-	new->nodes = malloc(1000); // why 1000 ???
+	// NOTE!!!
+	new->nodes = malloc(1000); // why 1000? 
+	// b/c you need to construct an array of pointers to structs
+	// and you don't know how long the array will be per node
 	return (new);
 }
 int main (void)

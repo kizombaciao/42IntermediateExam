@@ -9,37 +9,8 @@ struct node {
 	struct node *left, *right; 
 }; 
 // A simple function to print leaf nodes of a binary tree 
-void printLeaves(struct node* root) 
-{ 
-	if (root) { 
-		printLeaves(root->left); 
 
-		// Print it if it is a leaf node 
-		if (!(root->left) && !(root->right)) 
-			printf("%d ", root->data); 
 
-		printLeaves(root->right); 
-	} 
-} 
-// A function to print all left boundary nodes, except a leaf node. 
-// Print the nodes in TOP DOWN manner 
-void printBoundaryLeft(struct node* root) 
-{ 
-	if (root) { 
-		if (root->left) { 
-			// to ensure top down order, print the node 
-			// before calling itself for left subtree 
-			printf("%d ", root->data); 
-			printBoundaryLeft(root->left); 
-		} 
-		else if (root->right) { 
-			printf("%d ", root->data); 
-			printBoundaryLeft(root->right); 
-		} 
-		// do nothing if it is a leaf node, this way we avoid 
-		// duplicates in output 
-	} 
-} 
 // A function to print all right boundary nodes, except a leaf node 
 // Print the nodes in BOTTOM UP manner 
 void printBoundaryRight(struct node* root) 
@@ -55,6 +26,37 @@ void printBoundaryRight(struct node* root)
 		else if (root->left) { 
 			printBoundaryRight(root->left); 
 			printf("%d ", root->data); 
+		} 
+		// do nothing if it is a leaf node, this way we avoid 
+		// duplicates in output 
+	} 
+} 
+void printLeaves(struct node* root) 
+{ 
+	if (root) { 
+		printLeaves(root->left); 
+
+		// Print it if it is a leaf node 
+		if (!(root->left) && !(root->right)) 
+			printf("%d ", root->data); 
+
+		printLeaves(root->right); // NOTE!!! THIS NEEDS TO AT THE END !!!
+	} 
+} 
+// A function to print all left boundary nodes, except a leaf node. 
+// Print the nodes in TOP DOWN manner 
+void printBoundaryLeft(struct node* root) 
+{ 
+	if (root) { 
+		if (root->left) { 
+			// to ensure top down order, print the node 
+			// before calling itself for left subtree 
+			printf("%d ", root->data); 
+			printBoundaryLeft(root->left); 
+		} 
+		else if (root->right) { // note! need if also!
+			printf("%d ", root->data); 
+			printBoundaryLeft(root->right); 
 		} 
 		// do nothing if it is a leaf node, this way we avoid 
 		// duplicates in output 

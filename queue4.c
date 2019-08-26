@@ -24,7 +24,7 @@ void enqueue(struct s_queue *queue, void *content)
 	if (!queue->first)
 	{
 		queue->first = node;
-		queue->last = node;
+		queue->last = node; // note! last also point to the same node !!!
 	}
 	else
 	{
