@@ -43,16 +43,11 @@ void enqueue(struct s_queue *q, void *content);
 
 	if (q->f == NULL)
 		q->f = p;
-	else if (q->l == NULL)
-	{
-		q->f->next = p;
-		q->l = p;
-	}
 	else 
 	{
 		queue->l->next = p;
-		queue->l = p;
 	}
+	queue->l = p;
 }
 
 void *dequeue(struct s_queue *q);
@@ -60,7 +55,7 @@ void *dequeue(struct s_queue *q);
 	struct s_node *t;
 	void *c;
 
-	if (q == NULL)
+	if (q == NULL || q->first == NULL)
 		return;
 
 	t = q->f;

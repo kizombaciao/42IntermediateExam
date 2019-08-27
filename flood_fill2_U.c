@@ -64,10 +64,12 @@ char **make_area(char **zone)
 }
 void r(char **tab, t_point size, int x, int y, char c)
 {
+	// edges
 	if (y < 0 || x < 0 || y >= size.y || x >= size.x)
 	{
 		return ;
 	}
+	// recursion
 	if (tab[y][x] == c)
 	{
 		tab[y][x] = 'F';

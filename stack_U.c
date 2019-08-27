@@ -22,11 +22,13 @@ struct s_stack *init(void)
 
 void *pop(struct s_stack *stack)
 {
+	struct s_node *node;
+	void *content;
 	// also, check if stack == NULL!!!
 	if (stack == NULL || stack->top == NULL)
 		return (NULL);
-	struct s_node *node = stack->top;
-	void *content = node->content;
+	node = stack->top;
+	content = node->content;
 	stack->top = node->next;
 	free(node);
 	return (content);
@@ -34,11 +36,11 @@ void *pop(struct s_stack *stack)
 
 void push(struct s_stack *stack, void *content)
 {
+	struct s_node *node;
 	// check NULL!!!
 	if (stack == NULL)
 		return ;
-
-	struct s_node *node = malloc(sizeof(struct s_node));
+	node = malloc(sizeof(struct s_node));
 	node->content = content;
 	node->next = stack->top;
 	stack->top = node;

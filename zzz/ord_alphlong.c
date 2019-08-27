@@ -16,6 +16,7 @@ int len(char *s, int (*f)(char))
 	return (i);
 }
 
+// count words
 int cw(char *s, int (*f)(char))
 {
 	int i = 0, w = 0, flag = 0;
@@ -125,7 +126,7 @@ void sortlen(char **w, int (*f)(char))
 			if (l1 >= l2)
 			{
 				sw(w, i, j);
-				l1 = len(w[i], f);
+				l1 = len(w[i], f); // note!!!
 			}
 		}
 	}

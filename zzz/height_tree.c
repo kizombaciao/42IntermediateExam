@@ -26,7 +26,7 @@ int height_tree(struct s_node *r)
 
 	while (r->nodes[i])
 	{
-		res = 1+ height_tree(r->nodes[i]);
+		res = 1 + height_tree(r->nodes[i]);
 		res2 = max(res, res2);
 		i++;
 	}

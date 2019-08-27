@@ -55,7 +55,7 @@ char **ft_strsplit(char const *s, int (*func)(char))
 	while (i < ft_count_words(s, func))
 	{
 		j = 0;
-		while (func(s[k]) && s[k]) // remove beginning spaces
+		while (func(s[k]) && s[k]) // remove spaces
 			k++;
 		if (!(p[i] = (char *)malloc(sizeof(char) * ft_word_len(&s[k], func) + 1)))
 			return (NULL);

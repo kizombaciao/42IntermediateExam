@@ -1,17 +1,13 @@
 // Passed Moulinette 2019.05.26
-
 #include <stdlib.h>
-
 	struct s_node {
 		void *content;
 		struct s_node *next;
 	};
-
 	struct s_queue {
 		struct s_node *first;
 		struct s_node *last;
 	};
-
 struct s_queue *init(void)
 {
 	struct s_queue *queue = malloc(sizeof(struct s_queue *));
@@ -19,50 +15,50 @@ struct s_queue *init(void)
 	queue->last = NULL;
 	return(queue);
 }
-
 void enqueue(struct s_queue *queue, void *content)
 {
+	struct s_node *cur;
+
 	if (queue == NULL)
 		return;
-
-	struct s_node *cur = malloc(sizeof(struct s_node));
+	cur = malloc(sizeof(struct s_node));
 	cur->content = content;
 	cur->next = NULL;
 	if (queue->first == NULL)
 		queue->first = cur;
 	else
 		queue->last->next = cur; // but what if q->last equals NULL ???
+	// below line ensures that if only node in list, then last also point to it!
 	queue->last = cur;
 }
-
 void *dequeue(struct s_queue *queue)
 {
-	if (queue == NULL || queue->first == NULL)
-		return (NULL);
+	struct s_node *cur;
+	void *content;
 
-	struct s_node *cur = queue->first;
-	if (cur == queue->last)
-		queue->last = NULL;
+	if (queue == NULL || queue->first == NULL) // also, check first, if NULL !
+		return (NULL);
+	cur = queue->first;
+	content = cur->content;
 	queue->first = cur->next;
-	void *content = cur->content;
+	// if both first and last both point to the same node, only one node in list!
+	if (cur == queue->last) 
+		queue->last = NULL;
 	free(cur);
 	return (content);
 }
-
 void *peek(struct s_queue *queue)
 {
 	if (queue == NULL || queue->first == NULL)
 		return (NULL);
 	return (queue->first->content);
 }
-
 int isEmpty(struct s_queue *queue)
 {
 	if (queue == NULL || queue->first == NULL)
 		return (1);
 	return (0);
 }
-
 //------------------------------------------------------
 // #include <stdio.h>
 // int main(void)

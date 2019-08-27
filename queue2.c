@@ -1,3 +1,8 @@
+// according to colleagues, if there's only one node,
+// both first and last need to point to this same node
+// below code doesn't abide by that
+// so ignore this solution.
+
 #include <stdlib.h>
 
 struct s_node {
@@ -47,7 +52,7 @@ then you want to have both ptrs pointing to the same node.
 */
 
 // what if q->f->next == NULL ?
-// what if q->f and q->l point to the same node ?
+// what if q->f and q->l point to the same node? only if one node in list.
 // do we need to move last to first ?
 void *dequeue(struct s_queue *queue)
 {
