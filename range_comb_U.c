@@ -10,7 +10,6 @@ int factorial(int n)
 {
 	int i;
 	int r = 1;
-
 	for (i = 1; i <= n; i++)
 	{
 		r *= i;
@@ -21,10 +20,8 @@ char *convert_string(n)
 {
 	int i;
 	char *s;
-
 	s = (char *)malloc(sizeof(char) * (n + 1));
 	s[n] = '\0';
-
 	for (i = 0; i < n; i++)
 	{
 		s[i] = i + '0';
@@ -76,7 +73,6 @@ int **range_comb(int n)
 	{
 		t[i] = (int *)malloc(sizeof(int) * (n));
 	}
-
 	permute(s, t, n, 0, n - 1);
 	return (t);
 }

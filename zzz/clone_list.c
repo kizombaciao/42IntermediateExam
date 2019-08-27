@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 struct s_node
 {
 	int data;
@@ -48,19 +47,6 @@ struct s_node *findptr(int idx, struct s_node *h1)
 		h1 = h1->next;
 	}
 	return (h1);
-
-/*	
-	while (t)
-	{
-		if (i == idx)
-		{
-			return (t);
-		}
-		t = t->next;
-		i++;
-	}
-	return (NULL);
-*/
 }
 
 struct s_node *cl(struct s_node *r)
@@ -92,6 +78,7 @@ struct s_node *cl(struct s_node *r)
 	{
 		if (r->other != NULL)
 		{
+			// note, we are looking for what address other points at!!!
 			r1->other = findptr(findidx(r->other, h), h1);
 		}
 		r = r->next;
@@ -99,7 +86,7 @@ struct s_node *cl(struct s_node *r)
 	}
 	return (h1);
 }
-
+/////////////////////////////////////////////////////////////
 void	print_list(struct s_node *head)
 {
 	while (head)

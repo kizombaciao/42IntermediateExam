@@ -35,7 +35,7 @@ void cb2(struct s_node *r, struct s_node **prev)
 		(*prev)->right = r;
 		r->left = (*prev);
 	}
-	(*prev) = r;
+	(*prev) = r; // REMEMBER !!!
 	cb2(r->right, prev);
 }
 

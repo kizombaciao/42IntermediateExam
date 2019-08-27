@@ -39,7 +39,7 @@ void swap(char *x, char *y)
 
 void perm(char *s, int **t, int n, int start, int end)
 {
-	static int idx = 0;
+	static int idx = 0; // remember!!!
 	int i, j;
 
 	if (start == end)

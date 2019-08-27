@@ -31,7 +31,7 @@ void pl(struct s_node *r)
 	if (r)
 	{
 		pl(r->left);
-		pl(r->right);
+		pl(r->right); // WRONG !!!
 		
 		if (!(r->left) && !(r->right))
 		{

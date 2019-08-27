@@ -11,7 +11,16 @@ int min(int a, int b)
 {
 	return (((a > b) ? b : a));
 }
-
+/*
+void *ft_memset(void *b, int c, int n)
+{
+	char *d;
+	d = (char *)b;
+	while (d < (char *)b + n)
+		*(d++) = (char)c;
+	return (b);
+}
+*/
 int vvv(int *h, int size)
 {
 	int i = 1;

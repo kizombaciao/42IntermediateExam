@@ -64,7 +64,6 @@ int getMaxGold(int gold[][MAX], int m, int n) // is MAX necessary here ???
 							max(right, max(right_up, right_down)); 													
 		} 
 	} 
-
 	// The max amount of gold collected will be the max 
 	// value in first column of all rows 
 	int res = goldTable[0][0]; 

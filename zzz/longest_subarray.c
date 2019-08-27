@@ -72,22 +72,22 @@ char *longest_subarray(char *s)
 	int cl;
 
 	ml = ftstrlen(s);
-	cl = 2 * moe(s);
+	cl = 2 * moe(s); // used to set range
 	i = 0;
 
-	while (bal(&s[i], cl) != 0)
+	while (bal(&s[i], cl) != 0) // if equal num of odds and evens
 	{
 		if (i + cl >= ml)
 		{
 			i = 0;
-			cl--;
+			cl--; // cl is adjusted!
 		}
 		else
-			i++;
+			cl++;
 	}
-	return (ft_strndup(&s[i], cl));
+	return (ft_strndup(&s[i], cl)); // Note, cl!!!
 }
-
+///////////////////////////////////////
 int main()
 {
 	//char s1[] = "12435";
