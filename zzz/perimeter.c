@@ -7,7 +7,6 @@ struct s_node
 	struct s_node *right;
 	struct s_node *left;
 };
-
 void pbl(struct s_node *r)
 {
 	if (!r)
@@ -48,7 +47,6 @@ void pbr(struct s_node *r)
 		printf("%d ", r->value);
 	}
 }
-
 void per(struct s_node *r)
 {
 	if (!r)
@@ -59,7 +57,7 @@ void per(struct s_node *r)
 	pl(r->right);
 	pbr(r->right);
 }
-
+////////////////////////////////////////////////
 struct s_node* newNode(int data) 
 { 
 	struct s_node* temp = (struct s_node*)malloc(sizeof(struct s_node)); 
@@ -67,7 +65,6 @@ struct s_node* newNode(int data)
 	temp->left = temp->right = NULL; 
 	return temp; 
 } 
-
 int main() 
 { 
 	struct s_node* root;

@@ -7,7 +7,6 @@ struct s_node
 	struct s_node *left;
 	struct s_node *right;
 };
-
 int len(struct s_node *r)
 {
 	int i;
@@ -42,12 +41,11 @@ int can_split(struct s_node *r)
 		return 0;
 
 	n = len(r);
-	printf("222a %d\n", n);
 	
 	cs(r, n, &res);
 	return (res);
 }
-
+///////////////////////////////////////////
 struct s_node* newNode(int x) 
 { 
 	struct s_node* temp = (struct s_node *)malloc(sizeof(struct s_node)); 

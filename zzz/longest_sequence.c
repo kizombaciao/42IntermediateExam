@@ -20,7 +20,7 @@ void ls2(struct s_node *r, int cur, int exp, int *res)
 	else
 		cur = 1;
 
-	*res = max(cur, *res);
+	*res = max(cur, *res); // remember!!!
 
 	ls2(r->left, cur, r->value + 1, res);
 	ls2(r->right, cur, r->value + 1, res);

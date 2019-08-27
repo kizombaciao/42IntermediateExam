@@ -32,8 +32,8 @@ void reverse_tree(struct s_node *r)
 //	p = r->left;
 //	r->left = r->right;
 //	r->right = p;
-
 }
+//////////////////////////////////////////////////////////
 void inOrder(struct s_node* node) 
 { 
 	if (node == NULL) 

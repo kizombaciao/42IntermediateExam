@@ -99,7 +99,7 @@ char *ft_strcpy(char *d, char *s)
 
 char *fs(int n, char **arr)
 {
-	int k;
+	int k; // index for num of words
 	char *s; // first word
 	int len; // length of first word
 	char *res; // returned result
@@ -113,6 +113,7 @@ char *fs(int n, char **arr)
 
 	for (int i = 0; i < len; i++)
 	{
+		// note, j is for length
 		for (int j = 1; j <= len - i; j++)
 		{
 			stem = ft_strsub(s, i, j);
@@ -135,7 +136,7 @@ char *fs(int n, char **arr)
 	free(s);
 	return res;
 }
-
+///////////////////////////////////////////
 int main(int ac, char **av)
 {
 	char *p;

@@ -60,7 +60,7 @@ void *iii(struct s_node *r1, struct s_node *r2)
 	}
 	return NULL;
 }
-
+/////////////////////////////////////////////////////////
 
 struct s_node* b(void* v) {
 	struct s_node* new;

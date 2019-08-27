@@ -10,14 +10,12 @@ int max(int a , int b)
 	else
 		return (b);
 }
-
 struct s_node
 {
 	int value;
 	struct s_node *left;
 	struct s_node *right;
 };
-
 int w(struct s_node *r, int *ans)
 {
 	int le;
@@ -31,7 +29,6 @@ int w(struct s_node *r, int *ans)
 	*ans = max(*ans, 1 + le + ri);
 	return(1 + max(le, ri));
 }
-
 int width_tree(struct s_node *n)
 {
 	int ans = 0;
@@ -43,6 +40,7 @@ int width_tree(struct s_node *n)
 	h = w(n, &ans);	
 	return (ans);
 }
+/////////////////////////////////////////////////////
 struct s_node* newNode(int data) 
 { 
 	struct s_node* node = (struct s_node *)malloc(sizeof(struct s_node)); 
