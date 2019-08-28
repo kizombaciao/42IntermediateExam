@@ -17,6 +17,7 @@ int len(struct s_node *r)
 	return (i);
 }
 
+// it's like postorder
 int cs(struct s_node *r, int n, int *res)
 {
 	int c;

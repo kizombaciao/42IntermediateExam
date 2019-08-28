@@ -15,23 +15,6 @@ char	*ft_strndup(char *str, int len)
 		new[i] = str[i];
 	return (new);
 }
-
-int		check_balance(char *str, int len)
-{
-	int balance = 0;
-	int i = 0;
-	while (i < len)
-	{
-		if (IS_ODD(str[i] - '0')) // why we didn't do this before ???
-			balance++;
-		else
-			balance--;
-		i++;
-	}
-	// if balance equals zero, that means we have equal number of odds and evens.
-	return (balance);
-}
-
 // count the num of odds and even.  return the smallest of two.
 // tells us the maximum potential pairs of odd and even
 int		min_odds_evens(char *str)
@@ -49,7 +32,21 @@ int		min_odds_evens(char *str)
 	}
 	return (odds < evens ? odds : evens);
 }
-
+int		check_balance(char *str, int len)
+{
+	int balance = 0;
+	int i = 0;
+	while (i < len)
+	{
+		if (IS_ODD(str[i] - '0')) // why we didn't do this before ???
+			balance++;
+		else
+			balance--;
+		i++;
+	}
+	// if balance equals zero, that means we have equal number of odds and evens.
+	return (balance);
+}
 char	*longest_subarray(char *arr)
 {
 	int max_len = strlen(arr);
@@ -68,7 +65,7 @@ char	*longest_subarray(char *arr)
 			cur_len--;
 		}
 		else
-			start++;
+			start++; // remember!
 	}
 	return(ft_strndup(arr + start, cur_len));
 }

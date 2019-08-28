@@ -24,7 +24,7 @@ int height_tree(struct s_node *root)
 			i++;
 		}
 	}
-	return(height);
+	return(height); // note!!!
 }
 struct s_node *new_node(int item)
 {

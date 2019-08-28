@@ -67,15 +67,9 @@ void printBoundary(struct node* root)
 { 
 	if (root) { 
 		printf("%d ", root->data); 
-
-		// Print the left boundary in top-down manner. 
 		printBoundaryLeft(root->left); 
-
-		// Print all leaf nodes 
 		printLeaves(root->left); 
 		printLeaves(root->right); 
-
-		// Print the right boundary in bottom-up manner 
 		printBoundaryRight(root->right); 
 	} 
 } 

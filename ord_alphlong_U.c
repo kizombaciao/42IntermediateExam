@@ -162,9 +162,9 @@ void ord_alphlong(char *s)
 
 	// NOTE, &is_blank also works !!!
 	words = ft_strsplit(s, is_blank);
-	print_words(words, is_blank);
+	//print_words(words, is_blank);
 	ft_sortalph(words);
-	print_words(words, is_blank);
+	//print_words(words, is_blank);
 	ft_sortlen(words, is_blank);
 	print_words(words, is_blank);
 

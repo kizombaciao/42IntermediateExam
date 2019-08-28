@@ -33,7 +33,7 @@ void	convert_subtree(struct s_node *cur, struct s_node **prev)
 		(*prev)->right = cur;
 		cur->left = *prev;
 	}
-	*prev = cur;
+	*prev = cur; // REMEMBER !!!
 	convert_subtree(cur->right, prev);
 }
 struct s_node *convert_bst(struct s_node *bst)

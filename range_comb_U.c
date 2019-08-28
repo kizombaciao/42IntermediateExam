@@ -46,10 +46,11 @@ void permute(char *s, int **t, int n, int start, int end)
     	{
 	    	t[idx][j] = s[j] - '0';
     	} 
-    	idx++;
+    	idx++; // remember!
     } 
     else
     { 
+		// remember i ranges from start to end (inclusive)!!!
     	for (i = start; i <= end; i++) 
     	{ 
     		swap((s + start), (s + i)); 
@@ -65,14 +66,16 @@ int **range_comb(int n)
 	int **t;
 	int f;
 
-	f = factorial(n);
+	f = factorial(n); // #rows
 	s = convert_string(n);
 
+	// malloc t matrix
 	t = (int **)malloc(sizeof(int *) * f);
 	for (i = 0; i < f; i++)
 	{
 		t[i] = (int *)malloc(sizeof(int) * (n));
 	}
+
 	permute(s, t, n, 0, n - 1);
 	return (t);
 }

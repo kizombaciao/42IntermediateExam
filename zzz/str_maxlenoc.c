@@ -72,6 +72,7 @@ char *ft_strstr(char *hay, char *needle)
 	while (hay[i])
 	{
 		j = 0;
+		// why i + j? b/c you need the i later on!
 		while (hay[i + j] == needle[j])
 		{
 			j++;
@@ -114,6 +115,7 @@ char *fs(int n, char **arr)
 	for (int i = 0; i < len; i++)
 	{
 		// note, j is for length
+		// why <= len ???
 		for (int j = 1; j <= len - i; j++)
 		{
 			stem = ft_strsub(s, i, j);

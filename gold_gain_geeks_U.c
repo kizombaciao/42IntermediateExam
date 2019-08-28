@@ -1,5 +1,7 @@
 // actual queston is a square matrix n x n
 
+https://github.com/evandjohnston/ft_alone_in_the_dark/tree/master/Tips/2019.02.25_limits.h
+
 // https://www.geeksforgeeks.org/gold-mine-problem/
 // C++ program to solve Gold Mine problem 
 //#include<bits/stdc++.h> 
