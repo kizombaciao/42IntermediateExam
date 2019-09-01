@@ -1,6 +1,6 @@
 // Passed Moulinette on 2019.05.19
 
-#include <string.h>
+#include <string.h> // REMEMBER !!!
 
 struct s_node {
 	int value;
@@ -9,6 +9,7 @@ struct s_node {
 
 int	is_looping(struct s_node *node)
 {
+	// DO I NEED TO CHECK IF NODE->NEXT == NULL ???
 	if (node == NULL || node->next == NULL)
 		return (0);
 	struct s_node *slow = node;

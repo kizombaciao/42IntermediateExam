@@ -1,4 +1,6 @@
 // Passed Moulinette 2019.05.26
+#include <stdio.h>
+
 #include <stdlib.h>
 	struct s_node {
 		void *content;
@@ -45,7 +47,7 @@ void *dequeue(struct s_queue *queue)
 	if (cur == queue->last) 
 		queue->last = NULL;
 	free(cur);
-	return (content);
+	return (content); // it's a void pointer function!!!
 }
 void *peek(struct s_queue *queue)
 {
@@ -59,31 +61,54 @@ int isEmpty(struct s_queue *queue)
 		return (1);
 	return (0);
 }
-//------------------------------------------------------
-// #include <stdio.h>
-// int main(void)
-// {
-// 	char a[] = "Apples"; (void)a;
-// 	char b[] = "Banananananas"; (void)b;
-// 	char c[] = "Charlemagne"; (void)c;
-// 	char d[] = "dddddddicks"; (void)d;
+//-----------------------------------------------------
+int main()
+{
+	struct s_queue *q;
+	int n = 111;
+	void *c = &n;
+	int n1 = 222; 
+	void *c1 = &n1;
+	void *c2;
 
-// 	struct s_queue *queue = init();
-// 	printf("isEmpty A: %d\n", isEmpty(queue));
-// 	enqueue(queue, a);
-// 	printf("isEmpty B: %d\n", isEmpty(queue));
-// 	enqueue(queue, b);
-// 	enqueue(queue, c);
-// 	enqueue(queue, d);
+	q = init();
+	enqueue(q, c);
+	c2 = peek(q);
+	printf("%d\n", *(int *)c2);
+//	enqueue(q, c1);
 
-// 	printf("Peek: %s\n", peek(queue));
-// 	printf("Pop: %s\n", dequeue(queue));
-// 	printf("Pop: %s\n", dequeue(queue));
-// 	printf("Pop: %s\n", dequeue(queue));
-// 	printf("Pop: %s\n", dequeue(queue));
-// 	printf("Pop: %s\n", dequeue(queue));
-// 	printf("Peek: %s\n", peek(queue));
-// 	printf("isEmpty C: %d\n", isEmpty(queue));
-// 	return (0);
-// }
+	c2 = dequeue(q);
+	printf("aaab  %d\n", *(int *)c2);
+	c2 = dequeue(q);
+//	printf("aaac  %d\n", *(int *)c2);
+	
+	printf("aaad  %d\n", isEmpty(q));
+}
 
+/*
+int main(void)
+{
+	char a[] = "Apples"; (void)a;
+	char b[] = "Banananananas"; (void)b;
+	char c[] = "Charlemagne"; (void)c;
+	char d[] = "dddddddicks"; (void)d;
+	struct s_queue *queue;
+	
+	queue = init();
+	printf("isEmpty A: %d\n", isEmpty(queue));
+	enqueue(queue, a);
+	printf("isEmpty B: %d\n", isEmpty(queue));
+	enqueue(queue, b);
+	enqueue(queue, c);
+	enqueue(queue, d);
+	printf("Peek: %s\n", peek(queue));
+	printf("Pop: %s\n", dequeue(queue));
+	printf("Pop: %s\n", dequeue(queue));
+	printf("Pop: %s\n", dequeue(queue));
+	printf("Pop: %s\n", dequeue(queue));
+	printf("Pop: %s\n", dequeue(queue));
+	printf("Peek: %s\n", peek(queue));
+	printf("isEmpty C: %d\n", isEmpty(queue));
+	return (0);
+}
+*/

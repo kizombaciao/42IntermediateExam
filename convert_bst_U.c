@@ -10,6 +10,7 @@ struct s_node {
 };
 struct s_node *leftmost(struct s_node *cur)
 {
+    // if cur->left equals NULL, then stop at cur
 	while (cur->left) // note!!! cur->left instead of cur!
 		cur = cur->left;
 	return (cur);
@@ -38,7 +39,7 @@ void	convert_subtree(struct s_node *cur, struct s_node **prev)
 }
 struct s_node *convert_bst(struct s_node *bst)
 {
-	struct s_node *prev = 0;
+	struct s_node *prev = 0; // why NULL ???
 	struct s_node *min;
 
 	if (bst == 0)

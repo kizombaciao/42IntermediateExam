@@ -25,6 +25,7 @@ int cs(struct s_node *r, int n, int *res)
 	if (!r)
 		return 0;
 
+	
 	c = 1 + cs(r->left, n, res) + cs(r->right, n, res);
 
 	if (c == n - c)

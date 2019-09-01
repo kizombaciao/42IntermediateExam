@@ -88,6 +88,24 @@ void	print_list(struct s_node *head)
 		head = head->next;
 	}
 }
+
+
+int main()
+{
+	struct s_node *p;
+	struct s_node *q;
+
+	p = create_node(1);
+	p->next = create_node(2);
+	p->next->next = create_node(3);
+	p->next->next->other = p;
+	print_list(p);
+
+	q = clone_list(p);
+	print_list(p);
+
+}
+/*/
 int		main(void)
 {
 	struct s_node *head;
@@ -108,3 +126,4 @@ int		main(void)
 	printf("%%%%%%%%%%%%%%%%%%\n\n");
 	print_list(clone_list(head));
 }
+*/

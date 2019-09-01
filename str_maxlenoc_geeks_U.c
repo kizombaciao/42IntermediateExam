@@ -74,8 +74,7 @@ char *ft_strsub(char const *s, unsigned int start, size_t len)
 	p[i] = '\0';
 	return (p);
 }
-// find needle within hay
-// return pointer to start of hay
+// find needle within hay, return pointer to start of hay
 char *ft_strstr(const char *hay, const char *needle)
 {
 	int i;
@@ -87,7 +86,7 @@ char *ft_strstr(const char *hay, const char *needle)
 	while (hay[i])
 	{
 		j = 0;
-		while (hay[i + j] == needle[j])
+		while (hay[i + j] == needle[j]) // trick!!!
 		{
 			j++;
 			// if we get to the end of needle, then we found the right hay.
@@ -127,6 +126,7 @@ char *findstem(int n, char **arr)
 			// of our reference string arr[0] i.e s 
 			// substring of s from i for length j
 			stem = ft_strsub(s, i, j);
+			printf("222a %s\n", stem);
 			for (k = 1; k < n; k++) 
 			{ 
 				// Check if the generated stem is 
@@ -139,7 +139,8 @@ char *findstem(int n, char **arr)
 
 			// If current substring is present in 
 			// all strings and its length is greater 
-			// than current result 
+			// than current result. 
+			// if stem is longer than previous best result.
 			if (k == n && ft_strlen(res) < ft_strlen(stem)) 
 				ft_strcpy(res, stem); // copy from stem to res
 			free(stem);

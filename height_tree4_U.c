@@ -24,6 +24,7 @@ int height_tree(struct s_node *root)
 			i++;
 		}
 	}
+	printf("222a %d\n", height);
 	return(height); // note!!!
 }
 struct s_node *new_node(int item)
@@ -31,13 +32,24 @@ struct s_node *new_node(int item)
 	struct s_node *new = (struct s_node *)malloc(sizeof(struct s_node));
 	new->value = item;
 	// NOTE!!!
-	new->nodes = malloc(1000); // NOTE!!!
+	new->nodes = malloc(1000); // NOTE!!! NEED TO INITIALIZE ???
 	// b/c you need to construct an array of pointers to structs
 	// and you don't know how long the array will be per node
 	return (new);
 }
 int main (void)
 {
+	struct s_node *p;
+
+	p = new_node(1);
+	p->nodes[0] = new_node(2);
+	p->nodes[1] = new_node(3);
+	p->nodes[0]->nodes[0] = new_node(4);
+	p->nodes[1]->nodes[0] = new_node(5);
+
+	printf("%d\n", height_tree(p));
+
+/*
 	struct s_node *t;
 	t = new_node(94);
 	t->nodes[0] = new_node(34);
@@ -47,5 +59,6 @@ int main (void)
 	t->nodes[0]->nodes[2] = new_node(11);
 	t->nodes[0]->nodes[1]->nodes[0] = new_node(13);
 	printf("%d", height_tree(t));
+*/
 	return (0);
 }

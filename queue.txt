@@ -39,3 +39,6 @@ These functions must be declared as follows:
 // https://www.techiedelight.com/queue-implementation-using-linked-list/
 // https://www.sanfoundry.com/c-program-queue-using-linked-list/
 
+// NOTES:
+// if only one node, both first and last point to that node
+// if empty, both first and last point to NULL

@@ -1,115 +1,112 @@
-// A C Program to demonstrate adjacency list 
-// representation of graphs 
-#include <stdio.h> 
-#include <stdlib.h> 
 
-// A structure to represent an adjacency list node 
-struct AdjListNode 
+// https://www.geeksforgeeks.org/longest-path-between-any-pair-of-vertices/
+// https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/
+
+// C++ program to find the longest cable length 
+// between any two cities. 
+
+// visited[] array to make nodes visited 
+// src is starting node for DFS traversal 
+// prev_len is sum of cable length till current node 
+// max_len is pointer which stores the maximum length 
+// of cable value after DFS traversal 
+void DFS(vector< pair<int,int> > graph[], int src, 
+		int prev_len, int *max_len, 
+		vector <bool> &visited) 
 { 
-	int dest; 
-	struct AdjListNode* next; 
-}; 
+	// Mark the src node visited 
+	visited[src] = 1; 
 
-// A structure to represent an adjacency list 
-struct AdjList 
-{ 
-	struct AdjListNode *head; 
-}; 
+	// curr_len is for length of cable from src 
+	// city to its adjacent city 
+	int curr_len = 0; 
 
-// A structure to represent a graph. A graph 
-// is an array of adjacency lists. 
-// Size of array will be V (number of vertices 
-// in graph) 
-struct Graph 
-{ 
-	int V; 
-	struct AdjList* array; 
-}; 
+	// Adjacent is pair type which stores 
+	// destination city and cable length 
+	pair < int, int > adjacent; 
 
-// A utility function to create a new adjacency list node 
-struct AdjListNode* newAdjListNode(int dest) 
-{ 
-	struct AdjListNode* newNode = 
-	(struct AdjListNode*) malloc(sizeof(struct AdjListNode)); 
-	newNode->dest = dest; 
-	newNode->next = NULL; 
-	return newNode; 
-} 
-
-// A utility function that creates a graph of V vertices 
-struct Graph* createGraph(int V) 
-{ 
-	struct Graph* graph = 
-		(struct Graph*) malloc(sizeof(struct Graph)); 
-	graph->V = V; 
-
-	// Create an array of adjacency lists. Size of 
-	// array will be V 
-	graph->array = 
-	(struct AdjList*) malloc(V * sizeof(struct AdjList)); 
-
-	// Initialize each adjacency list as empty by 
-	// making head as NULL 
-	int i; 
-	for (i = 0; i < V; ++i) 
-		graph->array[i].head = NULL; 
-
-	return graph; 
-} 
-
-// Adds an edge to an undirected graph 
-void addEdge(struct Graph* graph, int src, int dest) 
-{ 
-	// Add an edge from src to dest. A new node is 
-	// added to the adjacency list of src. The node 
-	// is added at the begining 
-	struct AdjListNode* newNode = newAdjListNode(dest); 
-	newNode->next = graph->array[src].head; 
-	graph->array[src].head = newNode; 
-
-	// Since graph is undirected, add an edge from 
-	// dest to src also 
-	newNode = newAdjListNode(src); 
-	newNode->next = graph->array[dest].head; 
-	graph->array[dest].head = newNode; 
-} 
-
-// A utility function to print the adjacency list 
-// representation of graph 
-void printGraph(struct Graph* graph) 
-{ 
-	int v; 
-	for (v = 0; v < graph->V; ++v) 
+	// Traverse all adjacent 
+	for (int i=0; i<graph[src].size(); i++) 
 	{ 
-		struct AdjListNode* pCrawl = graph->array[v].head; 
-		printf("\n Adjacency list of vertex %d\n head ", v); 
-		while (pCrawl) 
+		// Adjacent element 
+		adjacent = graph[src][i]; 
+
+		// If node or city is not visited 
+		if (!visited[adjacent.first]) 
 		{ 
-			printf("-> %d", pCrawl->dest); 
-			pCrawl = pCrawl->next; 
+			// Total length of cable from src city 
+			// to its adjacent 
+			curr_len = prev_len + adjacent.second; 
+
+			// Call DFS for adjacent city 
+			DFS(graph, adjacent.first, curr_len, 
+				max_len, visited); 
 		} 
-		printf("\n"); 
+
+		// If total cable length till now greater than 
+		// previous length then update it 
+		if ((*max_len) < curr_len) 
+			*max_len = curr_len; 
+
+		// make curr_len = 0 for next adjacent 
+		curr_len = 0; 
 	} 
 } 
 
-// Driver program to test above functions 
+// n is number of cities or nodes in graph 
+// cable_lines is total cable_lines among the cities 
+// or edges in graph 
+int longestCable(vector<pair<int,int> > graph[], 
+										int n) 
+{ 
+	// maximum length of cable among the connected 
+	// cities 
+	int max_len = INT_MIN; 
+
+	// call DFS for each city to find maximum 
+	// length of cable 
+	for (int i=1; i<=n; i++) 
+	{ 
+		// initialize visited array with 0 
+		vector< bool > visited(n+1, false); 
+
+		// Call DFS for src vertex i 
+		DFS(graph, i, 0, &max_len, visited); 
+	} 
+
+	return max_len; 
+} 
+
 int main() 
 { 
-	// create the graph given in above fugure 
-	int V = 5; 
-	struct Graph* graph = createGraph(V); 
-	addEdge(graph, 0, 1); 
-	addEdge(graph, 0, 4); 
-	addEdge(graph, 1, 2); 
-	addEdge(graph, 1, 3); 
-	addEdge(graph, 1, 4); 
-	addEdge(graph, 2, 3); 
-	addEdge(graph, 3, 4); 
+	// n is number of cities 
+	int n = 6; 
 
-	// print the adjacency list representation of the above graph 
-	printGraph(graph); 
+	vector< pair<int,int> > graph[n+1]; 
+
+	// create undirected graph 
+	// first edge 
+	graph[1].push_back(make_pair(2, 3)); 
+	graph[2].push_back(make_pair(1, 3)); 
+
+	// second edge 
+	graph[2].push_back(make_pair(3, 4)); 
+	graph[3].push_back(make_pair(2, 4)); 
+
+	// third edge 
+	graph[2].push_back(make_pair(6, 2)); 
+	graph[6].push_back(make_pair(2, 2)); 
+
+	// fourth edge 
+	graph[4].push_back(make_pair(6, 6)); 
+	graph[6].push_back(make_pair(4, 6)); 
+
+	// fifth edge 
+	graph[5].push_back(make_pair(6, 5)); 
+	graph[6].push_back(make_pair(5, 5)); 
+
+	printf("Maximum length of cable = %d", longestCable(graph, n)); 
 
 	return 0; 
 } 
 
-// https://www.geeksforgeeks.org/graph-and-its-representations/

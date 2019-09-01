@@ -34,6 +34,7 @@ int checkRec(struct Node* root, int n, int *res)
 
 	// Compute sizes of left and right children 
 	// THIS PART IS SAME AS COUNT FUNCTION !!!
+	// intution: at every node, you need to know the size of the subtree.
 	c = 1 + checkRec(root->left, n, res) + checkRec(root->right, n, res); 
 
 	// If required property is true for current node 
@@ -58,6 +59,10 @@ int check(struct Node *root)
 	checkRec(root, n, &res); 
 	return res; 
 } 
+/*
+first, we find the size of the subtree
+*/
+////////////////////////////////////////////////////////
 struct Node* newNode(int x) 
 { 
 	struct Node* temp = (struct Node *)malloc(sizeof(struct Node)); 

@@ -9,22 +9,27 @@ struct s_node
 
 int is_looping(struct s_node *r)
 {
+	struct s_node *slow;
+	struct s_node *fast;
+
 	if (!r)
 		return 0;
 
-	while (r)
+	slow = r;
+	fast = r;
+	while (slow && fast && fast->next)
 	{
-		if (r->value == -1)
+		slow = slow->next;
+		fast = fast->next->next;
+		if (slow == fast)
 		{
 			return (1);
 		}
-		r->value = -1;
-		r = r->next;
 	}
-	return 0;
+	return (0);
 }
 
-struct s_node *new (int item)
+struct s_node *new(int item)
 {
 	struct s_node *node = malloc(sizeof(struct s_node));
 	node->next = NULL;
@@ -39,24 +44,15 @@ int main(void)
 	l->next->next = new (3);
 	l->next->next->next = new (4);
 	l->next->next->next->next = l;
-	printf("The value of is_looping is %d\n", is_looping(l));
+	printf("1 The value of is_looping is %d\n", is_looping(l));
 
-	struct s_node *a = new (1);
+	struct s_node *a;
+	a = new (1);
 	a->next = new (2);
 	a->next->next = new (3);
 	a->next->next->next = new (4);
 	a->next->next->next->next = new (5);
-	printf("The value of is_looping is %d\n", is_looping(a));
+	printf("2 The value of is_looping is %d\n", is_looping(a));
 	return 0;
 }
 
-/*
-int main()
-{
-	struct s_node *r;
-	int res;
-
-	res = is_looping(r);
-
-}
-*/

@@ -1,5 +1,6 @@
 // https://github.com/Manmeet2018/42_Exam-C-Intermediate/blob/master/level2/is_looping/is_looping_2.c
-/************************************** #### PASSED FINAL EXAM #### *************************************/
+// falsely stated it passed.  this did not pass!!!
+
 #include <stdlib.h>
 #include <stdio.h>
 
