@@ -36,7 +36,7 @@ void *pop(struct s_stack *stack)
 	struct s_node *t;
 	void *c;
 
-	if (!stack)
+	if (!stack || !stack->top) // POSSIBLY, SEG DEF B/C OF STACK-TOP ???
 		return NULL;
 
 	t = stack->top;

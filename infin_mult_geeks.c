@@ -1,18 +1,18 @@
-// C++ program to multiply two numbers represented 
-// as strings. 
-#include<bits/stdc++.h> 
-using namespace std; 
+// https://www.geeksforgeeks.org/multiply-large-numbers-represented-as-strings/
+
+// C++ program to multiply two numbers represented as strings. 
+//#include<bits/stdc++.h> 
+//using namespace std; 
 
 // Multiplies str1 and str2, and prints result. 
-string multiply(string num1, string num2) 
+char *multiply(char *num1, char *num2) 
 { 
 	int len1 = num1.size(); 
 	int len2 = num2.size(); 
 	if (len1 == 0 || len2 == 0) 
 	return "0"; 
 
-	// will keep the result number in vector 
-	// in reverse order 
+	// will keep the result number in vector in reverse order 
 	vector<int> result(len1 + len2, 0); 
 
 	// Below two indexes are used to find positions 
@@ -21,17 +21,16 @@ string multiply(string num1, string num2)
 	int i_n2 = 0; 
 	
 	// Go from right to left in num1 
-	for (int i=len1-1; i>=0; i--) 
+	for (int i = len1 - 1; i >= 0; i--) 
 	{ 
 		int carry = 0; 
 		int n1 = num1[i] - '0'; 
 
-		// To shift position to left after every 
-		// multiplication of a digit in num2 
+		// To shift position to left after every multiplication of a digit in num2 
 		i_n2 = 0; 
 		
 		// Go from right to left in num2			 
-		for (int j=len2-1; j>=0; j--) 
+		for (int j = len2 - 1; j >= 0; j--) 
 		{ 
 			// Take current digit of second number 
 			int n2 = num2[j] - '0'; 
@@ -89,11 +88,11 @@ int main()
 
 	if(str1.at(0) == '-' && str2.at(0)!='-') 
 		{ 
-			str1 = str1.substr(1); 
+			str1 = str1.substr(1); // str1 with minus sign removed 
 		} 
 		else if(str1.at(0) != '-' && str2.at(0) == '-') 
 		{ 
-			str2 = str2.substr(1); 
+			str2 = str2.substr(1); // str2 with minus sign removed
 		} 
 		else if(str1.at(0) == '-' && str2.at(0) == '-') 
 		{ 
@@ -105,5 +104,7 @@ int main()
 } 
 
 
-// https://www.geeksforgeeks.org/multiply-large-numbers-represented-as-strings/
-
+/*
+string.substr() Method:
+https://www.geeksforgeeks.org/substring-in-cpp/
+*/

@@ -29,6 +29,7 @@ void	ft_putstr(char *str)
 	write(1, str, ft_strlen(str));
 }
 
+// initialize the result string
 char	*init_str(char *a, char *b)
 {
 	int result_len = 1 + max_two(ft_strlen(a), ft_strlen(b));
@@ -37,6 +38,7 @@ char	*init_str(char *a, char *b)
 	return (result);
 }
 
+// largest in terms of absolute value
 void	biggest_first(char **big, char **small)
 {
 	char *a = *big;
@@ -57,9 +59,10 @@ void	biggest_first(char **big, char **small)
 int		check_negative(char **a, char **b)
 {
 	int ret = 0;
+	// if only one is negative
 	if ((**a == '-' && **b != '-') || (**a != '-' && **b == '-'))
 		ret = 1;
-
+	// when result needs a minus prefix
 	if ((**a == '-' && **b == '-') || (**a == '-' && **b != '-'))
 		write(1, "-", 1);
 
