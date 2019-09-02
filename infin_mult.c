@@ -1,4 +1,4 @@
-// See below, this code did not pass practice exam ???
+// this code did not pass practice exam ??? see below for reasons
 // An uglier version of this code passed Moulinette 2019.05.28
 
 #include <unistd.h>

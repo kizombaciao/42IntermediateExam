@@ -48,6 +48,7 @@ void cc(struct s_node *r, struct s_node **prev)
 		r->left = (*prev);
 	}
 	*prev = r; // NOTE!!!
+	
 	cc(r->right, prev);
 }
 
