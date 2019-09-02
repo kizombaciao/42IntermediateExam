@@ -3,6 +3,8 @@
 // third, populate matrix with permutations
 
 // https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/
+// https://www.geeksforgeeks.org/c-program-to-print-all-permutations-of-a-given-string/
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -16,7 +18,7 @@ int factorial(int n)
 	}
 	return (r);
 }
-char *convert_string(n)
+char *convert_string(int n)
 {
 	int i;
 	char *s;
@@ -65,6 +67,9 @@ int **range_comb(int n)
 	char *s;
 	int **t;
 	int f;
+
+	if (n <= 0)
+		return NULL;
 
 	f = factorial(n); // #rows
 	s = convert_string(n);

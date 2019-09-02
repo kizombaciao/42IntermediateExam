@@ -49,9 +49,12 @@ int		check_balance(char *str, int len)
 }
 char	*longest_subarray(char *arr)
 {
-	int max_len = strlen(arr);
-	int cur_len = 2 * min_odds_evens(arr);
+	int max_len;
+	int cur_len;
 	int start = 0;
+
+	max_len = strlen(arr);
+	cur_len = 2 * min_odds_evens(arr);
 
 	while (check_balance(arr + start, cur_len) != 0)
 	{

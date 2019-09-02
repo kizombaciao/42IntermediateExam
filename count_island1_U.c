@@ -1,6 +1,7 @@
 // https://github.com/evandjohnston/ft_alone_in_the_dark/blob/master/Intermediate_Exam/level_5/5-count_island/count_island.c
 // Passed Moulinette 2019.08.01
 
+#include <stdio.h> // del
 #include <fcntl.h> // REMEMBER!!!, open()
 #include <unistd.h> // read()
 #include <stdlib.h>
@@ -9,8 +10,8 @@ int	fill_arr(int fd, char arr[1024][1024])
 {
 	// note, 1025 vs 1024 !!!
 	char buf[1025] = {[0 ... 1024] = '\0'}; // initialize !!!
-	int b;
-	int	bytes_read = 0;
+	int b; // index for buf
+	int	bytes_read = 0; // # bytes read, no more than 1024
 	int row = 0;
 	int col = -1;
 	int line_len = 0; // to capture the num of columns
@@ -23,7 +24,7 @@ int	fill_arr(int fd, char arr[1024][1024])
 		{
 			if (buf[b] == '\n')
 			{
-				if (line_len == 0)
+				if (line_len == 0) // making sure grid is not irregular
 					line_len = col;
 				else if (line_len != col)
 					return (0);
@@ -39,6 +40,7 @@ int	fill_arr(int fd, char arr[1024][1024])
 		}
 	}
 	arr[++row][0] = '\0'; // final row marked with NULL
+	// isn't row already incremented ???
 	return (1);
 }
 
@@ -46,6 +48,7 @@ void	flood_fill(char arr[1024][1024], int row, int col, char fill)
 {
 	// when arr[r][0] == '\0', it means no more rows
 	// when arr[r][c] == '\0', it means end of columns
+	// note, 1024 is not inclusive!!!
 	if (row < 0 || row > 1023 || arr[row][0] == '\0'
 		|| col < 0 || col > 1023 || arr[row][col] == '\0'
 		|| arr[row][col] != 'X')
@@ -68,11 +71,11 @@ void	update_islands(char arr[1024][1024])
 	while (arr[++row][0] != '\0')
 	{
 		col = -1;
-		while (arr[row][++col] != '\0')
+		while (arr[row][++col] != '\0') // traverse rows
 		{
-			if (arr[row][col] == 'X')
+			if (arr[row][col] == 'X') // traverse cols
 				flood_fill(arr, row, col, ++fill_index);
-			write(1, &arr[row][col], 1);
+			write(1, &arr[row][col], 1); // every cell is traversed
 			// can also print in a separate nested loop!
 		}
 		write(1, "\n", 1);
@@ -89,7 +92,9 @@ int	main(int ac, char **av)
 	{
 		// same as if (result != 0)
 		if ((result = fill_arr(fd, arr)) != 0)
-			update_islands(arr);
+			{
+				update_islands(arr);
+			}
 		else
 			write(1, "\n", 1); // necessary? in case, for error stmt
 		close(fd);

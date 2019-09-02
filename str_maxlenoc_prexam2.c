@@ -154,3 +154,18 @@ int main(int ac, char **av)
 	ft_putchar('\n');
 
 }
+
+// s strdup
+// slen strlen
+// res malloc
+
+// for st, < slen
+// for len, <= slen - i
+// stem = strsub
+// for words
+// strstr
+// break
+// k == n
+// res = max(res, stem)
+// strcpy
+// free

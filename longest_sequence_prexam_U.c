@@ -23,7 +23,8 @@ void ll(struct s_node *r, int cl, int exp, int *res)
 	if (r->value == exp)
 		cl++;
 	else
-		cl = 1;
+		cl = 1; // NOTE!!! THIS NEEDS TO BE 1.
+		
 	*res = max(*res, cl);
 
 	ll(r->left, cl, r->value + 1, res);

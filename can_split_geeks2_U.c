@@ -17,7 +17,8 @@ struct Node
 int count(struct Node* root) 
 { 
 	if (root==NULL) 
-		return 0; 
+		return 0; // note!  remember !!!
+
 	return count(root->left) + count(root->right) + 1; 
 } 
 

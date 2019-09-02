@@ -1,3 +1,4 @@
+// See below, this code did not pass practice exam ???
 // An uglier version of this code passed Moulinette 2019.05.28
 
 #include <unistd.h>
@@ -94,3 +95,20 @@ int		main(int ac, char **av)
 	write(1, "\n", 1);
 	return (0);
 }
+
+/*
+= infin_mult ===================================================================
+$> gcc -Wextra -Wall -Werror infin_mult.c -o user_exe
+infin_mult.c:71:8: error: use of undeclared identifier 'a'
+                if (*a == '0' || *b == '0')
+                     ^
+infin_mult.c:71:21: error: use of undeclared identifier 'b'
+                if (*a == '0' || *b == '0')
+                                  ^
+2 errors generated.
+
+Could not compile 'user_exe'
+Grade: 0
+
+= Final grade: 0 ===============================================================
+ */
