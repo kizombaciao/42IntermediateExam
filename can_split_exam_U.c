@@ -14,6 +14,16 @@ struct s_node
 	struct s_node *right;
 };
 
+int ct(struct s_node *r)
+{
+	int num;
+
+	if (!r)
+		return(0);
+	num = 1 + ct(r->left) + ct(r->right);
+	return (num);
+}
+
 int can(struct s_node *r, int num, int *res)
 {
 	int c;
@@ -27,16 +37,6 @@ int can(struct s_node *r, int num, int *res)
 		*res = 1;
 	}
 	return (c);
-}
-
-int ct(struct s_node *r)
-{
-	int num;
-
-	if (!r)
-		return(0);
-	num = 1 + ct(r->left) + ct(r->right);
-	return (num);
 }
 
 int can_split(struct s_node *n)

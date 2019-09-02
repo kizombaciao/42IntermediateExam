@@ -46,8 +46,9 @@ char **ft_strsplit(char const *s, int (*func)(char))
 	size_t	j; // word col
 	size_t	k; // string s
 
-	if (!s)
+	if (!s) // REMEMBER !!!
 		return (NULL);
+
 	if (!(p = (char **)malloc(sizeof(char *) * (ft_count_words(s, func) + 1))))
 		return (NULL);
 	i = 0;
@@ -146,7 +147,7 @@ void ft_sortlen(char **words, int (* func)(char))
 		while (words[++j])
 		{
 			l2 = ft_word_len(words[j], func);
-			if (l1 >= l2)
+			if (l1 >= l2) // NOTE! VERY SENSITIVE TO EQUALITY !!!
 			{
 				ft_swap(words, i, j);
 				l1 = ft_word_len(words[i], func); // b/c you swapped words!
@@ -164,9 +165,9 @@ void ord_alphlong(char *s)
 	words = ft_strsplit(s, is_blank);
 	//print_words(words, is_blank);
 	ft_sortalph(words);
-	//print_words(words, is_blank);
-	ft_sortlen(words, is_blank);
 	print_words(words, is_blank);
+	ft_sortlen(words, is_blank);
+	//print_words(words, is_blank);
 
 }
 

@@ -20,7 +20,7 @@ int fill(int fd, char t[][1024])
 		{
 			if (buf[i] == '\n')
 			{
-				if (linelen == 0)
+				if (linelen == 0) // checking if irregular grid
 				{
 					linelen = c;
 				}

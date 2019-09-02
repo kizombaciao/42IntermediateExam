@@ -79,6 +79,8 @@ char *longest_subarray(char *s)
 		//printf("222b %s %d\n", &s[i], cur_len);
 		// not exceeding the length of the string
 		if (i + cur_len >= max_len) // why this equation? 
+		// b/c it wouldn't make sense if i + cl exceeds ml
+		// that is the starting point of i is too far, given cl is fixed.
 		{
 			i = 0;
 			cur_len--;
