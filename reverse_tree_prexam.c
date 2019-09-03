@@ -1,8 +1,8 @@
 // DID NOT PASS B/C I USED NULL WITHOUT THE BELOW LIBRARIES
 // DON'T FORGET THAT TO USE NULL, INCLUDE <string.h> or <stdlib.h> !!!
 
-//#include <stdio.h>
-//#include <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 	struct s_node {
 		int				value;
 		struct s_node	*right;
@@ -23,7 +23,7 @@ void reverse_tree(struct s_node *root)
 	root->left = root->right;
 	root->right = t;
 }
-
+/*
 struct s_node *new(int v)
 {
 	struct s_node *p;
@@ -34,7 +34,6 @@ struct s_node *new(int v)
 	p->right = NULL;
 	return (p);
 }
-/*
 void pr(struct s_node *r)
 {
 	if (!r)

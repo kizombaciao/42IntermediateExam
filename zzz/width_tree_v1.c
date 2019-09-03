@@ -26,7 +26,6 @@ int ww(struct s_node *r, int *res)
 	return (1 + max(le, ri));
 }
 
-
 int	width_tree(struct s_node *n)
 {
 	int res = 0;
@@ -39,7 +38,9 @@ int	width_tree(struct s_node *n)
 
 	return res;
 }
+// width_tree is similar to height_tree structure
 
+/*
 struct s_node* newNode(int data) 
 { 
 	struct s_node* node = (struct s_node *)malloc(sizeof(struct s_node)); 
@@ -57,3 +58,4 @@ int main()
 	printf("Diameter is %d\n", width_tree(root)); 
 	return 0; 
 } 
+*/

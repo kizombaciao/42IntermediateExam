@@ -17,6 +17,7 @@ int fill(int fd, char t[][1024])
 	while ((bytes = read(fd, buf, 1024)) > 0)
 	{
 		buf[bytes] = '\0';
+		i = 0;
 		while (buf[i] != '\0')
 		{
 			if (buf[i] == '\n')
@@ -51,9 +52,11 @@ int fill(int fd, char t[][1024])
 
 void ff(char t[][1024], int r, int c, char idx)
 {
+	// note, the dim can be smaller than the max of 1024!!!
 	if (r < 0 || r >= 1024 || c < 0 || c >= 1024)
 		return ;
 
+	// t[r][0] == '\0' means we are already on past the final row!!!
 	if (t[r][c] != 'X' || t[r][0] == '\0' || t[r][c] == '\0')
 		return ;
 
@@ -78,7 +81,7 @@ void island(char t[][1024])
 			if (t[r][c] == 'X')
 			{
 				ff(t, r, c, idx);
-				idx++;
+				idx++; // REMEMBER !!!
 			}
 			write(1, &t[r][c], 1);
 			c++;
@@ -101,12 +104,11 @@ int main(int ac, char **av)
 			if ((res = fill(fd, t)) != 0)
 			{
 				island(t);
-
 			}
 			close(fd);
 		}
 	}
-	write(1, "\n", 1);
+	//write(1, "\n", 1);
 	return 0;
 }
 

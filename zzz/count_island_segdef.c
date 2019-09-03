@@ -1,5 +1,3 @@
-// when I tried, it did not PASS with examshell!!!
-
 // https://github.com/evandjohnston/ft_alone_in_the_dark/blob/master/Intermediate_Exam/level_5/5-count_island/count_island.c
 // Passed Moulinette 2019.08.01
 
@@ -108,11 +106,3 @@ int	main(int ac, char **av)
 
 // open file
 // read file
-
-/*
-= Test 1 ===================================================
-$> ./ohvvlshruyvw9r4tf70zzeic test1.prm
-Command './ohvvlshruyvw9r4tf70zzeic test1.prm' got killed by a Segmentation fault (Signal -11)
-Grade: 0
-
-*/

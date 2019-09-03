@@ -1,3 +1,4 @@
+// PASS!!!
 #include <stdio.h> // del
 #include <stdlib.h>
 
@@ -38,7 +39,6 @@ void enqueue(struct s_queue *queue, void *content)
 		queue->last->next = p;
 		queue->last = p;
 	}
-	printf("222a %d\n", *(int *)p->content);
 }
 void *dequeue(struct s_queue *queue)
 {
@@ -50,7 +50,6 @@ void *dequeue(struct s_queue *queue)
 	if (queue->first == NULL)
 		return NULL;
 
-	//c = (void *)malloc(sizeof(void));
 	if (queue->first == queue->last)
 	{
 		t = queue->first;
@@ -126,4 +125,3 @@ int main(void)
 	printf("isEmpty C: %d\n", isEmpty(queue));
 	return (0);
 }
-

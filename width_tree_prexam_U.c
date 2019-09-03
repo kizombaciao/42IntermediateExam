@@ -1,45 +1,52 @@
+//PASS!!!
 
-//#define max(a, b) ((a > b) ? a : b)
+#include <stdio.h>
+#include <stdlib.h>
 
-int max(int a , int b)
-{
-	if (a > b)
-		return (a);
-	else
-		return (b);
-}
-struct s_node
+struct s_node 
 {
 	int value;
 	struct s_node *left;
 	struct s_node *right;
 };
-// combines height of left and right subtree
-int w(struct s_node *r, int *ans)
+
+int max(int a, int b)
 {
-	int le;
-	int ri;
+	return ((a > b) ? a : b);
+}
+
+int ww(struct s_node *r, int *res)
+{
+	int le, ri;
 
 	if (!r)
 		return 0;
 
-	le = w(r->left, ans);
-	ri = w(r->right, ans);
-	*ans = max(*ans, 1 + le + ri);
-	return(1 + max(le, ri));
+	le = ww(r->left, res);
+	ri = ww(r->right, res);
+	*res = max(*res, 1 + le + ri);
+	return (1 + max(le, ri));
 }
-int width_tree(struct s_node *n)
+
+int	width_tree(struct s_node *n)
 {
-	int ans = 0;
-	int h;
+	int res = 0;
+	int cl;
 
 	if (!n)
 		return 0;
 
-	h = w(n, &ans);	
-	return (ans);
+	cl = ww(n, &res);
+
+	return res;
 }
-/////////////////////////////////////////////////////
+// width_tree is similar to height_tree structure
+// postorder
+// 2 func
+// int, 2 args
+
+
+/*
 struct s_node* newNode(int data) 
 { 
 	struct s_node* node = (struct s_node *)malloc(sizeof(struct s_node)); 
@@ -57,3 +64,4 @@ int main()
 	printf("Diameter is %d\n", width_tree(root)); 
 	return 0; 
 } 
+*/

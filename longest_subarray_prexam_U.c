@@ -92,7 +92,7 @@ char    *longest_subarray(char *arr)
 
 
 	ml = ftstrlen(arr);
-	cl = 2 * moe(arr);
+	cl = 2 * moe(arr); // REMEMBER !!! 2 X
 
 	while (bal(&arr[i], cl) != 0)
 	{
