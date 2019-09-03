@@ -39,6 +39,10 @@ int	width_tree(struct s_node *n)
 	return res;
 }
 // width_tree is similar to height_tree structure
+// postorder
+// 2 func
+// int, 2 args
+
 
 /*
 struct s_node* newNode(int data) 

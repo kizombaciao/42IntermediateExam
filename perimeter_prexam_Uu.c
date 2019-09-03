@@ -1,4 +1,5 @@
 // TEST AGAIN!!!
+// NEEDED TO INCLUDE NEWLINE AT THE END!!!
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -13,7 +14,6 @@ void pbl(struct s_node *r)
 {
 	if (!r)
 		return ;
-
 	if (r->left)
 	{
 		printf(" %d", r->value);
@@ -25,7 +25,6 @@ void pbl(struct s_node *r)
 		pbl(r->right);		
 	}
 }
-
 void pl(struct s_node *r)
 {
 	if (!r)
@@ -37,12 +36,10 @@ void pl(struct s_node *r)
 	}
 	pl(r->right);
 }
-
 void pbr(struct s_node *r)
 {
 	if (!r)
 		return ;
-
 	if (r->right)
 	{
 		pbl(r->right);
@@ -54,7 +51,6 @@ void pbr(struct s_node *r)
 		printf(" %d", r->value);
 	}
 }
-
 void perimeter(struct s_node *root)
 {
 	if (!root) // small mistake!!!
@@ -65,6 +61,7 @@ void perimeter(struct s_node *root)
 	pl(root->left);
 	pl(root->right);
 	pbr(root->right);
+	printf("\n");
 }
 /*
 struct s_node *new(int v)

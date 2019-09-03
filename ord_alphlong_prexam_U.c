@@ -1,3 +1,4 @@
+// NOW PASSED !!!
 // TEST THIS CODE ???
 
 //#include <stdio.h> // del
@@ -55,7 +56,7 @@ char **split(char *s)
 	nw = nwords(s);
 	//printf("%d\n", nw);
 	w = (char **)malloc(sizeof(char *) * (nw + 1));
-	w[nw] = 0;  // ?????????
+	w[nw] = 0;  // law row of word table!
 
 	i = 0;
 	k = 0;
@@ -71,7 +72,6 @@ char **split(char *s)
 		{
 			len = wlen(&s[k]);
 			w[i] = (char *)malloc(sizeof(char) * (len + 1));
-	//		printf("%d\n", len);
 		}
 		while (!isb(s[k]) && s[k])
 		{
@@ -88,18 +88,18 @@ char **split(char *s)
 void p(char **w)
 {
 	int i = 0;
-	int tmp;
+	int len;
 	int last_len = -1;
 
 	while (w[i] != 0)
 	{
-		tmp = wlen(w[i]);
-		if (tmp == last_len)
+		len = wlen(w[i]);
+		if (len == last_len)
 			write(1, " ", 1);
 		else if (last_len != -1)
 			write(1, "\n", 1);
-		write(1, w[i], tmp);
-		last_len = tmp;
+		write(1, w[i], len);
+		last_len = len;
 		i++;
 	}
 }
@@ -136,7 +136,6 @@ void sortabc(char **w)
 
 	for (i = 0; w[i] != 0; i++)
 	{
-
 		for (j = i + 1; w[j] != 0; j++)
 		{
 			if (abc(w[i], w[j]) < 0)
@@ -158,7 +157,7 @@ void sortlen(char **w)
 		for (j = i; w[j] != 0; j++) // NOTE J = I HERE !!!
 		{
 			l2 = wlen(w[j]);
-			if (l1 >= l2)
+			if (l1 >= l2) // this needs to be equality!!!
 			{
 				ftswap(w, i, j);
 				l1 = wlen(w[i]); // DON'T FORGET !!!
@@ -166,7 +165,6 @@ void sortlen(char **w)
 		}
 	}
 }
-
 void ord(char *s)
 {
 	char **w;
@@ -175,10 +173,9 @@ void ord(char *s)
 		return;
 
 	w = split(s);
-	//p(w);
-
+	//pr(w);
 	sortabc(w);
-	//p(w);
+	//pr(w);
 	sortlen(w);
 	p(w);
 }

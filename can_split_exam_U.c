@@ -27,15 +27,13 @@ int ct(struct s_node *r)
 int can(struct s_node *r, int num, int *res)
 {
 	int c;
-
 	if (!r)
 		return (0);
 
 	c = 1 + can(r->left, num, res) + can(r->right, num, res);
 	if (c == num - c)
-	{
 		*res = 1;
-	}
+
 	return (c);
 }
 

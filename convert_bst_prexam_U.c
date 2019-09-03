@@ -51,7 +51,6 @@ void cc(struct s_node *r, struct s_node **prev)
 	
 	cc(r->right, prev);
 }
-
 struct s_node *convert_bst(struct s_node *bst)
 {
 	struct s_node *prev = 0; // REMEMBER TO SET TO ZERO !!!

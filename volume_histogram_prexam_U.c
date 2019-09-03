@@ -1,3 +1,5 @@
+// PASS !!!
+
 //#include <stdio.h> // del
 
 int min(int a, int b)

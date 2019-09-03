@@ -48,7 +48,7 @@ char *ft_strsub(char *s, int st, int len)
 	char *p;
 
 	if (!s)
-		return (NULL);
+		return (NULL); // remember !!!
 
 	p = (char *)malloc(sizeof(char) * (len + 1));
 	while (len-- && s[i])
@@ -73,7 +73,7 @@ char *ft_strstr(char *h, char *n)
 		while (h[i + j] == n[j])
 		{
 			j++;
-			if (!n[j])
+			if (!n[j]) // we are at the end of stem !
 				return (&h[i]);
 		}
 		i++;
@@ -112,6 +112,7 @@ char *fs(int n, char **arr)
 
 	for (i = 0; i < len; i++) // i = start of strsub
 	{
+		// note equality j <= len - i !!!
 		for (j = 1; j <= len - i; j++) // j = len of strsub
 		{
 			stem = ft_strsub(s, i, j);
