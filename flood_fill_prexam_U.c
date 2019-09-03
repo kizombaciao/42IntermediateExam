@@ -48,7 +48,6 @@ void  flood_fill(char **tab, t_point size, t_point begin)
 	c = tab[y][x];
 
 	ff(tab, size, y, x, c);
-
 }
 /*
 char** make_area(char** zone, t_point size)

@@ -90,7 +90,6 @@ char    *longest_subarray(char *arr)
 	int cl;
 	int i = 0;
 
-
 	ml = ftstrlen(arr);
 	cl = 2 * moe(arr); // REMEMBER !!! 2 X
 

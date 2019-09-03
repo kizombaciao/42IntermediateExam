@@ -1,3 +1,5 @@
+// test this!!!
+
 #include <stdlib.h>
 #include <stdio.h> // del
 
@@ -39,7 +41,7 @@ void permute(char *s, int **t, int n, int start, int end)
 
 	if (start == end)
 	{
-		for (j = 0; j < n; j++)
+		for (j = 0; j < n; j++) // remember n !
 		{
 			t[idx][j] = s[j] - '0';
 		}
@@ -47,14 +49,14 @@ void permute(char *s, int **t, int n, int start, int end)
 	}
 	else
 	{
-		for (i = start; i <= end; i++)
+		for (i = start; i <= end; i++) // remember start and end !
 		{
 			/*
 			swap((s + start), (s + i)); 
     		permute(s, t, n, start + 1, end); 
     		swap((s + start), (s + i)); //backtrack 
 			*/
-			swap(&s[start], &s[i]);
+			swap(&s[start], &s[i]); // remember start and i !
 			permute(s, t, n, start + 1, end);
 			swap(&s[start], &s[i]);
 		}
@@ -86,24 +88,31 @@ int    **range_comb(int n)
 	return t;
 }
 
+void pr(int **t, int n)
+{
+	int f;
+
+	f = factorial(n);
+	for (int i = 0; i < f; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			printf("%d ", t[i][j]);
+		}
+		printf("\n");
+	}
+}
+
 int main(void)
 {
 	int n;
-	int **arr;
+	int **t;
 	int f;
 	int i, j;
 
 	n = 1;
-	arr = range_comb(n);
+	t = range_comb(n);
+	pr(t, n);
 
-	f = factorial(n);
-	for (i = 0; i < f; i++)
-	{
-		for (j = 0; j < n; j++)
-		{
-			printf("%d ", arr[i][j]);
-		}
-		printf("\n");
-	}
 	return (0);
 }

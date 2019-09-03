@@ -4,7 +4,7 @@ int c(int n)
 {
 	int i = 0;
 
-	while (n > 0)
+	while (n > 0) // remember !!!
 	{
 		if (n % 10 == 2)
 		{
