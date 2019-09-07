@@ -139,7 +139,7 @@ void solve_graph(struct Graph *G, int max, int visited[], int r, int length, int
             // if more than 2 nodes have been seen then updated the len.
             *long_length = (*long_length < length + 1) ? length + 1 : *long_length; 
 
-            printf("LONG: %d, LEN: %d, d= %d, R: %d\n", *long_length, length, r, temp->data);
+            printf("LONG: %d LEN: %d R: %d\n", *long_length, length, temp->data);
             
             solve_graph(G, max, visited, temp->data, length + 1, long_length);
         }
@@ -172,7 +172,7 @@ int main(int ac, char **av)
         long_length = 2; // ???
         for(r = 0; r <= max; r++)
             solve_graph(G, max + 1, visited, r, 1, &long_length);
-
+            
         ft_put_nbr(long_length);
     }
 

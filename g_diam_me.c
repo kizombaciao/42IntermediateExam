@@ -121,32 +121,42 @@ int find_max_v(char *s)
 	return (res);
 }
 
-void dfs_util(struct graph *g, int v, int visited[])
+void dfs_util(struct graph *g, int v, int visited[], int curlen, int *res)
 {
     visited[v] = 1;
 
-    printf("222a  %d\n", v);
+    //printf("222a  %d\n", v);
     
     for (struct s_node *p = g->adj[v].head; p; p = p->next)
     {
         if (!visited[p->data])
-            dfs_util(g, p->data, visited);
+		{
+            *res = (*res < curlen + 1) ? curlen + 1 : *res; 		
+			printf("res: %d, len: %d, d= %d, v: %d\n", *res, curlen, v, p->data);	
+            dfs_util(g, p->data, visited, curlen + 1, res);
+		}
     }
+    visited[v] = 0;
 }
 
 void dfs(struct graph *g, int min_v, int max_v)
 {
-    int visited[max_v];
+    int visited[max_v + 1]; // ??? do i need +1 ???
+	int res = 2;
 
     for (int i = 0; i <= max_v; i++) // can also use b_zero() or memset
         visited[i] = 0;
 
     // start travesal at min_v ??????????
-    dfs_util(g, min_v, visited);
+	for (int i = 0; i <= max_v; i++)
+	    dfs_util(g, i, visited, 1, &res);
+
+	printf("RES %d\n", res);
 }
+
 struct graph *g_diam(char *s)
 {
-	int min_v = find_min_v(s);
+	int min_v = find_min_v(s); // don't really need it ???
 	int max_v = find_max_v(s);
 	struct graph *g = newgraph(min_v, max_v); // careful with v
 	printf("222a %s u = %d  v = %d\n\n", s, min_v, max_v);
@@ -160,6 +170,7 @@ struct graph *g_diam(char *s)
 	pr(g);
 
     dfs(g, min_v, max_v);
+	
 	return NULL;
 }
 
