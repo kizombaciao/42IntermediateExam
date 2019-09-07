@@ -34,7 +34,6 @@ int bb(struct s_node *o, struct s_node *h)
 	}
 	return 0;
 }
-
 struct s_node *aa(int idx, struct s_node *h1)
 {
 	int i = 0;
@@ -46,7 +45,6 @@ struct s_node *aa(int idx, struct s_node *h1)
 	}
 	return (h1);
 }
-
 struct s_node *clone_list(struct s_node *node)
 {
 	struct s_node *h;

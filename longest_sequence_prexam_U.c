@@ -18,7 +18,7 @@ int max(int a, int b)
 void ll(struct s_node *r, int cl, int exp, int *res)
 {
 	if (!r)
-		return;
+		return; // DON'T FORGET
 
 	if (r->value == exp)
 		cl++;

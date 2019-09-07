@@ -1,3 +1,5 @@
+// https://github.com/Manmeet2018/42_Exam-C-Intermediate/blob/master/level5/g_diam/g_diam1.c
+
 /********************************** ### Passed Exam Version ### *************************************/
 /****************************************** Method 2nd Using Adjacency list ************************************/
 
@@ -170,7 +172,7 @@ int main(int ac, char **av)
     }
 
     write(1, "\n", 1);
-    pr(G);
+    //pr(G);
     write(1, "\n", 1);
 
     return 0;

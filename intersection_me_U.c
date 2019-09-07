@@ -1,5 +1,7 @@
+// TEST THIS CODE !!!  NOT SURE WHY IT SAID IT DID NOT COMPILE ???
+
 #include <stdlib.h>
-#include <stdio.h>
+//#include <stdio.h>
 
 struct s_node
 {
@@ -58,6 +60,7 @@ void *iii(struct s_node *r1, struct s_node *r2)
 	return NULL;
 }
 /////////////////////////////////////////////////////////
+/*
 struct s_node* b(void* v) {
 	struct s_node* new;
 	new = malloc(sizeof(struct s_node));
@@ -92,3 +95,4 @@ int main() {
 	printf("%s\n", ret ? ret->content : 0);
 	return 0;
 }
+*/

@@ -35,7 +35,7 @@ pair<int, int> Graph::bfs(int u)
 { 
 	// mark all distance with -1 
 	int dis[V]; 
-	memset(dis, -1, sizeof(dis)); 
+	memset(dis, -1, sizeof(dis)); // initialize to value -1.
 
 	queue<int> q; 
 	q.push(u); 

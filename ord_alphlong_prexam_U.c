@@ -1,4 +1,4 @@
-// NOW PASSED !!!
+// PASSED !!!
 // TEST THIS CODE ???
 
 //#include <stdio.h> // del

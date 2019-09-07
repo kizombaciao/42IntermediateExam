@@ -69,7 +69,7 @@ void *dequeue(struct s_queue *queue)
 void *peek(struct s_queue *queue)
 {
 	if (!queue || !queue->first)
-		return NULL;
+		return NULL; // remember NULL!
 	return (queue->first->content);
 }
 int isEmpty(struct s_queue *queue)

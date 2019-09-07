@@ -15,7 +15,7 @@ int max(int a, int b)
 	return ((a > b) ? a : b);
 }
 
-int ww(struct s_node *r, int *res)
+int ww(struct s_node *r, int *res) // 2 args !
 {
 	int le, ri;
 

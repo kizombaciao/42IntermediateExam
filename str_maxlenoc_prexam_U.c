@@ -70,7 +70,7 @@ char *ft_strstr(char *h, char *n)
 	while (h[i])
 	{
 		j = 0;
-		while (h[i + j] == n[j])
+		while (h[i + j] == n[j]) // remember trick !!!
 		{
 			j++;
 			if (!n[j]) // we are at the end of stem !
@@ -116,7 +116,7 @@ char *fs(int n, char **arr)
 		for (j = 1; j <= len - i; j++) // j = len of strsub
 		{
 			stem = ft_strsub(s, i, j);
-			for (k = 1; k < n; k++)
+			for (k = 1; k < n; k++) // k = num of words
 			{
 				if (ft_strstr(arr[k], stem) == NULL)
 					break;
@@ -131,6 +131,15 @@ char *fs(int n, char **arr)
 	free(s);
 	return (res);
 }
+
+// strdup w[0] s
+// strlen s
+// malloc res
+// 3 nest for loops
+// remember j = 1; j <= len - i
+// strsub
+// strstr and break
+// if k == n and max res, stem, then strcpy
 
 int main(int ac, char **av)
 {

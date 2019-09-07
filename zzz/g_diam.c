@@ -1,3 +1,5 @@
+// https://github.com/Manmeet2018/42_Exam-C-Intermediate/blob/master/level5/g_diam/g_diam1.c
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -14,7 +16,7 @@ struct s_list
 };
 struct graph
 {
-	int v;
+	int v; // vertice
 	struct s_list *arr;
 };
 int ft_atoi(char **s)
@@ -61,6 +63,7 @@ struct s_node *newnode(int dest)
 	p->next = NULL;
 	return (p);
 }
+// QUEUE:
 void newedge(struct graph *g, int src, int dest)
 {
 	struct s_node *p;
@@ -71,7 +74,7 @@ void newedge(struct graph *g, int src, int dest)
 
 	p = newnode(src);
 	p->next = g->arr[dest].head;
-	g->arr[dest].head = p;
+	g->arr[dest].head = p; // syntax g->arr[dest]->head ???
 }
 struct graph *newgraph(int v)
 {
@@ -127,11 +130,13 @@ struct graph *g_diam(char *s)
 		printf("%d %d %d\n", v, src, dest);
 		newedge(g, src, dest);
 	}
+
 	visited = (int *)malloc(sizeof(int) * (v + 1));
 	for (i = 0; i <= v; i++)
 	{
-		visited[i] = 0; // might use memset!!!
+		visited[i] = 0; // might use memset or b_zero!!!
 	}
+
 	long_len = 2; // ???
 	for (i = 0; i <= v; i++)
 	{

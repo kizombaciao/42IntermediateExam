@@ -44,7 +44,7 @@ void cc(struct s_node *r, struct s_node **prev)
 	cc(r->left, prev);
 	if (*prev)
 	{
-		(*prev)->right = r;
+		(*prev)->right = r; // DON'T FORGET ()!  (*p)
 		r->left = (*prev);
 	}
 	*prev = r; // NOTE!!!
@@ -53,7 +53,7 @@ void cc(struct s_node *r, struct s_node **prev)
 }
 struct s_node *convert_bst(struct s_node *bst)
 {
-	struct s_node *prev = 0; // REMEMBER TO SET TO ZERO !!!
+	struct s_node *prev = 0; // REMEMBER TO SET TO ZERO !!! NULL okay?
 	struct s_node *min;
 
 	if (!bst)

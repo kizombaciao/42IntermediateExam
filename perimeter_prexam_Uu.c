@@ -57,7 +57,7 @@ void perimeter(struct s_node *root)
 		return ;
 
 	printf("%d", root->value);
-	pbl(root->left);
+	pbl(root->left); // Note!!! root->left, NOT root!
 	pl(root->left);
 	pl(root->right);
 	pbr(root->right);
@@ -88,4 +88,23 @@ int main()
 	p->left->left = new(3);
 	perimeter(p);
 }
+*/
+
+/*
+
+= Test 3 ===================================================
+$> ./ujr43ewydqqefqu8n9gn9h84 2
+$> diff -U 3 user_output_test3 test3.output | cat -e
+--- user_output_test3   2019-09-05 21:58:17.000000000 -0700$
++++ test3.output        2019-09-05 21:58:17.000000000 -0700$
+@@ -5,4 +5,4 @@$
+  88$
+    \$
+    71$
+-98 16 88 71$
++98 16 71$
+
+Diff KO :(
+Grade: 0
+
 */
