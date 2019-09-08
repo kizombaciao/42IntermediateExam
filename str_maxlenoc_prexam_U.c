@@ -76,7 +76,6 @@ char *ft_strstr(char *h, char *n)
 			if (!n[j]) // we are at the end of stem !
 				return (&h[i]);
 		}
-		i++;
 	}
 	return (NULL);
 }

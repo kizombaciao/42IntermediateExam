@@ -1,6 +1,6 @@
-// PASS!
+// PASS!  // careful, not include main
 
-#include <stdio.h> // del
+//#include <stdio.h> // del
 #include <stdlib.h>
 
 	struct s_node {
@@ -77,7 +77,7 @@ struct s_node *clone_list(struct s_node *node)
 	}
 	return (h1);
 }
-
+/*
 void pr(struct s_node *r)
 {
 	if (!r)
@@ -104,3 +104,4 @@ int main()
 	q = clone_list(p);
 	pr(p);
 }
+*/

@@ -1,4 +1,4 @@
-// TEST AGAIN !!!
+// NOT PASS, SEE BELOW !!!
 
 //#include <stdio.h> // del
 #include <stdlib.h>
@@ -17,6 +17,36 @@ void ft_putstr(char *s)
 	}
 }
 */
+int	ft_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
+}
+int	ft_isspace(char c)
+{
+	return (c == '\t' || c == '\n' || c == '\v' \
+		|| c == '\f' || c == '\r' || c == ' ');
+}
+int	ft_atoi(const char *s)
+{
+	int n;
+	int sign;
+
+	while (ft_isspace(*s++))
+		;
+	s--;
+	sign = 1;
+	if (*s == '-')
+		sign = -1;
+	if (*s == '+' || *s == '-')
+		s++;
+	n = 0;
+	while (ft_isdigit(*s))
+	{
+		n = n * 10 + (*s - '0');
+		s++;
+	}
+	return (sign * n);
+}
 size_t	ft_strlen(const char *s)
 {
 	size_t i;
@@ -125,22 +155,28 @@ void pre(char *s1, char *s2)
 {
 	int neg = 0;
 
-	if ((s1[0] == '-' || s2[0] == '-') && (s1[0] != '-' || s2[0] != '-'))
-		neg = 1;
-	if (s1[0] == '-')
+	if ((ft_atoi(s1) == 0 || ft_atoi(s2) == 0))
 	{
-		s1 = ft_strsub(s1, 1, ft_strlen(s1));
+		ft_putchar('0');
 	}
-	if (s2[0] == '-')
+	else
 	{
-		s2 = ft_strsub(s2, 1, ft_strlen(s2));
+		if ((s1[0] == '-' || s2[0] == '-') && (s1[0] != '-' || s2[0] != '-'))
+			neg = 1;
+		if (s1[0] == '-')
+		{
+			s1 = ft_strsub(s1, 1, ft_strlen(s1));
+		}
+		if (s2[0] == '-')
+		{
+			s2 = ft_strsub(s2, 1, ft_strlen(s2));
+		}
+		int l1 = ft_strlen(s1);
+		int l2 = ft_strlen(s2);
+		if (l1 == 0 || l2 == 0)
+			return;	
+		multiply(s1, l1, s2, l2, neg);
 	}
-	int l1 = ft_strlen(s1);
-	int l2 = ft_strlen(s2);
-	if (l1 == 0 || l2 == 0)
-		return;	
-
-	multiply(s1, l1, s2, l2, neg);
 }
 
 int main(int ac, char **av)
@@ -152,6 +188,32 @@ int main(int ac, char **av)
 	ft_putchar('\n');
 	return 0;
 }
+
+/*
+= Test 1 ===================================================
+$> ./rh8z3lafduzgvkghkq9uut8y "0" "0"
+$> diff -U 3 user_output_test1 test1.output | cat -e
+
+Diff OK :D
+= Test 2 ===================================================
+$> ./c3csvt5k4kiyddo2v8wl8cgy "1" "0"
+$> diff -U 3 user_output_test2 test2.output | cat -e
+
+Diff OK :D
+= Test 3 ===================================================
+$> ./e6a3gz6kiub4r66q4iaiaxt9 "0" "-2"
+$> diff -U 3 user_output_test3 test3.output | cat -e
+--- user_output_test3   2019-09-08 12:14:43.000000000 -0700$
++++ test3.output        2019-09-08 12:14:43.000000000 -0700$
+@@ -1 +1 @@$
+--0$
++0$
+
+Diff KO :(
+Grade: 0
+
+= Final grade: 0 ===============================================================
+ */
 
 // NOT SURE HOW TO HANDLE THE ZEROS IN RES INT ARRAY ? using maxlen.
 

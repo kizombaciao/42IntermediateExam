@@ -1,3 +1,5 @@
+// PASS !!! GOAL !!!
+
 // https://math.stackexchange.com/questions/1225842/longest-path-in-undirected-unweighted-graph
 
 //#include <stdio.h>
@@ -147,7 +149,6 @@ int find_max_v(char *s)
 	}
 	return (res);
 }
-
 void dfs_util(struct graph *g, int v, int visited[], int curlen, int *res)
 {
     visited[v] = 1;
@@ -171,12 +172,12 @@ void dfs(struct graph *g, int max_v)
     for (int i = 0; i <= max_v; i++) // can also use b_zero() or memset
         visited[i] = 0;
 
-    // start travesal at min_v ??????????
+    // start travesal at min_v ?
+	// evaluate every starting initial condition and return the largest
 	for (int i = 0; i <= max_v; i++)
 	    dfs_util(g, i, visited, 1, &res);
 
 	ft_putnbr(res);
-	//printf("RES %d\n", res);
 }
 struct graph *g_diam(char *s)
 {
@@ -192,9 +193,7 @@ struct graph *g_diam(char *s)
 		newedge(g, src, dest);
 	}
 	//pr(g);
-
-    dfs(g, max_v);
-	
+    dfs(g, max_v);	
 	return NULL;
 }
 int main(int ac, char **av)
