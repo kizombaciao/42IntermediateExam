@@ -15,7 +15,7 @@ int max(int a, int b)
 	return ((a > b) ? a : b);
 }
 
-void ll(struct s_node *r, int cl, int exp, int *res)
+void ll(struct s_node *r, int cl, int exp, int *res) // remember void!
 {
 	if (!r)
 		return; // DON'T FORGET
@@ -38,9 +38,14 @@ int	longest_sequence(struct s_node *node)
 	if (!node)
 		return 0;
 
-	ll(node, 0, node->value, &res);
+	ll(node, 0, node->value, &res); // note! cl starts at 0.
 	return res;
 }
+// 2 func
+// void
+// 4 args
+// postorder ??? why? b/c you need to pass the update cl value to the function ?
+
 /*
 struct s_node *new(int v)
 {

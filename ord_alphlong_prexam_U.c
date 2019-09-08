@@ -10,8 +10,6 @@ int isb(char c)
 	return (c == ' ' || c == '\t');
 }
 
-
-
 int nwords(char *s)
 {
 	int flag = 0;
@@ -68,10 +66,11 @@ char **split(char *s)
 		{
 			k++;
 		}
-		if (!isb(s[k]) && s[k])
+		if (!isb(s[k]) && s[k]) // this if not necessary !
 		{
 			len = wlen(&s[k]);
-			w[i] = (char *)malloc(sizeof(char) * (len + 1));
+			w[i] = (char *)malloc(sizeof(char) * (len + 1)); 
+			// malloc error check !!!
 		}
 		while (!isb(s[k]) && s[k])
 		{
@@ -114,7 +113,7 @@ char low(char c)
 int abc(char *a, char *b)
 {
 	int i = 0;
-	while (low(a[i]) == low(b[i]))
+	while (low(a[i]) == low(b[i])) // remember low()!!!
 	{
 		i++;
 	}
@@ -130,13 +129,13 @@ void ftswap(char **w, int i, int j)
 	w[j] = t;
 }
 
-void sortabc(char **w)
+void sortabc(char **w) // v!oid function !
 {
 	int i, j;
 
 	for (i = 0; w[i] != 0; i++)
 	{
-		for (j = i + 1; w[j] != 0; j++)
+		for (j = i + 1; w[j] != 0; j++) // don't forget i + 1 !!!
 		{
 			if (abc(w[i], w[j]) < 0)
 			{
@@ -146,7 +145,8 @@ void sortabc(char **w)
 	}
 }
 
-void sortlen(char **w)
+// must use l1 and l2!!! investigate why ???
+void sortlen(char **w) // void function !
 {
 	int i, j;
 	int l1, l2;
@@ -160,11 +160,23 @@ void sortlen(char **w)
 			if (l1 >= l2) // this needs to be equality!!!
 			{
 				ftswap(w, i, j);
-				l1 = wlen(w[i]); // DON'T FORGET !!!
+				l1 = wlen(w[i]); // DON'T FORGET !!! Is necessary ???
 			}
 		}
 	}
 }
+
+// DELETE
+/*
+void pr(char **w)
+{
+	for (int i = 0; w[i]; i++)
+	{
+		printf("%s\n", w[i]);
+	}
+	printf("\n");
+}
+*/
 void ord(char *s)
 {
 	char **w;
@@ -177,6 +189,7 @@ void ord(char *s)
 	sortabc(w);
 	//pr(w);
 	sortlen(w);
+	//pr(w);
 	p(w);
 }
 

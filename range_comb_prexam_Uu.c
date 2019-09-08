@@ -1,4 +1,5 @@
-// test this!!!
+// test this again!
+// always test -Wall, you left unused variables !!!
 
 #include <stdlib.h>
 #include <stdio.h> // del
@@ -107,8 +108,6 @@ int main(void)
 {
 	int n;
 	int **t;
-	int f;
-	int i, j;
 
 	n = 1;
 	t = range_comb(n);

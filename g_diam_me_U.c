@@ -1,7 +1,8 @@
 // https://math.stackexchange.com/questions/1225842/longest-path-in-undirected-unweighted-graph
 
-#include <stdio.h>
+//#include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 #define isnum(x) x>= '0' && x <= '9'
 #define min(a, b) (a < b) ? a : b
@@ -22,7 +23,6 @@ struct graph
 	int max_v; // largest vertex
 	struct s_list *adj;
 };
-
 ////////////////////////////////////////////
 struct s_node *new(int d)
 {
@@ -64,6 +64,36 @@ struct graph *newgraph(int min_v, int max_v)
 	return (g);
 }
 ////////////////////////////////////////////
+void ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void ft_putstr(char *s)
+{
+	int i = 0;
+	while (s[i])
+	{
+		ft_putchar(s[i]);
+		i++;
+	}
+}
+void	ft_putnbr(int nb)
+{
+	if (nb <= -10 || nb >= 10)
+		ft_putnbr(nb / 10);
+	if (nb < 0)
+	{
+		if (nb >= -9)
+			ft_putchar('-');
+		ft_putchar('0' - (nb % 10));
+	}
+	else
+	{
+		ft_putchar('0' + (nb % 10));
+	}
+}
+/*
 void pr(struct graph *g)
 {
 	struct s_node *p;
@@ -80,7 +110,7 @@ void pr(struct graph *g)
 		printf("\n");
 	}
 }
-
+*/
 int ft_atoi(char **s)
 {
 	int nb = 0;
@@ -95,7 +125,6 @@ int ft_atoi(char **s)
 		// b/c we know each num is always followed by space/hyphen
 	return (nb);
 }
-
 int find_min_v(char *s)
 {
 	int res = ft_atoi(&s);
@@ -107,12 +136,10 @@ int find_min_v(char *s)
 	}
 	return (res);
 }
-
 // returns the largest vertex 
 int find_max_v(char *s)
 {
 	int res = 0;
-	//int tmp;
 	while (isnum(*s))
 	{
 		int tmp = ft_atoi(&s);
@@ -124,22 +151,19 @@ int find_max_v(char *s)
 void dfs_util(struct graph *g, int v, int visited[], int curlen, int *res)
 {
     visited[v] = 1;
-
-    //printf("222a  %d\n", v);
-    
     for (struct s_node *p = g->adj[v].head; p; p = p->next)
     {
         if (!visited[p->data])
 		{
             *res = (*res < curlen + 1) ? curlen + 1 : *res; 		
-			printf("res: %d, len: %d, d= %d, v: %d\n", *res, curlen, v, p->data);	
+			//printf("res: %d, len: %d, d= %d, v: %d\n", *res, curlen, v, p->data);	
             dfs_util(g, p->data, visited, curlen + 1, res);
 		}
     }
-    visited[v] = 0;
+    visited[v] = 0; // backtrack, but not clear why ???
 }
 
-void dfs(struct graph *g, int min_v, int max_v)
+void dfs(struct graph *g, int max_v)
 {
     int visited[max_v + 1]; // ??? do i need +1 ???
 	int res = 2;
@@ -151,34 +175,34 @@ void dfs(struct graph *g, int min_v, int max_v)
 	for (int i = 0; i <= max_v; i++)
 	    dfs_util(g, i, visited, 1, &res);
 
-	printf("RES %d\n", res);
+	ft_putnbr(res);
+	//printf("RES %d\n", res);
 }
-
 struct graph *g_diam(char *s)
 {
 	int min_v = find_min_v(s); // don't really need it ???
 	int max_v = find_max_v(s);
 	struct graph *g = newgraph(min_v, max_v); // careful with v
-	printf("222a %s u = %d  v = %d\n\n", s, min_v, max_v);
+	//printf("222a %s u = %d  v = %d\n\n", s, min_v, max_v);
 	while (*s)
 	{
 		int src = ft_atoi(&s);
 		int dest = ft_atoi(&s);
-		printf("222b %d %d %d\n", max_v, src, dest);
+		//printf("222b %d %d %d\n", max_v, src, dest);
 		newedge(g, src, dest);
 	}
-	pr(g);
+	//pr(g);
 
-    dfs(g, min_v, max_v);
+    dfs(g, max_v);
 	
 	return NULL;
 }
-
 int main(int ac, char **av)
 {
 	struct graph *g;
 
 	if (ac == 2)
 		g = g_diam(av[1]);
+	ft_putchar('\n');
 	return (0);
 }
