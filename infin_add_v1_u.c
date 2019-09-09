@@ -1,3 +1,5 @@
+// NOT PASSED!  SEE BELOW
+
 //#include <stdio.h> // del
 #include <stdlib.h>
 #include <unistd.h>
@@ -12,6 +14,36 @@ void ft_putstr(char *s)
 	{
 		ft_putchar(*s++);
 	}
+}
+int	ft_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
+}
+int	ft_isspace(char c)
+{
+	return (c == '\t' || c == '\n' || c == '\v' \
+		|| c == '\f' || c == '\r' || c == ' ');
+}
+int	ft_atoi(const char *s)
+{
+	int n;
+	int sign;
+
+	while (ft_isspace(*s++))
+		;
+	s--;
+	sign = 1;
+	if (*s == '-')
+		sign = -1;
+	if (*s == '+' || *s == '-')
+		s++;
+	n = 0;
+	while (ft_isdigit(*s))
+	{
+		n = n * 10 + (*s - '0');
+		s++;
+	}
+	return (sign * n);
 }
 size_t	ft_strlen(const char *s)
 {
@@ -265,12 +297,21 @@ void ia(char *s1, char *s2)
 	if (neg1 == 0 && neg2 == 0)
 	{
 		res = find_sum(t1, t2);
-		ft_putstr(res);
+		if (ft_atoi(res) == 0)
+		{
+			ft_putchar('0');
+		}
+		else
+			ft_putstr(res);
 	}
 	else if (neg1 == 0 && neg2 == 1)
 	{
 		res = find_diff(t1, t2);
-		if (is_smaller(t1, t2))
+		if (ft_atoi(res) == 0)
+		{
+			ft_putchar('0');
+		}
+		else if (is_smaller(t1, t2))
 		{
 			res = ft_strjoin("-", res);
 			ft_putstr(res);
@@ -281,7 +322,11 @@ void ia(char *s1, char *s2)
 	else if (neg1 == 1 && neg2 == 0)
 	{
 		res = find_diff(t1, t2);
-		if (is_smaller(t1, t2))
+		if (ft_atoi(res) == 0)
+		{
+			ft_putchar('0');
+		}
+		else if (is_smaller(t1, t2))
 			ft_putstr(res);
 		else
 		{
@@ -292,8 +337,15 @@ void ia(char *s1, char *s2)
 	else 
 	{
 		res = find_sum(t1, t2);
-		res = ft_strjoin("-", res);
-		ft_putstr(res);
+		if (ft_atoi(res) == 0)
+		{
+			ft_putchar('0');
+		}
+		else
+		{
+			res = ft_strjoin("-", res);
+			ft_putstr(res);
+		}	
 	}
 }
 int main(int ac, char **av)
@@ -305,6 +357,36 @@ int main(int ac, char **av)
 	write(1, "\n", 1);
 	return 0;
 }
+
+/*
+= Test 5 ===================================================
+$> ./cansrgo1kjoxvbtr16kch6cd "4894398524132130" "5906754239"
+$> diff -U 3 user_output_test5 test5.output | cat -e
+--- user_output_test5   2019-09-08 17:30:28.000000000 -0700$
++++ test5.output        2019-09-08 17:30:28.000000000 -0700$
+@@ -1 +1 @@$
+-48944443886369$
++4894404430886369$
+
+Diff KO :(
+Grade: 0
+ */
+
+
+
+/*
+= Test 1 ===================================================
+$> ./hsmqwk9ucdtcjyp837mys7qs "0" "0"
+$> diff -U 3 user_output_test1 test1.output | cat -e
+--- user_output_test1   2019-09-08 14:34:35.000000000 -0700$
++++ test1.output        2019-09-08 14:34:34.000000000 -0700$
+@@ -1 +1 @@$
+-$
++0$
+
+Diff KO :(
+Grade: 0
+ */
 
 /*
 int main()

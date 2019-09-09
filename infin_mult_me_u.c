@@ -188,16 +188,20 @@ int main(int ac, char **av)
 	ft_putchar('\n');
 	return 0;
 }
-
 /*
-= Test 1 ===================================================
-$> ./rh8z3lafduzgvkghkq9uut8y "0" "0"
-$> diff -U 3 user_output_test1 test1.output | cat -e
+= Test 5 ===================================================
+$> ./x0ph56r4594tg6jxuh855f4s "4894398524132130" "5906754239"
+$> diff -U 3 user_output_test5 test5.output | cat -e
+--- user_output_test5   2019-09-08 14:23:54.000000000 -0700$
++++ test5.output        2019-09-08 14:23:54.000000000 -0700$
+@@ -1 +1 @@$
+-8910009229772802673599070$
++28910009229772802673599070$
 
-Diff OK :D
-= Test 2 ===================================================
-$> ./c3csvt5k4kiyddo2v8wl8cgy "1" "0"
-$> diff -U 3 user_output_test2 test2.output | cat -e
+Diff KO :(
+Grade: 0
+ */
+/*
 
 Diff OK :D
 = Test 3 ===================================================
@@ -211,8 +215,6 @@ $> diff -U 3 user_output_test3 test3.output | cat -e
 
 Diff KO :(
 Grade: 0
-
-= Final grade: 0 ===============================================================
  */
 
 // NOT SURE HOW TO HANDLE THE ZEROS IN RES INT ARRAY ? using maxlen.

@@ -1,8 +1,10 @@
+
+// SEG DEFAULT !!! SEE TRACE BELOW!
 // test this again!
 // always test -Wall, you left unused variables !!!
 
 #include <stdlib.h>
-#include <stdio.h> // del
+//#include <stdio.h> // del
 
 int factorial(int n)
 {
@@ -12,7 +14,6 @@ int factorial(int n)
 		num *= i;
 	return num;
 }
-
 char *convert_string(int n)
 {
 	int i;
@@ -26,7 +27,6 @@ char *convert_string(int n)
 	}
 	return s;
 }
-
 void swap(char *x, char *y)
 {
 	char tmp;
@@ -34,7 +34,6 @@ void swap(char *x, char *y)
 	*x = *y;
 	*y = tmp;
 }
-
 void permute(char *s, int **t, int n, int start, int end)
 {
 	static int idx = 0;
@@ -88,7 +87,7 @@ int    **range_comb(int n)
 	permute(s, t, n, 0, n - 1);
 	return t;
 }
-
+/*
 void pr(int **t, int n)
 {
 	int f;
@@ -103,7 +102,6 @@ void pr(int **t, int n)
 		printf("\n");
 	}
 }
-
 int main(void)
 {
 	int n;
@@ -115,3 +113,11 @@ int main(void)
 
 	return (0);
 }
+*/
+
+/*
+= Test 3 ===================================================
+$> ./ymseb4axlq1vmc2nwgibgpqw 1
+Command './ymseb4axlq1vmc2nwgibgpqw 1' got killed by a Segmentation fault (Signal -11)
+Grade: 0
+*/

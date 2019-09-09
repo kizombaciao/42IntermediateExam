@@ -1,15 +1,17 @@
+// FINALLY PASSED, WAS MISSING KEY ERROR STATEMENTS WITH WRITE()
 // THE BELOW CODE DID NOT PASS, NOT SURE WHY ???
 // TEST IF PASS ???
 
 //#include <stdio.h> // d
 #include <fcntl.h>
 #include <unistd.h>
+#include <stdlib.h> // needed ???
 
 int fill(int fd, char t[][1024])
 {
 	int bytes = 0;
-	char buf[1025] = {'\0'};
-	int i = 0;
+	char buf[1025] = {'\0'}; // {[0 ... 1024] = '\0'};
+	int i = 0; // b
 	int r = 0;
 	int c = 0;
 	int linelen = 0;
@@ -61,10 +63,10 @@ void ff(char t[][1024], int r, int c, char idx)
 		return ;
 
 	t[r][c] = idx;
-	ff(t, r + 1, c, idx);
 	ff(t, r - 1, c, idx);
-	ff(t, r, c + 1, idx);
+	ff(t, r + 1, c, idx);
 	ff(t, r, c -1, idx);
+	ff(t, r, c + 1, idx);
 }
 
 void island(char t[][1024])
@@ -95,7 +97,7 @@ int main(int ac, char **av)
 {
 	int fd;
 	int res;
-	char t[1024][1024];
+	char t[1024][1024]; // don't you need ptr to ensure t is ascessible ???
 
 	if (ac == 2)
 	{
@@ -105,10 +107,16 @@ int main(int ac, char **av)
 			{
 				island(t);
 			}
+			else
+				write(1, "\n", 1); // not optional!
 			close(fd);
 		}
+		else
+			// why don't i need the error write below ??? test with it.
+			write(1, "\n", 1); // not optional!
 	}
-	//write(1, "\n", 1);
+	else
+		write(1, "\n", 1); // not optional!
 	return 0;
 }
 

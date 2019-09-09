@@ -24,6 +24,7 @@ int ct(struct s_node *r)
 	return (num);
 }
 
+// can't remember how to capture c value ???
 int can(struct s_node *r, int num, int *res)
 {
 	int c;
@@ -33,7 +34,6 @@ int can(struct s_node *r, int num, int *res)
 	c = 1 + can(r->left, num, res) + can(r->right, num, res);
 	if (c == num - c)
 		*res = 1;
-
 	return (c);
 }
 
@@ -47,7 +47,6 @@ int can_split(struct s_node *n)
 		return (0);
 
 	num = ct(n);
-
 	ans = can(n, num, &res);
 	return (res);
 }

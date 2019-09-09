@@ -1,4 +1,4 @@
-// TEST AGAIN!!!
+// CODE IS NOT CORRECT!!! SEE BELOW!!!
 // NEEDED TO INCLUDE NEWLINE AT THE END!!!
 
 #include <stdlib.h>
@@ -63,7 +63,6 @@ void perimeter(struct s_node *root)
 	pbr(root->right);
 	printf("\n");
 }
-/*
 struct s_node *new(int v)
 {
 	struct s_node *p;
@@ -80,15 +79,14 @@ int main()
 	struct s_node *p;
 
 	p = new(1);
-	p->left = new(2);
+//	p->left = new(2);
 	p->right = new(4);
-	p->right->left = new(5);
-	p->right->right = new(6);
+//	p->right->left = new(5);
+//	p->right->right = new(6);
 
-	p->left->left = new(3);
+//	p->left->left = new(3);
 	perimeter(p);
 }
-*/
 
 /*
 

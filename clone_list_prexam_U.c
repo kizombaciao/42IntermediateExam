@@ -60,7 +60,9 @@ struct s_node *clone_list(struct s_node *node)
 	node = node->next;
 	while (node)
 	{
-		p1->next = new(node->data);
+		p1->next = new(node->data); // what if p1 instead ?
+		// b/c you can't assigned a new address to a null
+		// assuming you did p2 = p2->next before the while loop
 		node = node->next;
 		p1 = p1->next;
 	}

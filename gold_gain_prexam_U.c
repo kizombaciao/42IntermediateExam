@@ -1,7 +1,8 @@
 // PASSED!
 #include <stdlib.h>
-//#include <stdio.h>
+#include <stdio.h>
 
+// DON'T USE THE #DEFINE MAX.  HARD TO DEBUG
 int max(int a, int b)
 {
 	return ((a > b) ? a : b);
@@ -43,7 +44,6 @@ int	gold_gain(int **mine, int n)
 	}
 	return res;
 }
-/*
 void pr(int **mine, int n)
 {
 	for (int r = 0; r < n; r++)
@@ -80,4 +80,3 @@ int main()
 	pr(mine, n);
 	printf("%d\n", gold_gain(mine, n));
 }
-*/

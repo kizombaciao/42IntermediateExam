@@ -1,43 +1,36 @@
-// pass practice exam
+
+
 
 #include <stdio.h>
 
-void print_doublon(int *a, int na, int *b, int nb)
+
+void	print_doublon(int *a, int na, int *b, int nb)
 {
-	int flag = 0;
-	int i = 0, j = 0;
+	int i = 0;
+	int j = 0;
 
 	while (i < na && j < nb)
 	{
 		if (a[i] == b[j])
 		{
-			if (flag == 0)
-			{
-				printf("%d", a[i]);
-				flag = 1;
-			}	
-			else
-				printf(" %d", a[i]);
-
+			printf("%d ", a[i]);
 			i++;
 			j++;
 		}
-		else if (a[i] < b[j]) // probably don't need else if
-		{
-			i++;
-		} 
-		else if (a[i] > b[j])
+		if (a[i] > b[j])
 		{
 			j++;
+		}
+		if (a[i] < b[j])
+		{
+			i++;
 		}
 	}
-	printf("\n");
 }
 
-/*
 int main()
 {
-	int a[] = {1, 200, 300};
+	int a[] = {1, 2, 300};
 	int na = 3;
 	int b[] = {1, 2, 3, 4};
 	int nb = 4;
@@ -50,4 +43,3 @@ int main()
 
 	print_doublon(a, na, b, nb);
 }
-*/

@@ -1,7 +1,5 @@
-// PASS!
-
-#include <stdio.h> // del
 #include <stdlib.h>
+#include <stdio.h>
 
 	struct s_node {
 		int           value;
@@ -9,59 +7,60 @@
 		struct s_node *left;
 	};
 
-
-struct s_node *leftmost(struct s_node *r)
+struct s_node *le(struct s_node *r)
 {
 	if (!r)
 		return NULL;
-
-	while (r->left) // REMEMBER !!!
+	while (r->left)
+	{
 		r = r->left;
-	return (r);
+	}
+	return r;
 }
 
-struct s_node *rightmost(struct s_node *r)
+struct s_node *ri(struct s_node *r)
 {
 	if (!r)
 		return NULL;
-
-	while (r->right) // REMEMBER !!!
+	while (r->right)
+	{
 		r = r->right;
-	return (r);
+	}
+	return r;
 }
 
-// BECAUSE YOU WANT INORDER TRAVERSAL, THAT IS WHY THE EVAL IS NOT IN THE MIDDLE!
-// WHEN PREV IS THE LAST CURRENT, ACCORDING TO INORDER TRAVERSAL
-void cc(struct s_node *r, struct s_node **prev)
+void cb(struct s_node *r, struct s_node **prev)
 {
 	if (!r)
 		return;
 
-	cc(r->left, prev); // note!
-	if (*prev) // important !!!
+	cb(r->left, prev); // ???
+
+	if (*prev) // ???
 	{
-		(*prev)->right = r; // DON'T FORGET ()!  (*p)
+		(*prev)->right = r;
 		r->left = (*prev);
 	}
-	*prev = r; // NOTE!!!
-	
-	cc(r->right, prev);
+	*prev = r;
+	cb(r->right, prev);
 }
 struct s_node *convert_bst(struct s_node *bst)
 {
-	struct s_node *prev = 0; // REMEMBER TO SET TO ZERO !!! NULL okay?
-	struct s_node *min;
+	struct s_node *prev = 0;
 
 	if (!bst)
 		return NULL;
 
-	cc(bst, &prev);
-
-	min = leftmost(bst);
-	min->left = rightmost(bst);
+	cb(bst, &prev); // ???
+	struct s_node *min = le(bst);
+	min->left = ri(bst);
 	min->left->right = min;
-	return (min); // NOTE! RETURN MIN !!!
+	return min;
 }
+
+// inorder traversal
+
+/////////////////////////////////////////////
 struct s_node *new(int v)
 {
 	struct s_node *p;
@@ -81,21 +80,29 @@ void pr(struct s_node *r)
 	printf("%d ", r->value);
 	pr(r->right);
 }
-/*
+
 int main()
 {
 	struct s_node *p;
-	struct s_node *q;
+	struct s_node *;
 
 	p = new(1);
 	p->left = new(2);
 	p->right = new(4);
-	p->left->left = new(3);
+	p->left->right = new(3);
+	pr(p);
 
-	q = convert_bst(p);
-	pr(q);
+	r = convert_bst(p);
+	
+	// NOTE, CAREFUL WITH INFINITE LOOP WHEN PRINTING !!!
+	int i = 0;
+    while (i++ < 15)
+    {
+        printf("%d\n", r->value);
+        r = r->right;
+    }
 }
-*/
+/*
 int main()
 {
     struct s_node *a = new(12);
@@ -118,3 +125,4 @@ int main()
         r = r->right;
     }
 }
+*/
