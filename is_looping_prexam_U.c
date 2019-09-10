@@ -28,7 +28,7 @@ int	is_looping(struct s_node *node)
 			return 1;
 		}
 		s = s->next;
-		f = f->next->next;
+		f = f->next->next; // remember next->next !!!
 	}
 	return 0;
 }

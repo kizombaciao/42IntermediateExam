@@ -1,3 +1,4 @@
+// TEST AGAIN BECAUSE YOU HAVE A NEW TYPE OF PRINT
 // PASSED !!!
 // TEST THIS CODE ???
 
@@ -83,7 +84,7 @@ char **split(char *s)
 	}
 	return w;
 }
-
+/*
 void p(char **w)
 {
 	int i = 0;
@@ -102,6 +103,35 @@ void p(char **w)
 		i++;
 	}
 }
+*/
+// THIS PRINT IS MUCH EASIER TO FOLLOW, SPLIT BY CASES!
+void p(char **w)
+{
+	int lastlen;
+	int cl;
+
+	for (int i = 0; w[i]; i++)
+	{
+		cl = wlen(w[i]);
+		if (i == 0) // when i == 0
+		{
+			lastlen = cl;
+			ft_putstr(w[i]);
+		}
+		else if (lastlen == cl) // when i != 0 && lastlen == c
+		{
+			ft_putchar(' ');
+			ft_putstr(w[i]);
+			lastlen = cl;
+		}
+		else if (lastlen != cl) // when i != 0 && lastlen != c
+		{
+			ft_putchar('\n');
+			ft_putstr(w[i]);	
+			lastlen = cl;
+		}
+	}
+}
 
 char low(char c)
 {
@@ -117,7 +147,7 @@ int abc(char *a, char *b)
 	{
 		i++;
 	}
-	return (low(a[i]) - low(b[i]));
+	return (low(a[i]) - low(b[i])); // don't forget low !!!
 }
 
 void ftswap(char **w, int i, int j)
@@ -129,13 +159,13 @@ void ftswap(char **w, int i, int j)
 	w[j] = t;
 }
 
-void sortabc(char **w) // v!oid function !
+void sortabc(char **w) // void function !
 {
 	int i, j;
 
 	for (i = 0; w[i] != 0; i++)
 	{
-		for (j = i + 1; w[j] != 0; j++) // don't forget i + 1 !!!
+		for (j = i + 1; w[j] != 0; j++) // don't forget j = i + 1 !!! NOT j = 1 !!!
 		{
 			if (abc(w[i], w[j]) < 0)
 			{

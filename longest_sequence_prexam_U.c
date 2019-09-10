@@ -20,7 +20,7 @@ void ll(struct s_node *r, int cl, int exp, int *res) // remember void!
 	if (!r)
 		return; // DON'T FORGET
 
-	if (r->value == exp)
+	if (r->value == exp) // comparing against r->value 
 		cl++;
 	else
 		cl = 1; // NOTE!!! THIS NEEDS TO BE 1.
