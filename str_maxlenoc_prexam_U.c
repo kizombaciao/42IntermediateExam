@@ -51,6 +51,8 @@ char *ft_strsub(char *s, int st, int len)
 		return (NULL); // remember !!!
 
 	p = (char *)malloc(sizeof(char) * (len + 1));
+	
+	// chance of overflow on s[i] ??? s[st + i] ???
 	while (len-- && s[i])
 	{
 		p[i++] = s[st++];
@@ -76,6 +78,7 @@ char *ft_strstr(char *h, char *n)
 			if (!n[j]) // we are at the end of stem !
 				return (&h[i]);
 		}
+		i++; // this was missing ???
 	}
 	return (NULL);
 }
@@ -111,7 +114,7 @@ char *fs(int n, char **arr)
 
 	for (i = 0; i < len; i++) // i = start of strsub
 	{
-		// note equality j <= len - i !!!
+		// NOTE!!! equality j <= len - i !!!
 		for (j = 1; j <= len - i; j++) // j = len of strsub
 		{
 			stem = ft_strsub(s, i, j);
