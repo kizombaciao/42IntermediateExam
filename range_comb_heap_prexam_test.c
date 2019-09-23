@@ -48,24 +48,37 @@ void heapPermutation(int **t, int a[], int size, int n)
 			swap(&a[i], &a[size - 1]); 
 	} 
 } 
-int **sort(int **t, int f, int n)
+
+int ft_strcmp(char *a, char *b)
 {
-    int **t2;
+    int i = 0;
+    while (a[i] && b[i] && a[i] == b[i])
+        i++;
+    return (a[i] - b[i]);
+}
 
-    t2 = (int **)malloc(sizeof(int *) * (f + 1));
-	t2[f] = 0; // Remember to NULL terminate!!!
-	for (int i = 0; i < f; i++)
-	{
-		t2[i] = (int *)malloc(sizeof(int) * n);
-	}
+int intcmp(int *a, int *b, int n)
+{
+    int k = 0;
 
+    while (a[k] == b[k] && k < n)
+    {
+        k++;
+    }
+    return (a[k] - b[k]);
+}
+
+void sort(int **t, int f, int n)
+{
     for (int i = 0; i < f - 1; i++)
     {
         for (int j = i + 1; j < f; j++)
         {
-            if (intcmp() > 0)
+            if (intcmp(t[i], t[j], n) > 0)
             {
-                
+                int *tmp = t[i];
+                t[i] = t[j];
+                t[j] = tmp;
             }
         }
     }
@@ -98,7 +111,7 @@ int    **range_comb(int n)
     for (int i = 0; i < n; i++)
         a[i] = i;
     heapPermutation(t, a, n, n);
-    t2 = sort(t, f, n);
+    sort(t, f, n);
     return t;
 }
 ////////////////////////////////////////////
