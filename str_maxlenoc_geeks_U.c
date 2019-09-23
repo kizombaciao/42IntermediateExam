@@ -120,13 +120,14 @@ char *findstem(int n, char **arr)
 	{ 
 		// not sure why the author had 'j = i + 1'
 		// it should be j <= len - i, instead of j <= len
+		// it is because j represents length, not index!!!
+		// length does start from 1 and ends at len - i (inclusive)!!!
 		for (j = 1; j <= len - i; j++) 
 		{ 
 			// generating all possible substrings 
 			// of our reference string arr[0] i.e s 
 			// substring of s from i for length j
 			stem = ft_strsub(s, i, j);
-			printf("222a %s\n", stem);
 			for (k = 1; k < n; k++) 
 			{ 
 				// Check if the generated stem is 

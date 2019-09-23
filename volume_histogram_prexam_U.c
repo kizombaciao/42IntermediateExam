@@ -1,7 +1,5 @@
 // PASS !!!
-
 //#include <stdio.h> // del
-
 int min(int a, int b)
 {
 	return ((a > b) ? b : a);
@@ -38,11 +36,12 @@ int    volume_histogram(int *histogram, int size)
 	}
 	return sum;
 }
-/*
+/* 
 int main()
 {
-	int h[] = {1, 0, 2, 0, 2};
-	int size = 5;
+	//int h[] = {1, 0, 2, 0, 2};
+	int h[] = {2, 0, 0, 5, 6, 6, 5, 0, 0, 8, 9, 0, 5, 0, 0, 4, 0, 7, 0, 8, 0, 9, 0, 3, 0, 1, 0, 5, 0, 5, 0, 6, 0, 4, 0, 6, 0, 7, 0, 5, 5, 6, 5, 4, 7, 0, 8, 0, 5, 0, 0, 0};
+	int size = 52;
 
 	printf("%d\n", volume_histogram(h, size));
 }

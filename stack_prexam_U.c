@@ -1,7 +1,7 @@
 // FINALLY PASSED!!!
 // STILL NEED TO BE TESTED!!!
 
-#include <stdio.h> // del
+//#include <stdio.h> // del
 #include <stdlib.h>
 
 struct s_node {
@@ -44,7 +44,7 @@ void *pop(struct s_stack *stack)
 	c = stack->top->content;
 	stack->top = stack->top->next;
 	free(t);
-	return(c);
+	return(c); // don't forget to return c.  it is a void * function!!!
 }
 
 void push(struct s_stack *stack, void *content)
@@ -88,6 +88,7 @@ int isEmpty(struct s_stack *stack)
 		return 1;
 	return (0);
 }
+/*
 int main()
 {
 	struct s_stack *s;
@@ -102,3 +103,4 @@ int main()
 	printf("ISEMPTY:  %d\n", isEmpty(s));
 
 }
+*/

@@ -1,18 +1,5 @@
-#ifndef FLOOD_FILL_H
-#define FLOOD_FILL_H
-
-typedef struct  s_point
-{
-    int           x;
-    int           y;
-}  t_point;
-
-void ff(char **tab, t_point size, int y, int x, char c);
-void  flood_fill(char **tab, t_point size, t_point begin);
-
-
-#endif
-/////////////////////////////////////////////////////////
+// below version Passed!
+// i think you forgot to include the two functions in the flood_fill.h files!!!
 
 //#include <stdlib.h> // del
 //#include <stdio.h> // del
@@ -23,14 +10,14 @@ void ff(char **tab, t_point size, int y, int x, char c)
 	if (y < 0 || x < 0 || y >= size.y || x >= size.x)
 		return;
 
-	if (tab[y][x] == c)
-	{
-		tab[y][x] = 'F';
-		ff(tab, size, y - 1, x, c);
-		ff(tab, size, y + 1, x, c);
-		ff(tab, size, y, x - 1, c);
-		ff(tab, size, y, x + 1, c);
-	}
+	if (tab[y][x] != c)
+                return;
+
+	tab[y][x] = 'F';
+	ff(tab, size, y - 1, x, c);
+	ff(tab, size, y + 1, x, c);
+	ff(tab, size, y, x - 1, c);
+	ff(tab, size, y, x + 1, c);
 }
 
 void  flood_fill(char **tab, t_point size, t_point begin)

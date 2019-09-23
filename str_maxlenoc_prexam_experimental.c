@@ -1,3 +1,4 @@
+// PASS USING MODIFIED FT_STRSTR()!!!
 // PASS!!!
 
 //#include <stdio.h> // del
@@ -69,10 +70,10 @@ char *ft_strsub(char *s, int i, int len)
 	return stem;
 }
 
-char *ft_strstr(char *n, char *h)
+int ft_strstr(char *n, char *h)
 {
 	if (!*n)
-		return h;
+		return 0;
 
 	for (int i = 0; h[i]; i++)
 	{
@@ -81,7 +82,7 @@ char *ft_strstr(char *n, char *h)
 		{
 			j++;
 			if (!n[j])
-				return (&h[i]);
+				return (1);
 		}
 		/*
 		for (int j = 0; h[i + j] == n[j]; j++)
@@ -106,29 +107,23 @@ void sm(int nw, char **s)
 {
 	int k;
 	int wl = wlen(s[0]);
-//	printf("333b %d\n", wl);
 	char *res = ft_strnew(sizeof(char) * (wl));
 	char *w = ft_strdup(s[0]);
-	//printf("%d %s\n", wl, stem);
 
 	for (int i = 0; i < wl; i++)
 	{
 		for (int j = 1; j <= wl - i; j++) // length
 		{
 			char *stem = ft_strsub(w, i, j);
-//			printf("333a %d %s %d\n", j, stem, nw);
 			for (k = 1; k < nw; k++)
 			{
-//				printf("444a %s %s\n", stem, s[k]);
-				if (ft_strstr(stem, s[k]) == NULL)
+				if (ft_strstr(stem, s[k]) == 0)
 				{
-//					printf("Break\n");
 					break ;
 				}	
 			}
 			if (k == nw)
 			{
-//				printf("222a %s %s\n", res, stem);
 				if(wlen(res) < wlen(stem))
 				{
 					ft_strcpy(res, stem);

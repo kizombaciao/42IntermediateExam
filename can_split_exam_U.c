@@ -20,7 +20,7 @@ int ct(struct s_node *r)
 
 	if (!r)
 		return(0);
-	num = 1 + ct(r->left) + ct(r->right);
+	num = 1 + ct(r->left) + ct(r->right); // remember no max !!!
 	return (num);
 }
 
@@ -47,7 +47,7 @@ int can_split(struct s_node *n)
 		return (0);
 
 	num = ct(n);
-	ans = can(n, num, &res);
+	ans = can(n, num, &res); // remember, no cl!!!
 	return (res);
 }
 /*

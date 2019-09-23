@@ -1,16 +1,43 @@
-// TEST AGAIN BECAUSE YOU HAVE A NEW TYPE OF PRINT
+// TEST AGAIN to test ft_putchar, ft_putstr replacements!!!
 // PASSED !!!
 // TEST THIS CODE ???
-
 //#include <stdio.h> // del
 #include <stdlib.h>
 #include <unistd.h>
+
+void ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void ft_putstr(char *s)
+{
+	for (int i = 0; s[i]; i++)
+	{
+		ft_putchar(s[i]);
+	}
+}
 
 int isb(char c)
 {
 	return (c == ' ' || c == '\t');
 }
+char low(char c)
+{
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return c;
+}
+int wlen(char *s)
+{
+	int i = 0;
 
+	while (!isb(s[i]) && s[i])
+	{
+		i++;
+	}
+	return i;
+}
 int nwords(char *s)
 {
 	int flag = 0;
@@ -32,18 +59,6 @@ int nwords(char *s)
 	}
 	return nw;
 }
-
-int wlen(char *s)
-{
-	int i = 0;
-
-	while (!isb(s[i]) && s[i])
-	{
-		i++;
-	}
-	return i;
-}
-
 char **split(char *s)
 {
 	int nw;
@@ -51,22 +66,17 @@ char **split(char *s)
 	char **w;
 	int len;
 
-
 	nw = nwords(s);
-	//printf("%d\n", nw);
 	w = (char **)malloc(sizeof(char *) * (nw + 1));
 	w[nw] = 0;  // law row of word table!
 
 	i = 0;
 	k = 0;
-
 	while (i < nw)
 	{
 		j = 0;
 		while (isb(s[k]) && s[k])
-		{
 			k++;
-		}
 		if (!isb(s[k]) && s[k]) // this if not necessary !
 		{
 			len = wlen(&s[k]);
@@ -84,26 +94,6 @@ char **split(char *s)
 	}
 	return w;
 }
-/*
-void p(char **w)
-{
-	int i = 0;
-	int len;
-	int last_len = -1;
-
-	while (w[i] != 0)
-	{
-		len = wlen(w[i]);
-		if (len == last_len)
-			write(1, " ", 1);
-		else if (last_len != -1)
-			write(1, "\n", 1);
-		write(1, w[i], len);
-		last_len = len;
-		i++;
-	}
-}
-*/
 // THIS PRINT IS MUCH EASIER TO FOLLOW, SPLIT BY CASES!
 void p(char **w)
 {
@@ -122,7 +112,7 @@ void p(char **w)
 		{
 			ft_putchar(' ');
 			ft_putstr(w[i]);
-			lastlen = cl;
+			lastlen = cl; // can have outside the condition...
 		}
 		else if (lastlen != cl) // when i != 0 && lastlen != c
 		{
@@ -131,13 +121,6 @@ void p(char **w)
 			lastlen = cl;
 		}
 	}
-}
-
-char low(char c)
-{
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return c;
 }
 
 int abc(char *a, char *b)
@@ -195,18 +178,7 @@ void sortlen(char **w) // void function !
 		}
 	}
 }
-
-// DELETE
-/*
-void pr(char **w)
-{
-	for (int i = 0; w[i]; i++)
-	{
-		printf("%s\n", w[i]);
-	}
-	printf("\n");
-}
-*/
+// ??? does **w retain the changes in the function ?
 void ord(char *s)
 {
 	char **w;
@@ -215,11 +187,8 @@ void ord(char *s)
 		return;
 
 	w = split(s);
-	//pr(w);
 	sortabc(w);
-	//pr(w);
 	sortlen(w);
-	//pr(w);
 	p(w);
 }
 
@@ -256,3 +225,35 @@ Grade: 0
 */
 
 
+
+// DELETE
+/*
+void pr(char **w)
+{
+	for (int i = 0; w[i]; i++)
+	{
+		printf("%s\n", w[i]);
+	}
+	printf("\n");
+}
+*/
+/*
+void p(char **w)
+{
+	int i = 0;
+	int len;
+	int last_len = -1;
+
+	while (w[i] != 0)
+	{
+		len = wlen(w[i]);
+		if (len == last_len)
+			write(1, " ", 1);
+		else if (last_len != -1)
+			write(1, "\n", 1);
+		write(1, w[i], len);
+		last_len = len;
+		i++;
+	}
+}
+*/

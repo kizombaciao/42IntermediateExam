@@ -1,3 +1,4 @@
+// PASS AGAIN WITH BELOW CHANGES !!!
 // PASS!!!
 
 #include <stdlib.h>
@@ -50,14 +51,14 @@ void enqueue(struct s_queue *queue, void *content)
 	// 1 node
 	else if (q->first == q->last)
 	{
-		q->last->next = p;
+		q->first->next = p; // testing this as oppose to q->last->next = p;
 		q->last = p;
 	}
 	// 2 or more nodes
 	else
 	{
 		q->last->next = p;
-		q->last = p;	
+		q->last = p;	// don't forget!!!
 	}
 }
 
@@ -79,8 +80,12 @@ void *dequeue(struct s_queue *queue)
 	{
 		t = q->first;
 		c = q->first->content;
+		q->first = NULL; // also, testing if this will pass too ???
+		q->last = NULL;
+		/*
 		q->first = q->first->next;
 		q->last = q->last->next;
+		*/
 	}
 	else
 	{

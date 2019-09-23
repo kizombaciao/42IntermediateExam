@@ -1,3 +1,5 @@
+// lots of compiling errors, below
+
 #include <stdlib.h>
 
 int slen(char *s)
@@ -91,3 +93,35 @@ int main()
 {
 	printf("%s\n", longest_subarray("134"));
 }
+
+/*
+= longest_sequence =============================================================
+$> gcc -Wextra -Wall -Werror main.c longest_sequence.c -o user_exe
+longest_sequence.c:53:12: error: expected ';' after return statement
+        return sum
+                  ^
+                  ;
+longest_sequence.c:74:13: error: incompatible integer to pointer conversion passing '\
+char' to parameter of type 'char *'; take the address with & [-Werror,-Wint-conversio\
+n]
+        while (bal(arr[st], cl) != 0)
+                   ^~~~~~~
+                   &
+longest_sequence.c:42:15: note: passing argument to parameter 's' here
+int bal(char *s, int len)
+              ^
+longest_sequence.c:87:20: error: incompatible integer to pointer conversion passing '\
+char' to parameter of type 'char *'; take the address with & [-Werror,-Wint-conversio\
+n]
+        return(ft_strndup(arr[st], cl));
+                          ^~~~~~~
+                          &
+longest_sequence.c:56:24: note: passing argument to parameter 's' here
+char *ft_strndup(char *s, int len)
+                       ^
+3 errors generated.
+
+Could not compile 'user_exe'
+Grade: 0
+
+*/

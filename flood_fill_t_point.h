@@ -6,5 +6,8 @@ typedef struct 	s_point {
     int 		y;				// y : Height | y-axis
 } 				t_point;
 
+void ff(char **tab, t_point size, int y, int x, char c);
+void  flood_fill(char **tab, t_point size, t_point begin);
+
 #endif
 

@@ -44,6 +44,7 @@ int	gold_gain(int **mine, int n)
 	}
 	return res;
 }
+/*
 void pr(int **mine, int n)
 {
 	for (int r = 0; r < n; r++)
@@ -80,3 +81,4 @@ int main()
 	pr(mine, n);
 	printf("%d\n", gold_gain(mine, n));
 }
+*/

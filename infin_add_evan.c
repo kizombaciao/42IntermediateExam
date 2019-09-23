@@ -1,5 +1,5 @@
 // Passed Moulinette 2019.08.01
-
+#include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
 #define ABS(V) (((V) < 0) ? -(V) : (V))
@@ -33,6 +33,7 @@ void	ft_putstr(char *str)
 char	*init_str(char *a, char *b)
 {
 	int result_len = 1 + max_two(ft_strlen(a), ft_strlen(b));
+	printf("333a %d\n", result_len);
 	char *result = malloc(sizeof(char) * (result_len + 1));
 	result[result_len] = '\0';
 	return (result);
@@ -81,12 +82,16 @@ void	add(char *big, char *small, char *out)
 	int i = ft_strlen(out);
 	int carry = 0;
 
+    printf("222a  %s %s %d %d %d\n", big, small, b, s, i);
+
 	while (b >= 0 || carry)
 	{
 		carry += big[b] - '0';
 		if (s >= 0)
 			carry += small[s] - '0';
 		out[--i] = (carry % 10) + '0';
+	    printf("e222b  %s %s %d %d %d\n", big, small, b, s, i);
+
 		carry /= 10;
 		--b;
 		--s;

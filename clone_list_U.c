@@ -76,7 +76,7 @@ struct s_node	*clone_list(struct s_node *node)
 	}
 	return (new_head);
 }
-
+//////////////////////////////////////////////
 void	print_list(struct s_node *head)
 {
 	while (head)

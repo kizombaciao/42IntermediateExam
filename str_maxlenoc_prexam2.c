@@ -4,10 +4,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-// set up, strup, strlen
-// strsub
-// strstr
-
 int ftstrlen(char *s)
 {
 	int i = 0;
@@ -16,7 +12,6 @@ int ftstrlen(char *s)
 	return (i);
 }
 
-// don't forget to create malloc!!!
 char *ftstrdup(char *s)
 {
 	int i;
@@ -42,7 +37,6 @@ char *ftstrsub(char *s, int st, int len)
 
 	if (!*s)
 		return NULL;
-	// remember malloc!!!
 	p = (char *)malloc(sizeof(char) * (len + 1));
 	for (i = 0; i < len; i++)
 	{
@@ -98,26 +92,24 @@ char *str_maxlenoc(int nw, char **w)
 
 	s = ftstrdup(w[0]);
 	len = ftstrlen(s);
-	//printf("%s %d\n", p, len);
 	res = (char *)malloc(sizeof(char) * (len + 1));
+
 	for (i = 0; i < len; i++) // start
 	{
-		//printf("222a %d %d\n", i, len);
+		// j = 1 b/c minimum length of 1
+		// index starts later means length has to be shorter
 		for (j = 1; j <= len - i; j++) // len, hence why need equality
 		{
 			stem = ftstrsub(s, i, j);
-			//printf("%d %d %s\n", i, j, stem);
 			for (k = 1; k < nw; k++)
 			{
 				if (ftstrstr(w[k], stem) == 0)
 					break;
 			}
-			//printf("444a  %d %d\n", k, nw);
 			if (k == nw)
 			{
 				if (ftstrlen(res) < ftstrlen(stem))
 				{
-					//printf("555a %s\n", stem);
 					ftstrcpy(res, stem);
 				}
 			}
@@ -146,9 +138,7 @@ int main(int ac, char **av)
 
 	if (ac >= 2)
 	{
-		//printf("HI\n");
 		s = str_maxlenoc(ac - 1, &av[1]);
-//		printf("111a %s\n", s);
 		ft_putstr(s);
 	}
 	ft_putchar('\n');

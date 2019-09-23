@@ -15,7 +15,7 @@ struct s_node *leftmost(struct s_node *r)
 	if (!r)
 		return NULL;
 
-	while (r->left) // REMEMBER !!!
+	while (r->left) // REMEMBER !!! not r but r->left!!!
 		r = r->left;
 	return (r);
 }
@@ -62,6 +62,7 @@ struct s_node *convert_bst(struct s_node *bst)
 	min->left->right = min;
 	return (min); // NOTE! RETURN MIN !!!
 }
+////////////////////////////////////////////////////////////
 struct s_node *new(int v)
 {
 	struct s_node *p;

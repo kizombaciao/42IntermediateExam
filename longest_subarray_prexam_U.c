@@ -37,13 +37,9 @@ int moe(char *s)
 	while (s[i])
 	{
 		if (isodd(s[i]))
-		{
 			o++;
-		}
 		else
-		{
 			e++;
-		}
 		i++;
 	}
 	return (min(o, e));
@@ -54,12 +50,10 @@ int bal(char *s, int cl)
 	int sum = 0;
 	int i = 0;
 
-	while(i < cl)
+	while(i < cl) // note, not equality!
 	{
 		if (isodd(s[i]))
-		{
 			sum++;
-		}
 		else
 			sum--;
 		i++;
@@ -93,9 +87,11 @@ char    *longest_subarray(char *arr)
 	ml = ftstrlen(arr);
 	cl = 2 * moe(arr); // REMEMBER !!! 2 X
 
+	// would 2 for loops also work, one for start and one for length ???
+	// 'i' is like start
 	while (bal(&arr[i], cl) != 0)
 	{
-		if (i + cl >= ml) // why equality ???
+		if (i + cl >= ml) // why equality? b/c comparing length and not against index!
 		{
 			i = 0;
 			cl--;
@@ -103,6 +99,7 @@ char    *longest_subarray(char *arr)
 		else
 			i++; // way to find max within cl limit
 	}
+	// we know we have the best solution because we started from max cl
 	return (ft_strndup(&arr[i], cl));
 }
 /*

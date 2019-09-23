@@ -348,6 +348,17 @@ void ia(char *s1, char *s2)
 		}	
 	}
 }
+
+int main()
+{
+	char *s1 = "4894398524132130";
+	char *s2 = "5906754239";
+
+	ia(s1, s2);
+	write(1, "\n", 1);
+	return 0;
+}
+/*
 int main(int ac, char **av)
 {
 	if (ac == 3)
@@ -357,6 +368,7 @@ int main(int ac, char **av)
 	write(1, "\n", 1);
 	return 0;
 }
+*/
 
 /*
 = Test 5 ===================================================
