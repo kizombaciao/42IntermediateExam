@@ -68,17 +68,17 @@ void ft_putchar(char c)
 ///////////////////////////////////////////
 void ft_putnbr(int nb)
 {
-	if (nb >= 10) // remember!
+	if (nb >= 10) // remember equality!
 	{
 		ft_putnbr(nb / 10);
 	}
-	ft_putchar((nb % 10) + '0');
+	ft_putchar((nb % 10) + '0'); // don't forget '0' !!!
 }
 
 int ft_atoi(char **s)
 {
 	int nb = 0;
-	while (isnum(**s))
+	while (isnum(**s)) // don't forget isnum!!!
 	{
 		nb = nb * 10 + (**s - '0');
 		(*s)++;
@@ -91,7 +91,7 @@ int ft_atoi(char **s)
 int find_maxv(char *s)
 {
 	int res = 0;
-	while (*s)
+	while (*s) // remember this section !!!
 	{
 		int tmp = ft_atoi(&s);
 		res = max(res, tmp);
@@ -143,7 +143,7 @@ void g_diam(char *s)
 	int maxv = find_maxv(s);
 	struct graph *g = newgraph(maxv);
 
-	while (*s)
+	while (*s) // remember this section !!!
 	{
 		int src = ft_atoi(&s);
 		int dest = ft_atoi(&s);

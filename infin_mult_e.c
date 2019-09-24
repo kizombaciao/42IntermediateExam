@@ -1,3 +1,5 @@
+// not passed !!!
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -107,3 +109,17 @@ int main(int ac, char **av)
     ft_putchar('\n');
     return 0;
 }
+
+/* 
+= Test 5 ===================================================
+$> ./mft4mlyirynj8w92ovxsfzg4 "4894398524132130" "5906754239"
+$> diff -U 3 user_output_test5 test5.output | cat -e
+--- user_output_test5	2019-09-23 21:17:27.000000000 -0700$
++++ test5.output	2019-09-23 21:17:27.000000000 -0700$
+@@ -1 +1 @@$
+-289100092316150934332705959000,i^?$
++28910009229772802673599070$
+
+Diff KO :(
+Grade: 0
+*/

@@ -1,5 +1,5 @@
-
-#include <stdio.h>
+// passed !!!
+//#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #define ABS(V) (((V) < 0) ? -(V) : (V))

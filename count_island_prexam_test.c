@@ -9,7 +9,7 @@ void ft_putchar(char c)
 int fill(int fd, char t[][1024])
 {
     int bytes;
-    char buf[1025] = {'\0'}; // ??
+    char buf[1025] = {'\0'};
     int r = 0, c = 0;
     int linelen = 0;
 
