@@ -1,4 +1,5 @@
 
+// i fixed sorted
 // i fixed the case if input is 1, which should be zero and not 1.
 // i fixed the case if input is -1.
 
@@ -130,15 +131,12 @@ int main()
 { 
     int **t;
 
-    int n = 3; // TEST !!!
+    int n = 8; // TEST !!!
 	t = range_comb(n);
     if (t != NULL)
         pr(t, n);
 	return 0; 
 } 
-
-
-
 /*
 = Test 5 ===================================================
 $> ./hyeffl81vgh72eejn7qwaksk 3

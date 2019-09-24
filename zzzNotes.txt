@@ -1,3 +1,52 @@
+IMPORTANT:
+
+
+///////////////////////////////////////////////////////////////
+ORG_ALPHLONG:
+// IMPORTANT ??? WHY CAN'T I USE char *a, char *b ?
+void ftswap(char **w, int i, int j)
+{
+	char *t;
+
+	t = w[i];
+	w[i] = w[j];
+	w[j] = t;
+}
+///////////////////////////////////////////////////////////////
+// must use l1 and l2!!! investigate why ???
+void sortlen(char **w) // void function !
+{
+	int i, j;
+	int l1, l2;
+
+	for (i = 0; w[i] != 0; i++)
+	{
+		l1 = wlen(w[i]);
+		for (j = i; w[j] != 0; j++) // NOTE J = I HERE !!!
+		{
+			l2 = wlen(w[j]);
+			if (l1 >= l2) // this needs to be equality!!!
+			{
+				ftswap(w, i, j);
+				l1 = wlen(w[i]); // DON'T FORGET !!! Is necessary ???
+			}
+		}
+	}
+}
+///////////////////////////////////////////////////////////////
+count_island.c
+
+> for t[r][0], does it matter if it is 0 or '\0' ??? test it !
+
+
+
+
+
+
+
+
+
 // g_diam
 // why not g->adj[i]->head ???
 // visited[v] = 0; // backtrack, but not clear why ???
+

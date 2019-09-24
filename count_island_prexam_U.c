@@ -10,7 +10,9 @@
 int fill(int fd, char t[][1024])
 {
 	int bytes = 0;
+	// it is char and not int buf !!! careful, hard to debug!!!
 	char buf[1025] = {'\0'}; // {[0 ... 1024] = '\0'};
+	// 1025, in order to add '\0'
 	int i = 0; // b
 	int r = 0;
 	int c = 0;
@@ -48,7 +50,7 @@ int fill(int fd, char t[][1024])
 			i++;
 		}
 	}
-	t[r][0] = '\0';
+	t[r][0] = '\0'; // don't forget !
 	return 1; // success
 }
 
@@ -80,7 +82,7 @@ void island(char t[][1024])
 		c = 0;
 		while (t[r][c] != '\0') // traverse col
 		{
-			if (t[r][c] == 'X')
+			if (t[r][c] == 'X') // REMEMBER THIS IF CONDITION !!!
 			{
 				ff(t, r, c, idx);
 				idx++; // REMEMBER !!!

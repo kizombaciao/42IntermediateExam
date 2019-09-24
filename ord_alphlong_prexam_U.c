@@ -1,3 +1,4 @@
+// the new version passed too!!!
 // TEST AGAIN to test ft_putchar, ft_putstr replacements!!!
 // PASSED !!!
 // TEST THIS CODE ???
@@ -123,6 +124,7 @@ void p(char **w)
 	}
 }
 
+// don't forget lower case!!!
 int abc(char *a, char *b)
 {
 	int i = 0;
@@ -133,6 +135,8 @@ int abc(char *a, char *b)
 	return (low(a[i]) - low(b[i])); // don't forget low !!!
 }
 
+// don't forget char **w !!!
+// IMPORTANT ??? WHY CAN'T I USE char *a, char *b ?
 void ftswap(char **w, int i, int j)
 {
 	char *t;
