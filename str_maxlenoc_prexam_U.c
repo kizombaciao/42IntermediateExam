@@ -115,12 +115,14 @@ char *fs(int n, char **arr)
 	for (i = 0; i < len; i++) // i = start of strsub
 	{
 		// NOTE!!! equality j <= len - i !!!
+		// minumum length is 1
 		for (j = 1; j <= len - i; j++) // j = len of strsub
 		{
 			stem = ft_strsub(s, i, j);
+			// first word already taken.
 			for (k = 1; k < n; k++) // k = num of words
 			{
-				if (ft_strstr(arr[k], stem) == NULL)
+				if (ft_strstr(arr[k], stem) == NULL) // nothing matched
 					break;
 
 			}

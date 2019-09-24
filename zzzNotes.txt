@@ -1,5 +1,6 @@
 IMPORTANT:
 
+// how do the pointers for binary tree retain the changes made by functions???
 
 ///////////////////////////////////////////////////////////////
 ORG_ALPHLONG:

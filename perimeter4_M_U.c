@@ -42,6 +42,7 @@ void perimeter_right(struct s_node *root)
 // because you only want to print the leaves
 void perimeter_node(struct s_node *root)
 {
+	// IMPORTANT: WOULD IT STILL WORK IF WE ADDED if (!r) ???
 	if (root->left) 
 		perimeter_node(root->left);
 	if(root->right) 

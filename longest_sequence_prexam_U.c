@@ -25,7 +25,7 @@ void ll(struct s_node *r, int cl, int exp, int *res) // remember void!
 	else
 		cl = 1; // NOTE!!! THIS NEEDS TO BE 1.
 		
-	*res = max(*res, cl);
+	*res = max(*res, cl); // don't forget!
 
 	ll(r->left, cl, r->value + 1, res);
 	ll(r->right, cl, r->value + 1, res);

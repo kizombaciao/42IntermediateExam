@@ -37,7 +37,7 @@ void cc(struct s_node *r, struct s_node **prev)
 	if (!r)
 		return;
 
-	cc(r->left, prev); // note!
+	cc(r->left, prev);
 	if (*prev) // important !!!
 	{
 		(*prev)->right = r; // DON'T FORGET ()!  (*p)
