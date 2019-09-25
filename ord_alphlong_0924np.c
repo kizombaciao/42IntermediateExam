@@ -46,13 +46,12 @@ int ft_strlen(char *s)
 	return i;
 }
 
-
 char **split(char *s)
 {
 	int i, j, k;
 	int len;
 	int nw = nwords(s);
-	printf("222a %d\n", nw);
+//	printf("222a %d\n", nw);
 	char **w;
 
 	w = (char **)malloc(sizeof(char *) * (nw + 1));
@@ -70,19 +69,21 @@ char **split(char *s)
 			len = ft_strlen(&s[k]);
 			w[i] = (char *)malloc(sizeof(char) * (len + 1));
 			w[i][len] = '\0'; // char or string ???
-			printf("222b %d\n", len);
+//			printf("222b %d\n", len);
 		}
 		j = 0;
-		while (s[k] && !isb(s[k]))
+
+ 		while (s[k] && !isb(s[k]))
 		{
 			w[i][j] = s[k];
 			j++;
 			k++;
 		}
-		printf("222c %s\n", w[i]);
+//		printf("222c %s\n", w[i]);
+
 	}
 	//w[i] = 0;
-	return NULL;
+	return w; // 1st error! YOU WERE FIXING IT TO RETURN NULL !!!
 }
 
 void ft_swap(char **w, int i, int j)
@@ -106,6 +107,8 @@ char lower(char c)
 // lower !!!
 int ft_strcmp(char *a, char *b)
 {
+	//printf("444a %s %s", a, b);
+
 	int i = 0;
 	while (lower(a[i]) == lower(b[i]))
 	{
@@ -116,9 +119,11 @@ int ft_strcmp(char *a, char *b)
 
 void sortabc(char **w)
 {
-	for (int i = 0; w[i] != 0; i++)
+	int i, j;
+
+	for (i = 0; w[i] != 0; i++)
 	{
-		for (int j = i + 1; w[i] != 0; j++)
+		for (j = i + 1; w[j] != 0; j++) // 2nd error: this is w[j] and not w[i] !!!
 		{
 			if (ft_strcmp(w[i], w[j]) < 0)
 			{
@@ -135,7 +140,7 @@ void sortlen(char **w)
 	for (int i = 0; w[i] != 0; i++)
 	{
 		l1 = ft_strlen(w[i]);
-		for (int j = i; w[i] != 0; j++)
+		for (int j = i; w[j] != 0; j++) // 3rd error:  this is w[j] as well!
 		{
 			l2 = ft_strlen(w[j]);
 			if (l1 > l2)
@@ -172,12 +177,15 @@ void pr(char **w)
 		{
 			ft_putchar('\n');
 			ft_putstr(w[i]);
+			lastlen = cl; // 4th error:  missing
 		}
 		else if (lastlen == cl)
 		{
 			ft_putchar(' ');
 			ft_putstr(w[i]);
+			lastlen = cl; // 4th error: missing
 		}
+		i++;
 	}
 }
 
@@ -194,15 +202,15 @@ void pt(char **w)
 void oa(char *s)
 {
 	char **w;
-	printf("hey");
+	//printf("hey");
 
 	w = split(s);
 //	pt(w);
 	sortabc(w);
 //	pt(w);
-//	sortlen(w);
+	sortlen(w);
 //	pt(w);
-//	pr(w);
+	pr(w);
 }
 
 // IMPORTANT --- LOWER !!!

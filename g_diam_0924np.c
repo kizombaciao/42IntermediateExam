@@ -11,7 +11,7 @@ struct s_node
 
 struct s_list
 {
-	struct s_node *head;
+	struct s_node *head; // 0th error:  not s_list but s_node !!!
 };
 
 struct graph
@@ -44,6 +44,9 @@ struct graph *newgraph(int maxv)
 
 void newedge(struct graph *g, int src, int dest)
 {
+	if (!g)
+		return;
+
 	struct s_node *p = new(src);
 	p->next = g->adj[dest].head;
 	g->adj[dest].head = p;
@@ -71,7 +74,7 @@ void ft_putchar(char c)
 
 void ft_putnbr(int nb)
 {
-	if (nb >=0)
+	if (nb >= 10) // this needs to be >= 10!  not >= 0!
 	{
 		ft_putnbr(nb / 10);
 	}
@@ -100,7 +103,7 @@ int findmaxv(char *s)
 	while (*s)
 	{
 		res = max(res, ft_atoi(&s));
-		s++;
+		//s++; 2nd error, you don't need this line !!!
 	}
 	return res;
 }
@@ -126,13 +129,16 @@ void dfs(struct graph *g, int maxv)
 	int res = 2;
 	int vis[maxv + 1];
 
+	if (!g)
+		return ;
+
 	for (int i = 0; i <= maxv; i++)
 	{
 		vis[i] = 0;
 	}
 	for (int i = 0; i <= maxv; i++)
 	{
-		dfsu(g, i, vis, 0, &res);
+		dfsu(g, i, vis, 1, &res); // 2nd error:  should be 1 !!!
 	}
 	ft_putnbr(res);
 }
@@ -149,8 +155,9 @@ void g_diam(char *s)
 	{
 		int src = ft_atoi(&s);
 		int dest = ft_atoi(&s);
+		//printf("222a %d %d\n", src, dest);
 		newedge(g, src, dest);
-		s++;
+		//s++;  1st error!  you don't need this line !!!
 	}
 	dfs(g, maxv);
 }
