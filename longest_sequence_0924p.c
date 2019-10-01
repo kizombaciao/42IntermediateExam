@@ -1,3 +1,4 @@
+// PASS
 //#include <stdio.h> // del
 #include <stdlib.h> 
 

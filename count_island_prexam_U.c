@@ -36,7 +36,7 @@ int fill(int fd, char t[][1024])
 				}
 				t[r][c] = '\0';
 				r++;
-				c = 0;
+				c = 0; // remember !
 			}
 			else if (buf[i] == '.' || buf[i] == 'X')
 			{
@@ -77,6 +77,7 @@ void island(char t[][1024])
 	int c;
 	char idx = '0';
 
+	// note, condition is on '\0' and not 1024 !!!
 	while (t[r][0] != '\0') // traverse row, while not last row
 	{
 		c = 0;

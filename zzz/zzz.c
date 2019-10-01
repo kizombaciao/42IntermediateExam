@@ -37,3 +37,6 @@ char *ls(char *arr)
     }
     return (ft_strndup(&arr[i], cl));
 }
+
+//////////////////////////
+

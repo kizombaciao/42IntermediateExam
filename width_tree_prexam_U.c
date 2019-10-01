@@ -30,7 +30,7 @@ int ww(struct s_node *r, int *res) // 2 args !
 
 int	width_tree(struct s_node *n)
 {
-	int res = 0;
+	int res = 0; // yes, initialized to 0.
 	int cl;
 
 	if (!n)

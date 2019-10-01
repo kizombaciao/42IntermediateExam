@@ -25,6 +25,7 @@ int ct(struct s_node *r)
 }
 
 // can't remember how to capture c value ???
+// note, there's no cl in args !
 int can(struct s_node *r, int num, int *res)
 {
 	int c;

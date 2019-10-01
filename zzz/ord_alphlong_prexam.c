@@ -7,8 +7,6 @@ int isb(char c)
 	return (c == ' ' || c == '\t');
 }
 
-
-
 int nwords(char *s)
 {
 	int flag = 0;

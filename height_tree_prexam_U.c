@@ -1,7 +1,7 @@
 // PASS PRACTICE EXAM!!!
 
-//#include <stdlib.h> // del
-//#include <stdio.h> // del
+#include <stdlib.h> // del
+#include <stdio.h> // del
 
 struct s_node {
 		int				value;
@@ -12,7 +12,26 @@ int max(int a, int b)
 {
 	return ((a > b) ? a : b);
 }
+/*
+int maxDepth(struct node* node) 
+{ 
+	if (node == NULL) 
+		return -1;
+	else
+	{ 
+		int lDepth;
+		int rDepth;
 
+		lDepth = maxDepth(node->left); 
+		rDepth = maxDepth(node->right); 
+
+		int res = 1 + max(lDepth, rDepth);
+		return (res);
+	} 
+} 
+*/
+
+// think of res as 1 + max() ...
 int height_tree(struct s_node *root)
 {
 	int i;
@@ -30,7 +49,7 @@ int height_tree(struct s_node *root)
 	}
 	return (res);
 }
-/*
+
 struct s_node *new(int v)
 {
 	struct s_node *p;
@@ -55,4 +74,4 @@ int main()
 	printf("%d\n", height_tree(p));
 
 }
-*/
+

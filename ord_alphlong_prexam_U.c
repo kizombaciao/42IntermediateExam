@@ -51,7 +51,7 @@ int nwords(char *s)
 		{
 			flag = 0;
 		}
-		else if (!isb(s[i]) && flag == 0)
+		else if (flag == 0)
 		{
 			flag = 1;
 			nw++;
@@ -82,6 +82,7 @@ char **split(char *s)
 		{
 			len = wlen(&s[k]);
 			w[i] = (char *)malloc(sizeof(char) * (len + 1)); 
+			// can place w[i][len] = '\0' here as well !!!
 			// malloc error check !!!
 		}
 		while (!isb(s[k]) && s[k])
@@ -104,17 +105,21 @@ void p(char **w)
 	for (int i = 0; w[i]; i++)
 	{
 		cl = wlen(w[i]);
+
+		// case: lastlen == 0
 		if (i == 0) // when i == 0
 		{
 			lastlen = cl;
 			ft_putstr(w[i]);
 		}
+		// case: lastlen == cl
 		else if (lastlen == cl) // when i != 0 && lastlen == c
 		{
 			ft_putchar(' ');
 			ft_putstr(w[i]);
 			lastlen = cl; // can have outside the condition...
 		}
+		// case: lastlen != cl
 		else if (lastlen != cl) // when i != 0 && lastlen != c
 		{
 			ft_putchar('\n');
@@ -124,7 +129,7 @@ void p(char **w)
 	}
 }
 
-// don't forget lower case!!!
+// don't forget LOWER case!!!
 int abc(char *a, char *b)
 {
 	int i = 0;
@@ -171,7 +176,7 @@ void sortlen(char **w) // void function !
 	for (i = 0; w[i] != 0; i++)
 	{
 		l1 = wlen(w[i]);
-		for (j = i; w[j] != 0; j++) // NOTE J = I HERE !!!
+		for (j = i; w[j] != 0; j++) // NOTE J = I HERE ???
 		{
 			l2 = wlen(w[j]);
 			if (l1 >= l2) // this needs to be equality!!!

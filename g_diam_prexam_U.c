@@ -35,6 +35,7 @@ struct s_node *new(int d)
 	p->next = NULL;
 	return p;
 }
+// careful, don't mix up pointers!!!
 void newedge(struct graph *g, int src, int dest)
 {
 	struct s_node *p;
@@ -192,7 +193,7 @@ struct graph *g_diam(char *s)
 		int dest = ft_atoi(&s);
 		newedge(g, src, dest);
 	}
-	//pr(g);
+	pr(g);
     dfs(g, max_v);	
 	return NULL;
 }

@@ -1,6 +1,6 @@
+// i like this version
+
 #include <stdio.h>
-
-
 // low
 // abc
 
@@ -59,6 +59,7 @@ void ca(char *s)
 	}
 }
 
+// ALWAYS REMEMBER LOWER !!!
 int main(int ac, char **av)
 {
 	if (ac == 2)

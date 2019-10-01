@@ -2,6 +2,7 @@
     "files.associations": {
         "ios": "c",
         "stdio.h": "c",
-        "type_traits": "c"
+        "type_traits": "c",
+        "stdlib.h": "c"
     }
 }

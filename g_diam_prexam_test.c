@@ -122,7 +122,7 @@ int ft_atoi(char **s)
 	return (nb);
 }
 ///////////////////////////////////////////////////////
-int find_max_v(char *s)
+int find_max_v(char *s) //note, only *s, not **s
 {
 	int res = 0;
 
@@ -141,8 +141,8 @@ void dfs_util(struct graph *g, int v, int visited[], int curlen, int *res)
 	{
 		if (!visited[p->data])
 		{
-			*res = max(*res, curlen + 1);
-			dfs_util(g, p->data, visited, curlen + 1, res);
+			*res = max(*res, curlen + 1); // note cl + 1
+			dfs_util(g, p->data, visited, curlen + 1, res); // note cl + 1
 		}
 	}
 	visited[v] = 0; // how is this backtracking ???
@@ -151,13 +151,13 @@ void dfs_util(struct graph *g, int v, int visited[], int curlen, int *res)
 void dfs(struct graph *g, int maxv)
 {
 	int visited[maxv + 1];
-	int res = 2; // why 2 ???
+	int res = 2; // why 2 ???  REMEMBER !!!
 
 	for (int i = 0; i <= maxv; i++)
 		visited[i] = 0;
 
 	for (int i = 0; i <= maxv; i++) // i represent initial conditon
-		dfs_util(g, i, visited, 1, &res);
+		dfs_util(g, i, visited, 1, &res); // start cl at 1 !!!
 
 	ft_putnbr(res);
 }

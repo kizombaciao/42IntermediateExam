@@ -26,6 +26,8 @@ int	gold_gain(int **mine, int n)
 	{
 		for (r = 0; r < n; r++)
 		{
+			// don't forget r - 1 and r + 1 !
+			// don't forget c + 1 for all three !
 			ri = (c == n - 1) ? 0 : mine[r][c + 1];
 			ru = ((c == n - 1) || (r == 0)) ? 0 : mine[r - 1][c + 1];
 			rd = ((c == n - 1) || (r == n - 1)) ? 0 : mine[r + 1][c + 1];

@@ -112,7 +112,7 @@ void dfsu(struct graph *g, int v, int vi[], int cl, int *res)
 		if (!vi[p->data])
 		{
 			*res = max(*res, cl + 1);
-			dfsu(g, p->data, vi, cl + 1, res);
+			dfsu(g, p->data, vi, cl + 1, res); // note, also cl + 1 !!!
 		}
 	}
 	vi[v] = 0;	
@@ -132,7 +132,7 @@ void dfs(struct graph *g, int maxv)
 
 	for (i = 0; i <= maxv; i++)
 	{
-		dfsu(g, i, vi, 1, &res); // 0 or 1 ???
+		dfsu(g, i, vi, 1, &res); // 0 or 1 ???  remember, cl needs to start at 1 !!!
 	}
 	ft_putnbr(res);
 	//free(g);

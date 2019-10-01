@@ -33,7 +33,7 @@ void ll(struct s_node *r, int cl, int exp, int *res) // remember void!
 
 int	longest_sequence(struct s_node *node)
 {
-	int res = 0;
+	int res = 0; // yes, starts at zero !
 
 	if (!node)
 		return 0;
