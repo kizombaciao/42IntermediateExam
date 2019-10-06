@@ -33,7 +33,7 @@ int wlen(char *s)
 {
 	int i = 0;
 
-	while (!isb(s[i]) && s[i])
+	while (!isb(s[i]) && s[i]) // ABSOLUTELY NEED !!! isb() !
 	{
 		i++;
 	}

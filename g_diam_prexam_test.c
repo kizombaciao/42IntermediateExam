@@ -103,7 +103,7 @@ void	ft_putnbr(int nb)
 	{
 		ft_putnbr(nb / 10);
 	}
-	ft_putchar((nb % 10) + '0');
+	ft_putchar((nb % 10) + '0'); // remember + '0'
 }
 
 // REMEMBER THIS !!!
@@ -151,7 +151,7 @@ void dfs_util(struct graph *g, int v, int visited[], int curlen, int *res)
 void dfs(struct graph *g, int maxv)
 {
 	int visited[maxv + 1];
-	int res = 2; // why 2 ???  REMEMBER !!!
+	int res = 2; // why 2 ?  b/c min is 2 nodes.
 
 	for (int i = 0; i <= maxv; i++)
 		visited[i] = 0;
@@ -165,7 +165,6 @@ void dfs(struct graph *g, int maxv)
 void g_diam(char *s)
 {
 	int maxv = find_max_v(s);
-
 	struct graph *g = newgraph(maxv);
 	
 	while (*s)
@@ -185,9 +184,10 @@ int main(int ac, char **av)
 	return 0;
 }
 
+/*
+DON'T FORGET ISNUM()!!!
 
-
-
+ */
 
 
 

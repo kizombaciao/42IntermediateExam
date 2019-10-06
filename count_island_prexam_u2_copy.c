@@ -16,14 +16,14 @@ int fill(int fd, int t[][1024])
     int r = 0;
     int c = 0;
     int bytes;
-    char buf[1025] = {'\0'};
+    char buf[1025] = {0};
     int lastlen = 0;
 
     while ((bytes = read(fd, buf, 1024)) > 0)
     {
-        buf[bytes] = '\0';
+        buf[bytes] = 0;
         i = 0;
-        while (buf[i] != '\0')
+        while (buf[i] != 0)
         {
             if (buf[i] == '\n')
             {
@@ -32,7 +32,7 @@ int fill(int fd, int t[][1024])
                 else if (lastlen != c)
                     return -1;
                 // remember: below is outside of if condition!!!    
-                t[r][c] = '\0';                
+                t[r][c] = 0;                
                 r++;
                 c = 0;
             }
@@ -48,7 +48,7 @@ int fill(int fd, int t[][1024])
             i++; // remember
         }
     }
-    t[r][0] = '\0';
+    t[r][0] = 0;
     return 1; // remember
 }
 
@@ -58,7 +58,8 @@ void ff(int t[][1024], int r, int c, char idx)
     {
         return ;
     }
-    if (t[r][c] != 'X' || t[r][0] == '\0' || t[r][c] == '\0')
+    // becareful, don't be sloppy!!!
+    if (t[r][c] != 'X' || t[r][0] == 0 || t[r][c] == 0)
     {
         return ; 
     }
@@ -74,9 +75,9 @@ void island(int t[][1024])
     char idx = '0';
 
     // remember the limits
-    for (int r = 0; t[r][0] != '\0'; r++)
+    for (int r = 0; t[r][0] != 0; r++)
     {
-        for (int c = 0; t[r][c] != '\0'; c++)
+        for (int c = 0; t[r][c] != 0; c++)
         {
             if (t[r][c] == 'X') // remember
             {

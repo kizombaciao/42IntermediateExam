@@ -20,7 +20,7 @@ int ct(struct s_node *r)
 
 	if (!r)
 		return(0);
-	num = 1 + ct(r->left) + ct(r->right); // remember no max !!!
+	num = 1 + ct(r->left) + ct(r->right); // remember no max !!!!!
 	return (num);
 }
 

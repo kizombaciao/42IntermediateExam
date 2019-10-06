@@ -44,6 +44,7 @@ int height_tree(struct s_node *root)
 	while (root->nodes[i])
 	{
 		// note, 1 + needs to be in correct location !!!
+		// b/c res represents 1 + something 
 		res = max(res, 1 + height_tree(root->nodes[i]));
 		i++;
 	}

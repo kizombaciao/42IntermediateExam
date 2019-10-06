@@ -47,10 +47,10 @@ void perimeter(struct s_node *root)
     if (!root)
         return;
 
-    if (root)
+    if (root) // !!!
         printf("%d", root->value);
 
-    if (root->left)
+    if (root->left) // !!!
     {
         pl(root->left); // remember, pl is before pn !
         pn(root->left);
