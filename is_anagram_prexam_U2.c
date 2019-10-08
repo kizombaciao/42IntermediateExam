@@ -4,6 +4,7 @@ int	is_anagram(char *a, char *b)
 {
 	int vf[127] = {0};
 
+	// Careful!!! limit is a[i] and b[i], not 127!!!
 	for (int i = 0; a[i]; i++)
 	{
 		vf[(int)a[i]]++;
@@ -12,6 +13,7 @@ int	is_anagram(char *a, char *b)
 	{
 		vf[(int)b[i]]--;
 	}
+	
 	for (int i = 0; i < 127; i++)
 	{
 		if (vf[i] != 0)

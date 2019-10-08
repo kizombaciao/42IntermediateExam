@@ -18,6 +18,7 @@ char low(char c)
 	return c;
 }
 
+// how do i know that changes to s[] will be kept???
 int ca2(char *s, char c)
 {
 	int i = 1;

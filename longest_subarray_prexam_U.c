@@ -87,6 +87,8 @@ char    *longest_subarray(char *arr)
 	ml = ftstrlen(arr);
 	cl = 2 * moe(arr); // REMEMBER !!! 2 X
 
+	// ********* no need to create storage!!! 
+
 	// would 2 for loops also work, one for start and one for length ???
 	// 'i' is like start
 	while (bal(&arr[i], cl) != 0)

@@ -1,124 +1,134 @@
-// test this code if a chance.
+// examshell test this code given the new trick below !!!
 
-#include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
-//#include <stdio.h> // del
 
 void ft_putchar(char c)
 {
     write(1, &c, 1);
 }
+
 void ft_putstr(char *s)
 {
     int i = -1;
     while (s[++i])
+    {
         ft_putchar(s[i]);
+    }
 }
 
 int ft_strlen(char *s)
 {
     int i = -1;
-    while (s[++i]);
+    while (s[++i]) ;
     return i;
 }
 
-char *ft_strdup(char *s)
+char *ft_strdup(char *s, int len)
 {
-    int i = -1;
-    int len = ft_strlen(s);
     char *p = (char *)malloc(sizeof(char) * (len + 1));
-    while (s[++i])
+    p[len] = 0;
+    for (int i = 0; i < len; i++)
     {
         p[i] = s[i];
     }
-    p[i] = '\0';
     return p;
 }
 
-char *ft_strsub(char *s, int st, int len)
+char *ft_strsub(char *s, int len)
 {
-    int i = 0;
     char *p = (char *)malloc(sizeof(char) * (len + 1));
-    while (len-- && s[i])
+    p[len] = 0;
+
+    for (int i = 0; i < len; i++)
     {
-        p[i++] = s[st++];
+        p[i] = s[i];    
     }
-    p[i] = '\0';
     return p;
 }
 
 int ft_strstr(char *h, char *n)
 {
-    int i = -1;
-    int j = 0;
+    int i = 0;
+    int j;
 
-    while (h[++i])
+    if (!*n)
+        return 0;
+
+    while (h[i])
     {
+        j = 0;
         while (h[i + j] == n[j])
         {
             j++;
             if (!n[j])
                 return 1;
         }
+        i++;
     }
     return 0;
 }
 
 void ft_strcpy(char *d, char *s)
 {
-    int i = -1;
-    while (s[++i])
+    int i = 0;
+    while (s[i])
     {
         d[i] = s[i];
+        i++;
     }
-    d[i] = '\0';
+    d[i] = 0;
 }
 
-char *sm(int ac, char **av)
+void sm(char **w, int ac)
 {
+    char *stem;
     int k;
 
-    //printf("222a %s\n", av[0]);
-
-    char *s = ft_strdup(av[0]);
-    int len = ft_strlen(s);
+    int len = ft_strlen(w[0]);
+    char *s = ft_strdup(w[0], len);
     char *res = (char *)malloc(sizeof(char) * (len + 1));
 
+    // start
     for (int i = 0; i < len; i++)
     {
+        // length
         for (int j = 1; j <= len - i; j++)
         {
-            char *stem = ft_strsub(s, i, j);
-            //printf("222b %s %s %d %d\n", s, stem, i, j); // del
-            
+            stem = ft_strsub(&s[i], j); // trick!!!
             for (k = 1; k < ac; k++)
             {
-                if (ft_strstr(av[k], stem) == 0)
-                {
+                if (ft_strstr(w[k], stem) == 0)
                     break;
-                }
             }
             if (k == ac)
             {
                 if (ft_strlen(res) < ft_strlen(stem))
                 {
-                    ft_strcpy(res, stem);
+                    ft_strcpy(res, stem); // ??
                 }
             }
             free(stem);
         }
     }
-    free (s);
-    return res;
+    //free(w);
+    ft_putstr(res);
 }
+
+/*
+    ft_strdup
+    ft_strsub
+    ft_strstr
+    ft_strcpy
+*/
 
 int main(int ac, char **av)
 {
-    if (ac >= 2) // note, >= 2 !
+    if (ac >= 2) // greater than 2 ???
     {
-        char *p = sm(ac - 1, &av[1]);
-        ft_putstr(p);
+        sm(&av[1], ac - 1);
     }
     ft_putchar('\n');
+    return 0;
 }
+

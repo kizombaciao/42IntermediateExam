@@ -19,7 +19,7 @@ int	is_looping(struct s_node *node)
 		return 0; // REMEMBER!  RETURN 0; AND NOT RETURN;
 
 	s = node;
-	f = node->next;
+	f = node->next; // remember!  only 1 next !
 
 	while (f->next && f->next->next)
 	{

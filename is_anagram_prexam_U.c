@@ -6,7 +6,7 @@ int is_anagram(char *a, char *b)
 	int vf[127] = {0}; // remember !!!
 
 	i = 0;
-	while (a[i])
+	while (a[i]) // remember, you cycle through a and b, not vf[] with 127 elements.
 	{
 		vf[(int)a[i]]++;
 		i++;

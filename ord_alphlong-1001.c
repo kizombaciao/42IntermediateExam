@@ -122,7 +122,7 @@ void sortabc(char **w)
 {
 	for (int i = 0; w[i] != 0; i++)
 	{
-		for (int j = i + 1; w[j] != 0; j++)
+		for (int j = i + 1; w[j] != 0; j++) // don't forget i + 1 !!!
 		{
 			if (ft_strcmp(w[i], w[j]) <= 0)
 			{

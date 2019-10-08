@@ -26,12 +26,6 @@ int    volume_histogram(int *histogram, int size)
     return sum;
 }
 
-
-
-
-
-
-
 /*
 int    histogram[] = {1, 0, 2, 0, 2};
 int    size = 5;

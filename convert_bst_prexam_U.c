@@ -30,7 +30,7 @@ struct s_node *rightmost(struct s_node *r)
 	return (r);
 }
 
-// BECAUSE YOU WANT INORDER TRAVERSAL, THAT IS WHY THE EVAL IS NOT IN THE MIDDLE!
+// BECAUSE YOU WANT INORDER TRAVERSAL, THAT IS WHY THE EVAL IS IN THE MIDDLE!
 // WHEN PREV IS THE LAST CURRENT, ACCORDING TO INORDER TRAVERSAL
 void cc(struct s_node *r, struct s_node **prev)
 {

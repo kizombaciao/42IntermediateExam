@@ -17,6 +17,7 @@ int max(int a, int b)
 	return ((a > b) ? a : b);
 }
 
+// careful!!! check if == versus =
 int	gold_gain(int **mine, int n)
 {
 	int r, c;
