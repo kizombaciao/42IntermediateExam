@@ -27,7 +27,7 @@ int isb(char c)
 int ft_strlen(char *s)
 {
 	int i = 0;
-	while (s[i] && !isb(s[i]))
+	while (s[i] && !isb(s[i])) // note, isb() is required here !!!
 	{
 		i++;
 	}

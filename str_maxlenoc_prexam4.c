@@ -63,7 +63,7 @@ int ft_strstr(char *h, char *n)
         {
             j++;
             if (!n[j])
-                return 1;
+                return 1; // 1 means a match exist
         }
         i++;
     }
@@ -99,7 +99,7 @@ void sm(char **w, int ac)
             stem = ft_strsub(&s[i], j); // trick!!!
             for (k = 1; k < ac; k++)
             {
-                if (ft_strstr(w[k], stem) == 0)
+                if (ft_strstr(w[k], stem) == 0) // 0 means no match
                     break;
             }
             if (k == ac)

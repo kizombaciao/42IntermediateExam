@@ -44,7 +44,20 @@ int moe(char *s)
 	}
 	return (min(o, e));
 }
+char *ft_strndup(char *s, int len)
+{
+	int i = 0;
+	char *p;
 
+	p = (char *)malloc(sizeof(char) * (len + 1));
+	p[len] = '\0';
+	while (i < len)
+	{
+		p[i] = s[i];
+		i++;
+	}
+	return p;
+}
 int bal(char *s, int cl)
 {
 	int sum = 0;
@@ -60,22 +73,6 @@ int bal(char *s, int cl)
 	}
 	return sum;
 }
-
-char *ft_strndup(char *s, int len)
-{
-	int i = 0;
-	char *p;
-
-	p = (char *)malloc(sizeof(char) * (len + 1));
-	p[len] = '\0';
-	while (i < len)
-	{
-		p[i] = s[i];
-		i++;
-	}
-	return p;
-}
-
 // find max len
 // find min odd even len
 char    *longest_subarray(char *arr)

@@ -117,7 +117,7 @@ void p(char **w)
 		{
 			ft_putchar(' ');
 			ft_putstr(w[i]);
-			lastlen = cl; // can have outside the condition...
+			//lastlen = cl; // can have outside the condition...
 		}
 		// case: lastlen != cl
 		else if (lastlen != cl) // when i != 0 && lastlen != c
